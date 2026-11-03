@@ -76,6 +76,9 @@ h1{font-family:Georgia,"DejaVu Serif",serif;font-size:30px;margin:0 0 10px;lette
 .envio input[type=text]{flex:1;min-width:220px;padding:10px 12px;border:1px solid var(--linha);
   border-radius:9px;font-family:inherit;font-size:15px}
 .envio input[type=file]{font-size:14px;font-family:inherit}
+.envio textarea{flex:1;min-width:240px;padding:10px 12px;border:1px solid var(--linha);border-radius:9px;
+  font-family:inherit;font-size:14px;resize:vertical}
+.ou{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--cinza);margin:14px 0 6px!important}
 .painel-lote{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:16px 0}
 .progresso{font-size:14px;color:var(--azul);font-weight:600}
 .tabela{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px}
