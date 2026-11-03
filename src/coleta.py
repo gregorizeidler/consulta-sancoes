@@ -27,6 +27,8 @@ PAGINA = {
 }
 
 def baixa(url, destino):
+    if os.environ.get("REUSAR_BRUTO") == "1" and os.path.exists(destino) and os.path.getsize(destino) > 10000:
+        return os.path.getsize(destino)
     req = urllib.request.Request(url, headers=UA)
     with urllib.request.urlopen(req, timeout=180) as r:
         dados = r.read()
@@ -77,12 +79,19 @@ def ofac(caminho):
             c = texto(a, "country")
             if c and c not in paises:
                 paises.append(c)
+        docs = []
+        for i in e.findall("idList/id"):
+            numero = texto(i, "idNumber")
+            tipo = texto(i, "idType") or "documento"
+            if numero:
+                docs.append((tipo + ": " + numero)[:60])
         nasc = [texto(d, "dateOfBirthItem") or texto(d, "dateOfBirth") for d in e.findall("dateOfBirthList/dateOfBirthItem")]
         nasc = [d for d in nasc if d]
         saida.append({
             "i": "ofac-" + uid, "f": "ofac", "t": tipo, "n": nome,
             "a": aliases[:12], "p": ", ".join(programas), "c": ", ".join(paises[:3]),
             "d": "", "u": PAGINA["ofac"] + uid, "x": ", ".join(nasc[:2]),
+            "doc": docs[:4],
         })
     return saida
 
@@ -110,12 +119,19 @@ def onu(caminho):
                 for nat in e.findall("ENTITY_ADDRESS/COUNTRY"):
                     if nat.text:
                         paises.append(nat.text.strip())
+            docs = []
+            for d in e.findall("INDIVIDUAL_DOCUMENT"):
+                numero = texto(d, "NUMBER")
+                tipo = texto(d, "TYPE_OF_DOCUMENT") or "documento"
+                if numero:
+                    docs.append((tipo + ": " + numero)[:60])
             lista = texto(e, "LIST_TYPE/VALUE") or ""
             saida.append({
                 "i": "un-" + (ref or normaliza(nome)), "f": "un", "t": tipo, "n": nome,
                 "a": aliases[:12], "p": lista or "Conselho de Seguranca da ONU",
                 "c": ", ".join(dict.fromkeys(paises))[:80], "d": texto(e, "LISTED_ON"),
                 "u": PAGINA["un"] + (ref or ""), "x": texto(e, "COMMENTS1")[:200],
+                "doc": docs[:4],
             })
     return saida
 
@@ -146,6 +162,12 @@ def ue(caminho):
             d = a.get("countryDescription")
             if d:
                 paises.append(d)
+        docs = []
+        for ident in e.findall(NS + "identification"):
+            numero = ident.get("number") or ""
+            tipo = ident.get("identificationTypeDescription") or ident.get("identificationTypeCode") or "documento"
+            if numero:
+                docs.append((tipo + ": " + numero)[:60])
         nasc = []
         for b in e.findall(NS + "birthdate"):
             if b.get("birthdate"):
@@ -155,7 +177,7 @@ def ue(caminho):
             "p": ", ".join(dict.fromkeys(regs)) or "Uniao Europeia",
             "c": ", ".join(dict.fromkeys(paises))[:80],
             "d": (e.find(NS + "regulation").get("publicationDate") if e.find(NS + "regulation") is not None else "") or "",
-            "u": PAGINA["eu"], "x": ", ".join(nasc[:2]),
+            "u": PAGINA["eu"], "x": ", ".join(nasc[:2]), "doc": docs[:4],
         })
     return saida
 
@@ -218,6 +240,25 @@ def main():
         "tamanho_fontes_bytes": tamanhos,
         "primeira_carga": not anterior,
     }
+    caminho_hist = os.path.join(DATA, "historico.json")
+    historico = []
+    if os.path.exists(caminho_hist):
+        try:
+            historico = json.load(open(caminho_hist, encoding="utf-8"))
+        except Exception:
+            historico = []
+    if not resumo["primeira_carga"]:
+        historico.append({
+            "data": agora.strftime("%Y-%m-%d"),
+            "hora": agora.strftime("%H:%M"),
+            "novos": len(novos),
+            "removidos": len(removidos),
+            "total": len(limpos),
+            "nomes": [{"n": r["n"], "f": r["f"], "p": r["p"]} for r in novos[:25]],
+        })
+        historico = historico[-120:]
+        json.dump(historico, open(caminho_hist, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+
     json.dump(limpos, open(os.path.join(DATA, "sancoes.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     json.dump(resumo, open(os.path.join(DATA, "resumo.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     json.dump(sorted(vistos), open(caminho_ids, "w", encoding="utf-8"), separators=(",", ":"))
