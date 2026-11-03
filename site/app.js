@@ -1,144 +1,336 @@
 (function () {
   "use strict";
+  var M = window.Motor;
   var link = document.querySelector('link[rel="stylesheet"]');
   var BASE = link ? link.getAttribute("href").replace(/\/style\.css.*$/, "") : "";
-  var dados = [], estado = { q: "", fonte: "todas", tipo: "todos", mostrados: 50, achados: [] };
+  var dados = [];
+  var FONTES = { ofac: "OFAC", un: "ONU", eu: "UE" };
+  var TIPOS = { pessoa: "Pessoa", entidade: "Entidade", embarcacao: "Embarcação", aeronave: "Aeronave", outro: "Outro" };
+
+  function escapa(s) {
+    return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+    });
+  }
+  function selo(score) {
+    var f = M.faixa(score);
+    return '<span class="score ' + f[1] + '">' + score + '% <em>' + f[0] + '</em></span>';
+  }
+  function cartao(m, aberto) {
+    var d = m.rec;
+    var aliases = (d[2] || []).slice(0, 6).join(", ");
+    var det = "";
+    if (aliases) det += "<p><b>Também conhecido como:</b> " + escapa(aliases) + "</p>";
+    if (d[10] && d[10].length) det += "<p><b>Documentos:</b> " + escapa(d[10].join(" · ")) + "</p>";
+    if (d[9]) det += "<p><b>Detalhe:</b> " + escapa(d[9]) + "</p>";
+    if (d[6]) det += "<p><b>País:</b> " + escapa(d[6]) + "</p>";
+    if (d[11]) det += "<p><b>Presente também em:</b> " + escapa(d[11].split(",").map(function (x) { return FONTES[x] || x; }).join(", ")) + "</p>";
+    det += '<p><a href="' + escapa(d[8]) + '" target="_blank" rel="noopener">Ver na fonte oficial</a></p>';
+    return '<article class="item' + (aberto ? " aberto" : "") + '">' +
+      '<div class="linha"><h3>' + escapa(d[1]) + '</h3>' + selo(m.score) +
+      '<span class="fonte ' + d[3] + '">' + (FONTES[d[3]] || d[3]) + '</span>' +
+      '<span class="tipo">' + (TIPOS[d[4]] || d[4]) + '</span></div>' +
+      '<div class="meta">' + escapa(d[5] || "—") + '</div>' +
+      '<div class="det">' + det + '</div></article>';
+  }
+
+  // ---------- busca ----------
+  var estado = { q: "", fonte: "todas", tipo: "todos", limiar: 60, achados: [], mostrados: 50 };
   var campo = document.getElementById("q");
   var lista = document.getElementById("lista");
   var contagem = document.getElementById("contagem");
   var botaoMais = document.getElementById("mais");
 
-  function normaliza(s) {
-    return (s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-      .toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
-  }
-  function escapa(s) {
-    return String(s || "").replace(/[&<>"]/g, function (c) {
-      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
-    });
-  }
-  var FONTES = { ofac: "OFAC", un: "ONU", eu: "UE" };
-  var TIPOS = { pessoa: "Pessoa", entidade: "Entidade", embarcacao: "Embarcação", aeronave: "Aeronave", outro: "Outro" };
-
   function buscar() {
-    var t0 = performance.now();
-    var q = normaliza(estado.q);
-    var tokens = q ? q.split(" ") : [];
-    var saida = [];
-    for (var k = 0; k < dados.length; k++) {
-      var d = dados[k];
-      if (estado.fonte !== "todas" && d[3] !== estado.fonte) continue;
-      if (estado.tipo !== "todos" && d[4] !== estado.tipo) continue;
-      if (!tokens.length) { saida.push([1, d]); continue; }
-      var alvo = d.__busca;
-      var ok = true;
-      for (var j = 0; j < tokens.length; j++) {
-        if (alvo.indexOf(tokens[j]) === -1) { ok = false; break; }
+    if (!campo) return;
+    var q = M.norm(estado.q);
+    var res = [];
+    var ms = 0;
+    if (q.length >= 3) {
+      var t0 = performance.now();
+      var cands = M.candidatos(dados, q, estado, 500);
+      for (var k = 0; k < cands.length; k++) {
+        var d = cands[k][1];
+        var s = M.melhorSim(q, d.__n, d.__aliases);
+        if (s >= estado.limiar) res.push({ rec: d, score: s });
       }
-      if (!ok) continue;
-      var nota = 10;
-      if (d.__nome === q) nota = 100;
-      else if (d.__nome.indexOf(q) === 0) nota = 70;
-      else if (d.__nome.indexOf(q) > -1) nota = 50;
-      else nota = 20;
-      saida.push([nota, d]);
+      res.sort(function (a, b) { return b.score - a.score || a.rec[1].localeCompare(b.rec[1]); });
+      ms = Math.round(performance.now() - t0);
     }
-    saida.sort(function (a, b) {
-      if (b[0] !== a[0]) return b[0] - a[0];
-      return a[1][1].localeCompare(b[1][1]);
-    });
-    estado.achados = saida;
+    estado.achados = res;
     estado.mostrados = 50;
-    var ms = Math.round(performance.now() - t0);
-    contagem.textContent = saida.length === 1
-      ? "1 registro encontrado em " + ms + " ms"
-      : saida.length.toLocaleString("pt-BR") + " registros encontrados em " + ms + " ms";
+    if (!q) {
+      contagem.textContent = dados.length.toLocaleString("pt-BR") + " registros carregados. Digite um nome, empresa, navio ou documento.";
+    } else if (q.length < 3) {
+      contagem.textContent = "Digite ao menos 3 letras.";
+    } else {
+      contagem.textContent = res.length.toLocaleString("pt-BR") + " resultado(s) com " + estado.limiar +
+        "% ou mais de similaridade · " + ms + " ms";
+    }
     render();
   }
-
   function render() {
+    if (!lista) return;
     var fim = Math.min(estado.mostrados, estado.achados.length);
     var html = "";
-    if (!estado.achados.length) {
-      html = '<p class="vazio">Nenhum registro com esse nome nas três listas. ' +
-        'Confira a grafia, tente só o sobrenome, ou busque pelo nome em outro alfabeto.</p>';
+    if (estado.q && !estado.achados.length && M.norm(estado.q).length >= 3) {
+      html = '<p class="vazio">Nenhum registro acima de ' + estado.limiar + '% de similaridade. ' +
+        'Baixe a similaridade mínima, tente só o sobrenome ou confira a grafia em outro alfabeto.</p>';
     }
-    for (var k = 0; k < fim; k++) {
-      var d = estado.achados[k][1];
-      var aliases = (d[2] || []).slice(0, 6).join(", ");
-      var det = "";
-      if (aliases) det += "<p><b>Também conhecido como:</b> " + escapa(aliases) + "</p>";
-      if (d[9]) det += "<p><b>Detalhe:</b> " + escapa(d[9]) + "</p>";
-      det += '<p><a href="' + escapa(d[8]) + '" target="_blank" rel="noopener">Ver na fonte oficial</a></p>';
-      html += '<article class="item" data-k="' + k + '">' +
-        '<div class="linha"><h3>' + escapa(d[1]) + '</h3>' +
-        '<span class="fonte ' + d[3] + '">' + (FONTES[d[3]] || d[3]) + '</span>' +
-        '<span class="tipo">' + (TIPOS[d[4]] || d[4]) + '</span></div>' +
-        '<div class="meta">' + escapa(d[5] || "—") + (d[6] ? " · " + escapa(d[6]) : "") + '</div>' +
-        '<div class="det">' + det + '</div></article>';
-    }
+    for (var k = 0; k < fim; k++) html += cartao(estado.achados[k], k === 0 && estado.achados[k].score >= 95);
     lista.innerHTML = html;
     botaoMais.hidden = estado.achados.length <= estado.mostrados;
   }
 
-  function atualizaUrl() {
-    var url = window.location.pathname;
-    if (estado.q) url += "?q=" + encodeURIComponent(estado.q);
-    try { history.replaceState(null, "", url); } catch (e) {}
+  if (campo) {
+    var timer = null;
+    campo.addEventListener("input", function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        estado.q = campo.value.trim();
+        try { history.replaceState(null, "", estado.q ? "?q=" + encodeURIComponent(estado.q) : window.location.pathname); } catch (e) {}
+        buscar();
+      }, 150);
+    });
+    var lf = document.getElementById("fontes");
+    if (lf) lf.addEventListener("click", function (ev) {
+      var b = ev.target.closest(".chip"); if (!b) return;
+      [].forEach.call(this.querySelectorAll(".chip"), function (c) { c.classList.remove("ativo"); });
+      b.classList.add("ativo"); estado.fonte = b.getAttribute("data-fonte"); buscar();
+    });
+    var lt = document.getElementById("tipos");
+    if (lt) lt.addEventListener("click", function (ev) {
+      var b = ev.target.closest(".chip"); if (!b) return;
+      [].forEach.call(this.querySelectorAll(".chip"), function (c) { c.classList.remove("ativo"); });
+      b.classList.add("ativo"); estado.tipo = b.getAttribute("data-tipo"); buscar();
+    });
+    var range = document.getElementById("limiar");
+    var rangeVal = document.getElementById("limiarVal");
+    if (range) range.addEventListener("input", function () {
+      estado.limiar = Number(range.value);
+      if (rangeVal) rangeVal.textContent = estado.limiar + "%";
+      buscar();
+    });
+    if (botaoMais) botaoMais.addEventListener("click", function () { estado.mostrados += 50; render(); });
+    if (lista) lista.addEventListener("click", function (ev) {
+      var card = ev.target.closest(".item");
+      if (!card || ev.target.tagName === "A") return;
+      card.classList.toggle("aberto");
+    });
+    var params = new URLSearchParams(window.location.search);
+    if (params.get("q")) { campo.value = params.get("q"); estado.q = params.get("q").trim(); }
   }
 
-  var timer = null;
-  campo.addEventListener("input", function () {
-    clearTimeout(timer);
-    timer = setTimeout(function () {
-      estado.q = campo.value.trim();
-      atualizaUrl();
-      buscar();
-    }, 130);
+  // ---------- CSV ----------
+  function lerCsv(texto) {
+    texto = texto.replace(/^\ufeff/, "");
+    var linhas = texto.split(/\r?\n/).filter(function (l) { return l.trim().length; });
+    if (!linhas.length) return { cabecalho: [], linhas: [] };
+    var delim = (linhas[0].split(";").length >= linhas[0].split(",").length) ? ";" : ",";
+    function quebra(l) {
+      var out = [], atual = "", aspas = false;
+      for (var i = 0; i < l.length; i++) {
+        var c = l[i];
+        if (c === '"') {
+          if (aspas && l[i + 1] === '"') { atual += '"'; i++; }
+          else aspas = !aspas;
+        } else if (c === delim && !aspas) { out.push(atual); atual = ""; }
+        else atual += c;
+      }
+      out.push(atual);
+      return out.map(function (x) { return x.trim(); });
+    }
+    return { cabecalho: quebra(linhas[0]), linhas: linhas.slice(1).map(quebra) };
+  }
+  var COL_NOME = ["nome", "name", "cliente", "fornecedor", "razao social", "beneficiario", "titular", "socio", "contraparte"];
+  var COL_DOC = ["documento", "doc", "cpf", "cnpj", "passaporte", "passport", "id", "rg"];
+  function acharColuna(cabecalho, alvos) {
+    for (var i = 0; i < cabecalho.length; i++) {
+      if (alvos.indexOf(M.norm(cabecalho[i])) > -1) return i;
+    }
+    return -1;
+  }
+  function melhorPara(nome, doc) {
+    var q = M.norm(nome);
+    var cands = q.length >= 3 ? M.candidatos(dados, q, { fonte: "todas", tipo: "todos" }, 300) : [];
+    var melhor = null;
+    var alvoDoc = (doc || "").replace(/[^0-9a-z]/gi, "").toLowerCase();
+    for (var k = 0; k < cands.length; k++) {
+      var d = cands[k][1];
+      var s = M.melhorSim(q, d.__n, d.__aliases);
+      if (!melhor || s > melhor.score) melhor = { rec: d, score: s };
+    }
+    if (alvoDoc.length >= 4) {
+      for (var n = 0; n < dados.length; n++) {
+        var dd = dados[n];
+        for (var p = 0; p < dd.__docs.length; p++) {
+          if (dd.__docs[p] && dd.__docs[p].indexOf(alvoDoc) > -1) {
+            if (!melhor || 100 > melhor.score) melhor = { rec: dd, score: 100 };
+          }
+        }
+      }
+    }
+    return melhor;
+  }
+
+  var lote = { resultados: [], colNome: 0, colDoc: -1, linhas: [], limiar: 85 };
+  var arquivo = document.getElementById("arquivo");
+  var tabelaLote = document.getElementById("tabelaLote");
+  var resumoLote = document.getElementById("resumoLote");
+  var baixarLote = document.getElementById("baixarLote");
+  var limiarLote = document.getElementById("limiarLote");
+  var limiarLoteVal = document.getElementById("limiarLoteVal");
+
+  function processarLote() {
+    if (!lote.linhas.length) return;
+    var total = lote.linhas.length;
+    var saida = [];
+    var i = 0;
+    resumoLote.innerHTML = '<p class="progresso">Triando 0 de ' + total + '…</p>';
+    function passo() {
+      var fim = Math.min(i + 10, total);
+      for (; i < fim; i++) {
+        var linha = lote.linhas[i];
+        var nome = linha[lote.colNome] || "";
+        var doc = lote.colDoc > -1 ? (linha[lote.colDoc] || "") : "";
+        var m = (nome || doc) ? melhorPara(nome, doc) : null;
+        saida.push({ nome: nome, doc: doc, melhor: m });
+      }
+      var pct = Math.round(100 * i / total);
+      resumoLote.innerHTML = '<p class="progresso">Triando ' + i + ' de ' + total + ' (' + pct + '%)…</p>';
+      if (i < total) { setTimeout(passo, 0); return; }
+      lote.resultados = saida;
+      mostrarLote();
+    }
+    passo();
+  }
+  function mostrarLote() {
+    var limiar = lote.limiar;
+    var acima = lote.resultados.filter(function (r) { return r.melhor && r.melhor.score >= limiar; });
+    var total = lote.resultados.length;
+    var taxa = total ? (100 * acima.length / total) : 0;
+    resumoLote.innerHTML = '<div class="painel-lote">' +
+      '<div class="kpi"><span>Linhas triadas</span><strong>' + total + '</strong></div>' +
+      '<div class="kpi"><span>Correspondências ≥ ' + limiar + '%</span><strong>' + acima.length + '</strong></div>' +
+      '<div class="kpi kpi-total"><span>Taxa de correspondência</span><strong>' +
+      taxa.toFixed(1).replace(".", ",") + '%</strong></div></div>';
+    var html = '<table class="tabela"><thead><tr><th>Nome enviado</th><th>Melhor correspondência</th>' +
+      '<th>Similaridade</th><th>Lista</th><th>Programa</th><th></th></tr></thead><tbody>';
+    var ordenado = lote.resultados.slice().sort(function (a, b) {
+      return (b.melhor ? b.melhor.score : 0) - (a.melhor ? a.melhor.score : 0);
+    });
+    var mostrados = 0;
+    for (var k = 0; k < ordenado.length && mostrados < 300; k++) {
+      var r = ordenado[k], m = r.melhor;
+      if (!m || m.score < limiar) continue;
+      mostrados++;
+      html += '<tr><td>' + escapa(r.nome || r.doc) + '</td><td>' + escapa(m.rec[1]) + '</td>' +
+        '<td>' + selo(m.score) + '</td><td><span class="fonte ' + m.rec[3] + '">' + (FONTES[m.rec[3]] || m.rec[3]) + '</span></td>' +
+        '<td>' + escapa((m.rec[5] || "").slice(0, 40)) + '</td>' +
+        '<td><a href="' + escapa(m.rec[8]) + '" target="_blank" rel="noopener">fonte</a></td></tr>';
+    }
+    if (!mostrados) html += '<tr><td colspan="6">Nenhuma linha passou do limiar. Baixe o limiar para ver as aproximações.</td></tr>';
+    html += '</tbody></table>';
+    tabelaLote.innerHTML = html;
+    baixarLote.hidden = false;
+  }
+  function baixarResultado() {
+    var linhas = [["linha", "nome_enviado", "documento", "melhor_correspondencia", "similaridade",
+      "lista", "tipo", "programa", "pais", "link_fonte"]];
+    for (var k = 0; k < lote.resultados.length; k++) {
+      var r = lote.resultados[k], m = r.melhor;
+      linhas.push([k + 2, r.nome, r.doc, m ? m.rec[1] : "", m ? m.score : 0,
+        m ? (FONTES[m.rec[3]] || m.rec[3]) : "", m ? (TIPOS[m.rec[4]] || m.rec[4]) : "",
+        m ? m.rec[5] : "", m ? m.rec[6] : "", m ? m.rec[8] : ""]);
+    }
+    var csv = linhas.map(function (l) {
+      return l.map(function (c) { var s = String(c == null ? "" : c); return '"' + s.replace(/"/g, '""') + '"'; }).join(";");
+    }).join("\r\n");
+    var blob = new Blob(["\ufeff" + csv], { type: "text/csv;charset=utf-8" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "triagem-sancoes.csv";
+    a.click();
+  }
+  if (arquivo) {
+    arquivo.addEventListener("change", function () {
+      var f = arquivo.files[0];
+      if (!f) return;
+      var leitor = new FileReader();
+      leitor.onload = function () {
+        var csv = lerCsv(String(leitor.result));
+        lote.linhas = csv.linhas;
+        lote.colNome = acharColuna(csv.cabecalho, COL_NOME);
+        if (lote.colNome < 0) lote.colNome = 0;
+        lote.colDoc = acharColuna(csv.cabecalho, COL_DOC);
+        processarLote();
+      };
+      leitor.readAsText(f, "utf-8");
+    });
+  }
+  if (limiarLote) limiarLote.addEventListener("input", function () {
+    lote.limiar = Number(limiarLote.value);
+    if (limiarLoteVal) limiarLoteVal.textContent = lote.limiar + "%";
+    if (lote.resultados.length) mostrarLote();
+  });
+  if (baixarLote) baixarLote.addEventListener("click", baixarResultado);
+
+  // ---------- vigilância ----------
+  var CHAVE = "vigilancia-sancoes";
+  function carregarWatch() {
+    try { return JSON.parse(localStorage.getItem(CHAVE) || "[]"); } catch (e) { return []; }
+  }
+  function salvarWatch(l) {
+    try { localStorage.setItem(CHAVE, JSON.stringify(l.slice(0, 200))); } catch (e) {}
+  }
+  function mostrarWatch() {
+    var alvo = document.getElementById("watchLista");
+    if (!alvo) return;
+    var nomes = carregarWatch();
+    if (!nomes.length) { alvo.innerHTML = '<p class="dica">Nenhum nome cadastrado ainda.</p>'; return; }
+    var html = '<table class="tabela"><thead><tr><th>Nome vigiado</th><th>Situação</th>' +
+      '<th>Melhor correspondência</th><th></th></tr></thead><tbody>';
+    for (var k = 0; k < nomes.length; k++) {
+      var m = melhorPara(nomes[k], "");
+      var situacao = m && m.score >= 85 ? '<span class="score forte">ALERTA</span>'
+        : (m && m.score >= 70 ? '<span class="score possivel">verificar</span>'
+          : '<span class="score ok">sem correspondência</span>');
+      html += '<tr><td>' + escapa(nomes[k]) + '</td><td>' + situacao + '</td><td>' +
+        (m && m.score >= 70 ? escapa(m.rec[1]) + " " + selo(m.score) : "—") + '</td>' +
+        '<td><button class="link-remover" data-nome="' + escapa(nomes[k]) + '">remover</button></td></tr>';
+    }
+    html += '</tbody></table>';
+    alvo.innerHTML = html;
+  }
+  var botaoWatch = document.getElementById("watchAdd");
+  if (botaoWatch) botaoWatch.addEventListener("click", function () {
+    var inp = document.getElementById("watchNome");
+    var v = (inp.value || "").trim();
+    if (!v) return;
+    var l = carregarWatch();
+    if (l.indexOf(v) === -1) l.push(v);
+    salvarWatch(l);
+    inp.value = "";
+    mostrarWatch();
+  });
+  var alvoWatch = document.getElementById("watchLista");
+  if (alvoWatch) alvoWatch.addEventListener("click", function (ev) {
+    if (!ev.target.classList.contains("link-remover")) return;
+    var nome = ev.target.getAttribute("data-nome");
+    salvarWatch(carregarWatch().filter(function (x) { return x !== nome; }));
+    mostrarWatch();
   });
 
-  document.getElementById("fontes").addEventListener("click", function (ev) {
-    var b = ev.target.closest(".chip");
-    if (!b) return;
-    [].forEach.call(this.querySelectorAll(".chip"), function (c) { c.classList.remove("ativo"); });
-    b.classList.add("ativo");
-    estado.fonte = b.getAttribute("data-fonte");
-    buscar();
-  });
-  document.getElementById("tipos").addEventListener("click", function (ev) {
-    var b = ev.target.closest(".chip");
-    if (!b) return;
-    [].forEach.call(this.querySelectorAll(".chip"), function (c) { c.classList.remove("ativo"); });
-    b.classList.add("ativo");
-    estado.tipo = b.getAttribute("data-tipo");
-    buscar();
-  });
-  lista.addEventListener("click", function (ev) {
-    var card = ev.target.closest(".item");
-    if (!card || ev.target.tagName === "A") return;
-    card.classList.toggle("aberto");
-  });
-  botaoMais.addEventListener("click", function () {
-    estado.mostrados += 50;
-    render();
-  });
-
-  var params = new URLSearchParams(window.location.search);
-  if (params.get("q")) { campo.value = params.get("q"); estado.q = params.get("q").trim(); }
-
+  // ---------- carga ----------
+  if (contagem) contagem.textContent = "Carregando as listas…";
   fetch(BASE + "/dados/indice.json")
     .then(function (r) { return r.json(); })
     .then(function (j) {
-      dados = j;
-      for (var k = 0; k < dados.length; k++) {
-        var d = dados[k];
-        d.__nome = normaliza(d[1]);
-        var alvo = d[1] + " " + (d[2] || []).join(" ");
-        d.__busca = normaliza(alvo);
-      }
+      dados = M.prepara(j);
       buscar();
+      mostrarWatch();
     })
     .catch(function () {
-      contagem.textContent = "Não foi possível carregar os dados. Recarregue a página.";
+      if (contagem) contagem.textContent = "Não foi possível carregar os dados. Recarregue a página.";
     });
 })();
