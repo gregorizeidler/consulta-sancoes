@@ -164,7 +164,8 @@
   }
 
   function faixa(score) {
-    if (score >= 95) return ["exata", "forte"];
+    if (score >= 100) return ["exata", "forte"];
+    if (score >= 92) return ["forte", "forte"];
     if (score >= 85) return ["provável", "provavel"];
     if (score >= 70) return ["possível", "possivel"];
     return ["fraca", "fraca"];
