@@ -172,6 +172,10 @@ def main():
       <input type="file" id="arquivo" accept=".csv,text/csv">
       <span class="dica">Aceita vírgula ou ponto e vírgula. Detecta a coluna de nome automaticamente.</span>
     </div>
+    <p class="ou">ou cole a lista aqui</p>
+    <div class="envio"><textarea id="colar" rows="3"
+      placeholder="Um nome por linha — ou cole direto do Excel (com cabeçalho nome;documento)"></textarea>
+      <button id="triarColado" class="botao">Triar</button></div>
     <div class="limiar-linha">
       <label for="limiarLote">Considerar correspondência a partir de: <output id="limiarLoteVal">85%</output></label>
       <input type="range" id="limiarLote" min="60" max="100" step="5" value="85">
@@ -222,6 +226,10 @@ def main():
       <span class="dica">Vírgula ou ponto e vírgula. Colunas reconhecidas: nome, name, cliente, fornecedor,
       razao_social; e documento, doc, cpf, cnpj, passport.</span>
     </div>
+    <p class="ou">ou cole a lista aqui</p>
+    <div class="envio"><textarea id="colar" rows="3"
+      placeholder="Um nome por linha — ou cole direto do Excel (com cabeçalho nome;documento)"></textarea>
+      <button id="triarColado" class="botao">Triar</button></div>
     <div class="limiar-linha">
       <label for="limiarLote">Considerar correspondência a partir de: <output id="limiarLoteVal">85%</output></label>
       <input type="range" id="limiarLote" min="60" max="100" step="5" value="85">
