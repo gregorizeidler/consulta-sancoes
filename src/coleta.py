@@ -1,0 +1,230 @@
+#!/usr/bin/env python3
+"""Baixa e normaliza as listas de sancoes OFAC (EUA), ONU e UE.
+
+Gera:
+  data/sancoes.json   -> registros normalizados (fonte oficial de verdade)
+  data/resumo.json    -> contagens, data de geracao e o que mudou desde a carga anterior
+  data/ids.json       -> snapshot de ids para calcular o diff do dia seguinte
+"""
+import json, os, re, sys, unicodedata, urllib.request
+import xml.etree.ElementTree as ET
+from datetime import datetime, timezone, timedelta
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA = os.path.join(ROOT, "data")
+TZ = timezone(timedelta(hours=-3))
+UA = {"User-Agent": "Mozilla/5.0 (compatible; consulta-sancoes/1.0)"}
+
+FONTES = {
+    "ofac": "https://www.treasury.gov/ofac/downloads/sdn.xml",
+    "un": "https://scsanctions.un.org/resources/xml/en/consolidated.xml",
+    "eu": "https://webgate.ec.europa.eu/fsd/fsf/public/files/xmlFullSanctionsList_1_1/content?token=dG9rZW4tMjAxNw",
+}
+PAGINA = {
+    "ofac": "https://sanctionssearch.ofac.treas.gov/Details.aspx?id=",
+    "un": "https://scsanctions.un.org/search/?keywords=",
+    "eu": "https://data.europa.eu/data/datasets/consolidated-list-of-persons-groups-and-entities-subject-to-eu-financial-sanctions",
+}
+
+def baixa(url, destino):
+    req = urllib.request.Request(url, headers=UA)
+    with urllib.request.urlopen(req, timeout=180) as r:
+        dados = r.read()
+    with open(destino, "wb") as f:
+        f.write(dados)
+    return len(dados)
+
+def sem_namespace(raiz):
+    for el in raiz.iter():
+        if isinstance(el.tag, str) and "}" in el.tag:
+            el.tag = el.tag.split("}", 1)[1]
+    return raiz
+
+def texto(el, tag):
+    if el is None:
+        return ""
+    v = el.find(tag)
+    if v is None or v.text is None:
+        return ""
+    return " ".join(v.text.split())
+
+def normaliza(s):
+    s = unicodedata.normalize("NFKD", s or "")
+    s = "".join(c for c in s if not unicodedata.combining(c))
+    s = re.sub(r"[^A-Za-z0-9 ]", " ", s.lower())
+    return " ".join(s.split())
+
+# ---------------- OFAC ----------------
+def ofac(caminho):
+    raiz = sem_namespace(ET.parse(caminho).getroot())
+    saida = []
+    for e in raiz.findall("sdnEntry"):
+        uid = texto(e, "uid")
+        nome = texto(e, "lastName")
+        if not nome:
+            nome = texto(e, "firstName")
+        tipo = (texto(e, "sdnType") or "").lower()
+        tipo = {"individual": "pessoa", "entity": "entidade", "vessel": "embarcacao", "aircraft": "aeronave"}.get(tipo, "outro")
+        programas = [p.text.strip() for p in e.findall("programList/program") if p.text]
+        aliases = []
+        for aka in e.findall("akaList/aka"):
+            partes = [texto(aka, t) for t in ("firstName", "lastName")]
+            partes = [p for p in partes if p]
+            if partes:
+                aliases.append(" ".join(partes))
+        paises = []
+        for a in e.findall("addressList/address"):
+            c = texto(a, "country")
+            if c and c not in paises:
+                paises.append(c)
+        nasc = [texto(d, "dateOfBirthItem") or texto(d, "dateOfBirth") for d in e.findall("dateOfBirthList/dateOfBirthItem")]
+        nasc = [d for d in nasc if d]
+        saida.append({
+            "i": "ofac-" + uid, "f": "ofac", "t": tipo, "n": nome,
+            "a": aliases[:12], "p": ", ".join(programas), "c": ", ".join(paises[:3]),
+            "d": "", "u": PAGINA["ofac"] + uid, "x": ", ".join(nasc[:2]),
+        })
+    return saida
+
+# ---------------- ONU ----------------
+def onu(caminho):
+    raiz = sem_namespace(ET.parse(caminho).getroot())
+    saida = []
+    for grupo, tipo in (("INDIVIDUALS/INDIVIDUAL", "pessoa"), ("ENTITIES/ENTITY", "entidade")):
+        for e in raiz.findall(grupo):
+            ref = texto(e, "REFERENCE_NUMBER")
+            if tipo == "pessoa":
+                partes = [texto(e, t) for t in ("FIRST_NAME", "SECOND_NAME", "THIRD_NAME", "FOURTH_NAME")]
+                nome = " ".join([p for p in partes if p])
+            else:
+                nome = texto(e, "FIRST_NAME")
+            if not nome:
+                continue
+            aliases = [texto(a, "ALIAS_NAME") for a in e.findall("INDIVIDUAL_ALIAS")] if tipo == "pessoa" else []
+            aliases = [a for a in aliases if a]
+            paises = []
+            for nat in e.findall("NATIONALITY/VALUE"):
+                if nat.text:
+                    paises.append(nat.text.strip())
+            if tipo == "entidade":
+                for nat in e.findall("ENTITY_ADDRESS/COUNTRY"):
+                    if nat.text:
+                        paises.append(nat.text.strip())
+            lista = texto(e, "LIST_TYPE/VALUE") or ""
+            saida.append({
+                "i": "un-" + (ref or normaliza(nome)), "f": "un", "t": tipo, "n": nome,
+                "a": aliases[:12], "p": lista or "Conselho de Seguranca da ONU",
+                "c": ", ".join(dict.fromkeys(paises))[:80], "d": texto(e, "LISTED_ON"),
+                "u": PAGINA["un"] + (ref or ""), "x": texto(e, "COMMENTS1")[:200],
+            })
+    return saida
+
+# ---------------- UE ----------------
+NS = ""
+def ue(caminho):
+    raiz = sem_namespace(ET.parse(caminho).getroot())
+    saida = []
+    for e in raiz.findall(NS + "sanctionEntity"):
+        lid = e.get("logicalId") or ""
+        sub = e.find(NS + "subjectType")
+        codigo = (sub.get("classificationCode") if sub is not None else "") or ""
+        tipo = {"P": "pessoa", "E": "entidade"}.get(codigo, "outro")
+        nomes = []
+        for na in e.findall(NS + "nameAlias"):
+            w = (na.get("wholeName") or "").strip()
+            if w:
+                nomes.append(w)
+        if not nomes:
+            continue
+        regs = [r.get("programme") for r in e.findall(NS + "regulation") if r.get("programme")]
+        paises = []
+        for c in e.findall(NS + "citizenship"):
+            d = c.get("countryDescription") or c.get("countryIso2Code")
+            if d:
+                paises.append(d)
+        for a in e.findall(NS + "address"):
+            d = a.get("countryDescription")
+            if d:
+                paises.append(d)
+        nasc = []
+        for b in e.findall(NS + "birthdate"):
+            if b.get("birthdate"):
+                nasc.append(b.get("birthdate"))
+        saida.append({
+            "i": "eu-" + lid, "f": "eu", "t": tipo, "n": nomes[0], "a": nomes[1:12],
+            "p": ", ".join(dict.fromkeys(regs)) or "Uniao Europeia",
+            "c": ", ".join(dict.fromkeys(paises))[:80],
+            "d": (e.find(NS + "regulation").get("publicationDate") if e.find(NS + "regulation") is not None else "") or "",
+            "u": PAGINA["eu"], "x": ", ".join(nasc[:2]),
+        })
+    return saida
+
+def main():
+    os.makedirs(DATA, exist_ok=True)
+    bruto = os.path.join(DATA, "bruto")
+    os.makedirs(bruto, exist_ok=True)
+    arquivos = {"ofac": "sdn.xml", "un": "un.xml", "eu": "eu.xml"}
+    tamanhos = {}
+    for chave, url in FONTES.items():
+        destino = os.path.join(bruto, arquivos[chave])
+        try:
+            tamanhos[chave] = baixa(url, destino)
+        except Exception as exc:
+            print("FALHA ao baixar %s: %s" % (chave, exc))
+
+    registros, contagem = [], {}
+    for chave, parser in (("ofac", ofac), ("un", onu), ("eu", ue)):
+        caminho = os.path.join(bruto, arquivos[chave])
+        if not os.path.exists(caminho):
+            contagem[chave] = 0
+            continue
+        try:
+            lista = parser(caminho)
+        except Exception as exc:
+            print("FALHA ao ler %s: %s" % (chave, exc))
+            lista = []
+        contagem[chave] = len(lista)
+        registros.extend(lista)
+
+    # dedup por id
+    vistos, limpos = set(), []
+    for r in registros:
+        if r["i"] in vistos:
+            continue
+        vistos.add(r["i"])
+        limpos.append(r)
+
+    anterior = {}
+    caminho_ids = os.path.join(DATA, "ids.json")
+    if os.path.exists(caminho_ids):
+        try:
+            anterior = set(json.load(open(caminho_ids, encoding="utf-8")))
+        except Exception:
+            anterior = set()
+
+    novos = [r for r in limpos if r["i"] not in anterior] if anterior else []
+    removidos = sorted(anterior - {r["i"] for r in limpos}) if anterior else []
+
+    agora = datetime.now(TZ)
+    resumo = {
+        "gerado_em": agora.strftime("%Y-%m-%dT%H:%M:%S-03:00"),
+        "gerado_em_br": agora.strftime("%d/%m/%Y as %H:%M"),
+        "total": len(limpos),
+        "por_fonte": contagem,
+        "novos_total": len(novos),
+        "removidos_total": len(removidos),
+        "novos": [{"n": r["n"], "f": r["f"], "t": r["t"], "p": r["p"], "i": r["i"]} for r in novos[:60]],
+        "removidos": removidos[:60],
+        "tamanho_fontes_bytes": tamanhos,
+        "primeira_carga": not anterior,
+    }
+    json.dump(limpos, open(os.path.join(DATA, "sancoes.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
+    json.dump(resumo, open(os.path.join(DATA, "resumo.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump(sorted(vistos), open(caminho_ids, "w", encoding="utf-8"), separators=(",", ":"))
+
+    print("total: %d | %s" % (len(limpos), contagem))
+    print("novos desde a carga anterior: %d | removidos: %d" % (len(novos), len(removidos)))
+    print("arquivo: %.1f MB" % (os.path.getsize(os.path.join(DATA, "sancoes.json")) / 1e6))
+
+if __name__ == "__main__":
+    main()

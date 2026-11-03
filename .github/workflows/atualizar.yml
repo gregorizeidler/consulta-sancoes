@@ -1,0 +1,43 @@
+name: atualizar
+on:
+  schedule:
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: paginas
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Baixar e normalizar as listas
+        run: python3 src/coleta.py
+      - name: Gerar o site
+        run: python3 src/gera_site.py
+      - name: Guardar snapshot de ids para o diff do dia seguinte
+        run: |
+          git config user.name "sancoes-bot"
+          git config user.email "sancoes-bot@users.noreply.github.com"
+          git add data/ids.json data/resumo.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "snapshot $(date -u +%Y-%m-%d)"
+          git push
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

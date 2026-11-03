@@ -1,0 +1,20 @@
+{
+ "gerado_em": "2026-11-03T18:50:49-03:00",
+ "gerado_em_br": "03/11/2026 as 18:50",
+ "total": 26760,
+ "por_fonte": {
+  "ofac": 19484,
+  "un": 1007,
+  "eu": 6269
+ },
+ "novos_total": 0,
+ "removidos_total": 0,
+ "novos": [],
+ "removidos": [],
+ "tamanho_fontes_bytes": {
+  "ofac": 29271441,
+  "un": 2177571,
+  "eu": 25899600
+ },
+ "primeira_carga": true
+}

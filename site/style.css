@@ -1,0 +1,69 @@
+:root{
+  --tinta:#0f1b2d; --papel:#f6f7f9; --branco:#fff; --linha:#dfe3ea;
+  --azul:#12356b; --azul-claro:#e8eef8; --verde:#0d6b52; --cinza:#5b6472;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--papel);color:var(--tinta);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:16px;line-height:1.55}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+.oculto{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.topo{background:var(--azul);color:#fff;padding:26px 0 22px}
+.topo .marca{font-family:Georgia,"DejaVu Serif",serif;font-size:30px;font-weight:700;letter-spacing:-.02em}
+.topo .sub{opacity:.82;font-size:15px;margin-top:4px}
+main{padding:26px 0 40px}
+.busca input{width:100%;font-size:19px;padding:16px 18px;border:2px solid var(--linha);
+  border-radius:12px;background:var(--branco);outline:none;font-family:inherit}
+.busca input:focus{border-color:var(--azul);box-shadow:0 0 0 4px var(--azul-claro)}
+.filtros{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--linha);background:var(--branco);color:var(--cinza);
+  padding:7px 13px;border-radius:99px;font-size:13px;cursor:pointer;font-family:inherit}
+.chip:hover{border-color:var(--azul);color:var(--azul)}
+.chip.ativo{background:var(--azul);border-color:var(--azul);color:#fff;font-weight:600}
+.ajuda{font-size:13px;color:var(--cinza);margin:10px 0 0}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:22px 0}
+.kpi{background:var(--branco);border:1px solid var(--linha);border-radius:10px;padding:12px 14px}
+.kpi span{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--cinza);font-weight:600}
+.kpi strong{font-size:22px;font-variant-numeric:tabular-nums}
+.kpi-total{background:var(--azul-claro);border-color:#c9d8ee}
+.kpi-total strong{color:var(--azul)}
+.barra{display:flex;justify-content:space-between;align-items:center;gap:12px;
+  font-size:13px;color:var(--cinza);margin-bottom:10px;flex-wrap:wrap}
+.baixar{color:var(--azul);font-weight:600;text-decoration:none;border-bottom:1px solid currentColor}
+.lista{display:flex;flex-direction:column;gap:8px}
+.item{background:var(--branco);border:1px solid var(--linha);border-radius:10px;padding:13px 15px;cursor:pointer}
+.item:hover{border-color:#b9c6da}
+.item .linha{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.item h3{margin:0;font-size:17px;font-weight:700;letter-spacing:-.01em}
+.fonte{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
+  padding:2px 7px;border-radius:5px;background:#eef1f6;color:var(--cinza)}
+.fonte.ofac{background:#e7f0e9;color:#1f6b3a}
+.fonte.un{background:#e8edf9;color:#26407f}
+.fonte.eu{background:#f3ecf8;color:#5c3a7e}
+.tipo{font-size:12px;color:var(--cinza)}
+.meta{font-size:13px;color:var(--cinza);margin-top:4px}
+.det{display:none;margin-top:10px;padding-top:10px;border-top:1px dashed var(--linha);font-size:14px}
+.item.aberto .det{display:block}
+.det p{margin:0 0 6px}
+.det b{color:var(--tinta)}
+.det a{color:var(--azul)}
+.marcado{background:#fff2c2;border-radius:2px}
+.mais{margin:16px auto 0;display:block;padding:11px 22px;border-radius:99px;border:1px solid var(--azul);
+  background:var(--branco);color:var(--azul);font-weight:600;cursor:pointer;font-family:inherit}
+.mudou{background:var(--branco);border:1px solid var(--linha);border-radius:12px;padding:16px 18px;margin:26px 0}
+.mudou h2{font-size:15px;text-transform:uppercase;letter-spacing:.08em;color:var(--cinza);margin:0 0 10px}
+.mudou ul{margin:0;padding-left:18px;font-size:14px}
+.mudou li{margin-bottom:6px}
+.sobre{background:var(--branco);border:1px solid var(--linha);border-radius:12px;padding:18px 20px;margin-top:26px}
+.sobre h2{font-size:19px;margin:0 0 10px;font-family:Georgia,"DejaVu Serif",serif}
+.sobre p{font-size:14px;color:#333c4a;margin:0 0 10px}
+footer{border-top:1px solid var(--linha);padding:20px 0 40px;color:var(--cinza);font-size:13px}
+footer p{margin:0 0 6px}
+.miudo{font-size:12px}
+.vazio{text-align:center;color:var(--cinza);padding:30px 0;font-size:15px}
+@media(max-width:600px){
+  .topo .marca{font-size:24px}
+  .busca input{font-size:17px;padding:14px}
+  .item h3{font-size:16px}
+}
