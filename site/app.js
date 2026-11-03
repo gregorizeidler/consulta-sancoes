@@ -54,7 +54,11 @@
         var s = M.melhorSim(q, d.__n, d.__aliases);
         if (s >= estado.limiar) res.push({ rec: d, score: s });
       }
-      res.sort(function (a, b) { return b.score - a.score || a.rec[1].localeCompare(b.rec[1]); });
+      res.sort(function (a, b) {
+        return b.score - a.score ||
+          Math.abs(a.rec.__n.length - q.length) - Math.abs(b.rec.__n.length - q.length) ||
+          a.rec[1].localeCompare(b.rec[1]);
+      });
       ms = Math.round(performance.now() - t0);
     }
     estado.achados = res;
@@ -252,22 +256,37 @@
     a.download = "triagem-sancoes.csv";
     a.click();
   }
+  function carregarTexto(texto) {
+    var linhas = String(texto).split(/\r?\n/).filter(function (l) { return l.trim().length; });
+    if (!linhas.length) return;
+    var primeira = linhas[0].split(/[;,]/);
+    var col = acharColuna(primeira, COL_NOME);
+    if (col > -1) {
+      var csv = lerCsv(texto);
+      lote.linhas = csv.linhas;
+      lote.colNome = col;
+      lote.colDoc = acharColuna(csv.cabecalho, COL_DOC);
+    } else {
+      lote.colNome = 0;
+      lote.colDoc = -1;
+      lote.linhas = linhas.map(function (l) { return [l.split(/[;,]/)[0].trim()]; });
+    }
+    processarLote();
+  }
   if (arquivo) {
     arquivo.addEventListener("change", function () {
       var f = arquivo.files[0];
       if (!f) return;
       var leitor = new FileReader();
-      leitor.onload = function () {
-        var csv = lerCsv(String(leitor.result));
-        lote.linhas = csv.linhas;
-        lote.colNome = acharColuna(csv.cabecalho, COL_NOME);
-        if (lote.colNome < 0) lote.colNome = 0;
-        lote.colDoc = acharColuna(csv.cabecalho, COL_DOC);
-        processarLote();
-      };
+      leitor.onload = function () { carregarTexto(leitor.result); };
       leitor.readAsText(f, "utf-8");
     });
   }
+  var botaoColar = document.getElementById("triarColado");
+  if (botaoColar) botaoColar.addEventListener("click", function () {
+    var caixa = document.getElementById("colar");
+    if (caixa && caixa.value.trim()) carregarTexto(caixa.value);
+  });
   if (limiarLote) limiarLote.addEventListener("input", function () {
     lote.limiar = Number(limiarLote.value);
     if (limiarLoteVal) limiarLoteVal.textContent = lote.limiar + "%";
