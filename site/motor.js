@@ -71,17 +71,48 @@
     return jaro + prefixo * 0.1 * (1 - jaro);
   }
 
-  // cobertura de tokens tolerante a erro de digitacao (jw >= 0.88 conta como presente)
-  function cobertura(qTokens, cTokens, exata) {
+  // distancia de edicao com corte: para de calcular quando passa do limite
+  function levLimitado(a, b, limite) {
+    var la = a.length, lb = b.length, i, j;
+    if (Math.abs(la - lb) > limite) return limite + 1;
+    var anterior = [], atual = [];
+    for (j = 0; j <= lb; j++) anterior[j] = j;
+    for (i = 1; i <= la; i++) {
+      atual[0] = i;
+      var menorLinha = i;
+      for (j = 1; j <= lb; j++) {
+        var custo = a.charCodeAt(i - 1) === b.charCodeAt(j - 1) ? 0 : 1;
+        var v = anterior[j] + 1;
+        if (atual[j - 1] + 1 < v) v = atual[j - 1] + 1;
+        if (anterior[j - 1] + custo < v) v = anterior[j - 1] + custo;
+        atual[j] = v;
+        if (v < menorLinha) menorLinha = v;
+      }
+      if (menorLinha > limite) return limite + 1;
+      var tmp = anterior; anterior = atual; atual = tmp;
+    }
+    return anterior[lb];
+  }
+
+  // duas palavras sao a mesma quando iguais ou a uma/duas letras de distancia,
+  // proporcional ao tamanho. Palavra curta (ate 3 letras) exige igualdade:
+  // era isso que fazia "ali khamenei" casar com "khamis al khanjar".
+  function equivalente(a, b) {
+    if (a === b) return true;
+    var menor = Math.min(a.length, b.length);
+    if (menor < 4) return false;
+    var limite = menor >= 8 ? 2 : 1;
+    if (Math.abs(a.length - b.length) > limite) return false;
+    return levLimitado(a, b, limite) <= limite;
+  }
+
+  function cobertura(qTokens, cTokens) {
     if (!qTokens.length) return 0;
     var achou = 0;
     for (var i = 0; i < qTokens.length; i++) {
-      var ok = false;
       for (var j = 0; j < cTokens.length; j++) {
-        if (qTokens[i] === cTokens[j]) { ok = true; break; }
-        if (!exata && jaroWinkler(qTokens[i], cTokens[j]) >= 0.88) { ok = true; break; }
+        if (equivalente(qTokens[i], cTokens[j])) { achou++; break; }
       }
-      if (ok) achou++;
     }
     return achou / qTokens.length;
   }
@@ -90,17 +121,19 @@
     if (!q || !c) return 0;
     if (q === c) return 100;
     var tq = q.split(" ").filter(Boolean), tc = c.split(" ").filter(Boolean);
-    var s = 100 * (0.45 * jaroWinkler(q, c) + 0.35 * dice(q, c) + 0.20 * cobertura(tq, tc, false));
+    var s = 100 * (0.45 * jaroWinkler(q, c) + 0.35 * dice(q, c) + 0.20 * cobertura(tq, tc));
     return s;
   }
 
-  // comparara o nome consultado com o registro inteiro e com as janelas de tokens
-  // (pega "ZASLON" dentro de "JSC SCIENTIFIC AND TECHNICAL CENTER ZASLON")
+  // Compara o nome consultado com o registro inteiro e com as janelas de tokens
+  // (pega "ZASLON" dentro de "JSC SCIENTIFIC AND TECHNICAL CENTER ZASLON").
+  // Quando so uma parte da consulta aparece no registro, o score e penalizado:
+  // registro que explica metade do nome nao pode marcar 100.
   function similaridade(q, c) {
     if (!q || !c) return 0;
     if (q === c) return 100;
-    var melhor = bruto(q, c);
     var tq = q.split(" ").filter(Boolean), tc = c.split(" ").filter(Boolean);
+    var melhor = bruto(q, c);
     if (tc.length > tq.length && tq.length) {
       var maxTam = Math.min(tq.length + 1, tc.length);
       for (var tam = tq.length; tam <= maxTam; tam++) {
@@ -110,8 +143,12 @@
         }
       }
     }
-    if (tq.length > 1 && cobertura(tq, tc, false) === 1) melhor = Math.max(melhor, 90);
-    if (tc.length && tq.length > tc.length && cobertura(tc, tq, false) === 1) melhor = Math.max(melhor, 88);
+    // mesmas palavras em ordem diferente ("KIM JONG UN" x "JONG UN KIM")
+    if (tq.length > 1 && tq.length === tc.length) {
+      if (tq.slice().sort().join(" ") === tc.slice().sort().join(" ")) melhor = Math.max(melhor, 95);
+    }
+    var cov = cobertura(tq, tc);
+    if (cov < 1) melhor = melhor * (0.6 + 0.4 * cov);
     return Math.round(Math.min(100, melhor));
   }
 
@@ -176,7 +213,7 @@
     return out.slice(0, limite || 500);
   }
 
-  var Motor = { norm: norm, mascara: mascara, popcount: popcount, dice: dice, jaroWinkler: jaroWinkler,
+  var Motor = { norm: norm, equivalente: equivalente, levLimitado: levLimitado, mascara: mascara, popcount: popcount, dice: dice, jaroWinkler: jaroWinkler,
     cobertura: cobertura, similaridade: similaridade, melhorSim: melhorSim, faixa: faixa,
     prepara: prepara, candidatos: candidatos };
   raiz.Motor = Motor;
