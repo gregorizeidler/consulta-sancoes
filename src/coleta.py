@@ -84,10 +84,12 @@ def ofac(caminho):
             if c and c not in paises:
                 paises.append(c)
         docs = []
+        LIXO = ("secondary sanctions", "sanctions information", "website", "email", "gender",
+                "digital currency", "unknown", "remarks")
         for i in e.findall("idList/id"):
             numero = texto(i, "idNumber")
             tipo = texto(i, "idType") or "documento"
-            if numero:
+            if numero and not any(x in tipo.lower() for x in LIXO):
                 docs.append((tipo + ": " + numero)[:60])
         nasc = [texto(d, "dateOfBirthItem") or texto(d, "dateOfBirth") for d in e.findall("dateOfBirthList/dateOfBirthItem")]
         nasc = [d for d in nasc if d]
