@@ -54,6 +54,22 @@
         var s = M.melhorSim(q, d.__n, d.__aliases);
         if (s >= estado.limiar) res.push({ rec: d, score: s });
       }
+      // consulta que parece documento (tem numero) tambem procura nos documentos publicados
+      var digitos = estado.q.replace(/[^0-9a-z]/gi, "").toLowerCase();
+      if (/[0-9]/.test(digitos) && digitos.length >= 4) {
+        var vistos = {};
+        for (var r = 0; r < res.length; r++) vistos[res[r].rec[0]] = 1;
+        for (var n = 0; n < dados.length; n++) {
+          var dd = dados[n];
+          for (var p = 0; p < dd.__docs.length; p++) {
+            if (dd.__docs[p] && dd.__docs[p].indexOf(digitos) > -1 && !vistos[dd[0]]) {
+              vistos[dd[0]] = 1;
+              res.push({ rec: dd, score: 100 });
+              break;
+            }
+          }
+        }
+      }
       res.sort(function (a, b) {
         return b.score - a.score ||
           Math.abs(a.rec.__n.length - q.length) - Math.abs(b.rec.__n.length - q.length) ||
