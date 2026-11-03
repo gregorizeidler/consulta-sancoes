@@ -1,6 +1,6 @@
 {
- "gerado_em": "2026-11-03T18:50:49-03:00",
- "gerado_em_br": "03/11/2026 as 18:50",
+ "gerado_em": "2026-11-03T18:54:00-03:00",
+ "gerado_em_br": "03/11/2026 as 18:54",
  "total": 26760,
  "por_fonte": {
   "ofac": 19484,
@@ -16,5 +16,5 @@
   "un": 2177571,
   "eu": 25899600
  },
- "primeira_carga": true
+ "primeira_carga": false
 }
