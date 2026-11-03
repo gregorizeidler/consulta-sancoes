@@ -62,9 +62,13 @@ def ofac(caminho):
     saida = []
     for e in raiz.findall("sdnEntry"):
         uid = texto(e, "uid")
-        nome = texto(e, "lastName")
+        # a OFAC separa primeiro nome e sobrenome: usar so o lastName gerava
+        # registros como "PUTIN" e "KHAMENEI", que nao casavam com o nome completo
+        primeiro = texto(e, "firstName")
+        ultimo = texto(e, "lastName")
+        nome = (primeiro + " " + ultimo).strip() if primeiro else ultimo
         if not nome:
-            nome = texto(e, "firstName")
+            nome = primeiro
         tipo = (texto(e, "sdnType") or "").lower()
         tipo = {"individual": "pessoa", "entity": "entidade", "vessel": "embarcacao", "aircraft": "aeronave"}.get(tipo, "outro")
         programas = [p.text.strip() for p in e.findall("programList/program") if p.text]
