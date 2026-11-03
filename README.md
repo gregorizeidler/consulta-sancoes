@@ -17,8 +17,9 @@ Site: https://gregorizeidler.github.io/consulta-sancoes
   Acha erro de digitação, ordem trocada, nome parcial dentro de nome oficial longo e diferença de acento.
 - **Checagem por documento.** Passaporte, CPF/CNPJ, número de registro: 20.889 registros trazem documento
   publicado pela própria autoridade. Documento que bate exatamente vai direto para 100%.
-- **Triagem em lote por CSV.** Sobe uma carteira de nomes (e documentos) e recebe o melhor resultado de cada
-  linha, com o percentual, num CSV de saída. Roda no navegador: o arquivo não é enviado para servidor nenhum.
+- **Triagem em lote por CSV.** Sobe uma carteira de nomes (e documentos) — arquivo ou lista colada — e recebe
+  o melhor resultado de cada linha, com o percentual, a taxa de correspondência e um CSV de saída.
+  Roda no navegador: o arquivo não é enviado para servidor nenhum.
 - **Lista de vigilância.** Nomes salvos no navegador (localStorage), verificados a cada visita.
 - **Histórico de mudanças.** Todo dia o diff entre a carga atual e a anterior vira data/historico.json:
   dá para provar quando um nome entrou.
@@ -29,7 +30,7 @@ Site: https://gregorizeidler.github.io/consulta-sancoes
 
 ## Motor de busca (site/motor.js)
 
-Funções puras, sem DOM, testadas no Node (node tests/test_motor.js, 14 testes).
+Funções puras, sem DOM, testadas no Node (node tests/test_motor.js, 19 testes).
 
 O score combina três medidas, cada uma cobrindo um tipo de erro:
 
@@ -37,14 +38,19 @@ O score combina três medidas, cada uma cobrindo um tipo de erro:
 | --- | --- | --- |
 | Jaro-Winkler | 45% | erro de digitação, prefixo igual |
 | Dice sobre trigramas | 35% | nome reordenado, pedaço faltando |
-| Cobertura de tokens (tolerante a typo) | 20% | "ZASLON" dentro de "JSC SCIENTIFIC AND TECHNICAL CENTER ZASLON" |
+| Cobertura de tokens | 20% | "ZASLON" dentro de "JSC SCIENTIFIC AND TECHNICAL CENTER ZASLON" |
 
-Regras de reforço:
+Duas palavras contam como a mesma quando são iguais ou estão a uma ou duas letras de distância, proporcional ao
+tamanho (palavra de até 3 letras exige igualdade). É distância de edição, não semelhança de letras: é isso que
+impede "ali khamenei" de casar com "khamis al khanjar" — um falso positivo que apareceu no teste com a base real.
+
+Regras de reforço e de penalidade:
 
 - nome idêntico depois da normalização → 100;
-- todos os tokens da consulta presentes no registro → no mínimo 90;
-- todos os tokens do registro presentes na consulta (consulta mais longa) → no mínimo 88;
-- documento bate exatamente → 100.
+- mesmas palavras em outra ordem ("KIM JONG UN" × "JONG UN KIM") → no mínimo 95;
+- documento bate exatamente → 100;
+- **cobertura parcial penaliza**: se só parte da consulta aparece no registro, o score é multiplicado por
+  (0,6 + 0,4 × cobertura). Registro que explica metade do nome não marca 100.
 
 Faixas: ≥95 exata · 85–94 provável · 70–84 possível · <70 fraca.
 
@@ -54,7 +60,9 @@ base real: **~46 ms** para 26.760 registros.
 
 ## Como funciona
 
-- src/coleta.py baixa os XML oficiais e normaliza tudo em um formato único:
+- src/coleta.py baixa os XML oficiais e normaliza tudo em um formato único. A OFAC separa primeiro nome e
+  sobrenome em campos distintos: usar só o sobrenome gerava registros como "PUTIN" e "KHAMENEI", que não casavam
+  com o nome completo — por isso o nome é montado com os dois campos.
   id, nome, aliases, tipo, programa/regime, país, data, **documentos** e link da fonte.
 - src/gera_site.py monta o site estático em docs/: índice compacto, planilha em zip e as páginas
   (busca, triagem em lote, mudanças, API).
