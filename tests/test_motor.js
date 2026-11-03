@@ -24,8 +24,17 @@ ok(Motor.similaridade("zaslon", "jsc scientific and technical center zaslon") >=
    "nome curto dentro de nome oficial longo", String(Motor.similaridade("zaslon", "jsc scientific and technical center zaslon")));
 ok(Motor.similaridade("aerocaribbean", "aerocaribbean airlines") >= 85, "nome parcial de empresa",
    String(Motor.similaridade("aerocaribbean", "aerocaribbean airlines")));
-ok(Motor.similaridade("putin vladimir", "putin") >= 85, "ordem trocada",
+ok(Motor.similaridade("putin vladimir", "putin vladimir vladimirovich") >= 85, "consulta e prefixo do nome completo",
+   String(Motor.similaridade("putin vladimir", "putin vladimir vladimirovich")));
+ok(Motor.similaridade("putin vladimir", "putin") < 75,
+   "registro so com o sobrenome nao vira correspondencia forte",
    String(Motor.similaridade("putin vladimir", "putin")));
+ok(Motor.similaridade("kim jong un", "jong un kim") >= 90, "mesmas palavras em outra ordem",
+   String(Motor.similaridade("kim jong un", "jong un kim")));
+ok(Motor.similaridade("ali khamenei", "khamis al khanjar") < 70, "nao casa palavra curta parecida (ali/al)",
+   String(Motor.similaridade("ali khamenei", "khamis al khanjar")));
+ok(Motor.equivalente("sberbnak", "sberbank"), "typo de transposicao conta como mesma palavra");
+ok(!Motor.equivalente("ali", "al"), "palavra de 3 letras exige igualdade");
 ok(Motor.similaridade("joao da silva", "petrobras") < 60, "nome sem relacao fica baixo",
    String(Motor.similaridade("joao da silva", "petrobras")));
 
