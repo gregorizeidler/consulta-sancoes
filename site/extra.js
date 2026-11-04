@@ -247,3 +247,35 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", iniciar);
   else iniciar();
 })();
+
+(function () {
+  "use strict";
+  var alvo = document.getElementById("fontes");
+  if (!alvo) return;
+  var link = document.querySelector('link[rel="stylesheet"]');
+  var BASE = link ? link.getAttribute("href").replace(/\/style\.css.*$/, "") : "";
+  var rotulo = document.createElement("label");
+  rotulo.className = "pep-opcao";
+  rotulo.innerHTML = '<input type="checkbox" id="incluirPep"> incluir PEP — 106 mil nomes de pessoas expostas politicamente <span class="pep-estado"></span>';
+  alvo.parentNode.insertBefore(rotulo, alvo.nextSibling);
+  var caixa = document.getElementById("incluirPep");
+  var estado = rotulo.querySelector(".pep-estado");
+  caixa.addEventListener("change", function () {
+    if (!caixa.checked) return;
+    if (!window.SancoesApp) { estado.textContent = "indisponível nesta página"; return; }
+    caixa.disabled = true;
+    estado.textContent = "carregando…";
+    fetch(BASE + "/dados/pep.json?v=" + Date.now())
+      .then(function (r) { return r.json(); })
+      .then(function (lista) {
+        window.SancoesApp.adicionar(lista);
+        estado.textContent = "(" + lista.length.toLocaleString("pt-BR") + " nomes carregados)";
+        caixa.disabled = false;
+      })
+      .catch(function () {
+        estado.textContent = "falhou ao carregar";
+        caixa.checked = false;
+        caixa.disabled = false;
+      });
+  });
+})();
