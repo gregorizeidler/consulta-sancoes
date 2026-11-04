@@ -6,6 +6,7 @@ Gera:
   data/resumo.json    -> contagens, data de geracao e o que mudou desde a carga anterior
   data/ids.json       -> snapshot de ids para calcular o diff do dia seguinte
 """
+import time
 import json, os, re, sys, unicodedata, urllib.request
 import xml.etree.ElementTree as ET
 
