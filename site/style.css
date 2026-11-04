@@ -108,3 +108,35 @@ footer p{margin:0 0 6px}
   .tabela{font-size:12px}
   .limiar-linha input[type=range]{width:140px}
 }
+
+/* decisoes, dossie e pagina de entidade */
+.dec{margin-top:10px;padding-top:9px;border-top:1px dashed var(--linha);font-size:13px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.dec-pergunta{color:var(--cinza)}
+.dec-btn{border:1px solid var(--linha);background:#fff;border-radius:7px;padding:5px 10px;font-size:12px;cursor:pointer;color:var(--tinta)}
+.dec-btn:hover{border-color:var(--tinta)}
+.dec-atual{background:#eef6f0;border:1px solid #bfe3cf;border-radius:7px;padding:4px 9px;font-weight:600;font-size:12px}
+.dec-quando{color:var(--cinza);font-size:12px}
+.porque{background:#f7f9fc;border-left:3px solid #cfdcf0;padding:7px 10px;border-radius:4px;font-size:13px}
+.porque .comp{display:block;color:var(--cinza);font-size:12px;margin-top:3px}
+.entidade-meta{color:var(--cinza);margin-top:-8px}
+.erro{color:#a33}
+.dossie{max-width:820px;margin:0 auto;background:#fff;padding:34px 40px;border:1px solid var(--linha);border-radius:8px}
+.dossie-cab{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid var(--tinta);padding-bottom:12px}
+.dossie-cab h1{font-size:24px;margin:0}
+.dossie-sub{color:var(--cinza);margin:4px 0 0;font-size:13px}
+.dossie-data{text-align:right;font-size:12px;color:var(--cinza)}
+.dossie-bloco{margin:22px 0}
+.dossie-bloco h2{font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--cinza);margin:0 0 8px}
+.dossie-nome{font-size:20px;margin:0;font-weight:600}
+.dossie-hash code{font-family:"DejaVu Sans Mono",monospace;font-size:11px;word-break:break-all}
+.dossie-tab{font-size:12px}
+.dossie-tab th,.dossie-tab td{padding:6px 8px;vertical-align:top}
+.dossie-rodape{margin-top:28px;border-top:1px solid var(--linha);padding-top:10px;font-size:11px;color:var(--cinza)}
+.dossie-dec{margin:6px 0;font-size:13px}
+@media print{
+  nav,.rodape,.nao-imprimir,.botao{display:none !important}
+  body{background:#fff}
+  .dossie{border:none;padding:0;max-width:none}
+  .dossie-rodape{position:fixed;bottom:0;left:0;right:0}
+  @page{margin:18mm}
+}
