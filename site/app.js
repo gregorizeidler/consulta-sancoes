@@ -4,7 +4,7 @@
   var link = document.querySelector('link[rel="stylesheet"]');
   var BASE = link ? link.getAttribute("href").replace(/\/style\.css.*$/, "") : "";
   var dados = [];
-  var FONTES = { ofac: "OFAC", un: "ONU", eu: "UE" };
+  var FONTES = { ofac: "OFAC", un: "ONU", eu: "UE", pep: "PEP", ceis: "CEIS" };
   var TIPOS = { pessoa: "Pessoa", entidade: "Entidade", embarcacao: "Embarcação", aeronave: "Aeronave", outro: "Outro" };
 
   function escapa(s) {
@@ -48,6 +48,12 @@
   var lista = document.getElementById("lista");
   var contagem = document.getElementById("contagem");
   var botaoMais = document.getElementById("mais");
+
+  // ponte para o extra.js carregar bases extras (PEP) sem recarregar a página
+  window.SancoesApp = {
+    adicionar: function (lista) { dados = dados.concat(M.prepara(lista)); buscar(); },
+    total: function () { return dados.length; }
+  };
 
   function buscar() {
     if (!campo) return;
