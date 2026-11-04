@@ -4,7 +4,7 @@
   var link = document.querySelector('link[rel="stylesheet"]');
   var BASE = link ? link.getAttribute("href").replace(/\/style\.css.*$/, "") : "";
   var dados = [];
-  var FONTES = { ofac: "OFAC", un: "ONU", eu: "UE", pep: "PEP", ceis: "CEIS" };
+  var FONTES = { ofac: "OFAC", un: "ONU", eu: "UE", pep: "PEP", ceis: "CEIS", slavery: "Lista Suja", tcu: "TCU", bcb: "BCB" };
   var TIPOS = { pessoa: "Pessoa", entidade: "Entidade", embarcacao: "Embarcação", aeronave: "Aeronave", outro: "Outro" };
 
   function escapa(s) {
