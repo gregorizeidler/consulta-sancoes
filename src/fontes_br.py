@@ -23,7 +23,7 @@ PROGRAMA = {
 
 
 def baixa(nome, destino):
-    req = urllib.request.Request(ESPELHO % nome, headers=UA)
+    req = urllib.request.Request(ESPELHO % ("br_" + nome), headers=UA)
     with urllib.request.urlopen(req, timeout=300) as r, open(destino, "wb") as f:
         for pedaco in iter(lambda: r.read(1 << 20), b""):
             f.write(pedaco)
