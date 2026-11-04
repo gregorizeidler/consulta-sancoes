@@ -1,19 +1,20 @@
 [
  {
   "data": "2026-11-03",
-  "hora": "22:59",
-  "total": 26760,
+  "hora": "23:14",
+  "total": 43676,
   "por_fonte": {
    "ofac": 19484,
    "un": 1007,
-   "eu": 6269
+   "eu": 6269,
+   "ceis": 16916
   },
   "csv_nome": "sancoes-ofac-onu-ue-2026-11-03.csv",
-  "csv_bytes": 7227195,
-  "csv_sha256": "ca57aadb91358c43baec149b9f4ab075f4bc9b243bdb5a70d1a215cedc606c97",
-  "indice_sha256": "725a3249a7656340d78081fbb5c290db617780bf6e01b624f726dda9c1a2018c",
-  "zip_sha256": "dde1a20475aa455cf825a15bf1cbb63e2a614dac80c3ece5c7ebb50986d47fe0",
+  "csv_bytes": 11105528,
+  "csv_sha256": "c583e322d8bbe828313cad93fb90bbb9f01fee5c5006c7317b4e62cb70bef117",
+  "indice_sha256": "39dc99393fa34d54dbaf4e29935b8f119544135242e207a0e9beed30554dc1b5",
+  "zip_sha256": "0c2ba8574b05551bf4668c193d016914d9ec2867e4da999ed8e4d4d2b1056690",
   "hash_anterior": "0000000000000000000000000000000000000000000000000000000000000000",
-  "cadeia_hash": "148f4ebcf662dfc2fd5c2ec9fcc6450099f6cf12eea8adc232b75faee63a1b0d"
+  "cadeia_hash": "f61005efb406130a8b0c71acf8e4512d5ba9b0926af327862c1008850f5a5f58"
  }
 ]
