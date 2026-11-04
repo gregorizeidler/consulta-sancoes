@@ -5,6 +5,7 @@ from urllib.parse import urlparse
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import assinatura
+import paginas_extra
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
@@ -34,7 +35,8 @@ def escreve(rel, conteudo):
 
 def nav(ativo):
     itens = [("index.html", "Busca"), ("lote.html", "Triagem em lote"),
-             ("mudancas.html", "Mudanças"), ("verificar.html", "Verificar arquivo"), ("api.html", "API")]
+             ("mudancas.html", "Mudanças"), ("dossie.html", "Dossiê"), ("decisoes.html", "Decisões"),
+             ("verificar.html", "Verificar arquivo"), ("api.html", "API")]
     links = "".join(
         '<a href="%s/%s"%s>%s</a>' % (PATH, href, ' class="atual"' if href == ativo else "", rotulo)
         for href, rotulo in itens)
@@ -125,6 +127,7 @@ def main():
     escreve("app.js", open(os.path.join(ROOT, "site", "app.js"), encoding="utf-8").read())
     escreve("motor.js", open(os.path.join(ROOT, "site", "motor.js"), encoding="utf-8").read())
     escreve("verificar.js", open(os.path.join(ROOT, "site", "verificar.js"), encoding="utf-8").read())
+    escreve("extra.js", open(os.path.join(ROOT, "site", "extra.js"), encoding="utf-8").read())
 
     por_fonte = resumo.get("por_fonte", {})
     cartoes = "".join(
@@ -359,8 +362,10 @@ def main():
                                "Endpoints JSON públicos das listas de sanções consolidada.",
                                corpo_api, "api.html", BASE + "/api.html"))
 
+    paginas_extra.gera(OUT, PATH, BASE, CFG, pagina, escreve)
+
     escreve("robots.txt", "User-agent: *\nAllow: /\nSitemap: %s/sitemap.xml\n" % BASE)
-    paginas = ["", "lote.html", "mudancas.html", "verificar.html", "api.html"]
+    paginas = ["", "lote.html", "mudancas.html", "dossie.html", "decisoes.html", "verificar.html", "api.html"]
     escreve("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n'
                            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
                            + "".join("<url><loc>%s/%s</loc></url>" % (BASE, p) for p in paginas)
