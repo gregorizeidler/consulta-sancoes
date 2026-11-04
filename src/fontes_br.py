@@ -23,6 +23,16 @@ PROGRAMA = {
 }
 
 
+def formata_documento(valor):
+    """CPF ou CNPJ sai com rotulo na frente, como nas outras fontes."""
+    digitos = "".join(c for c in (valor or "") if c.isdigit())
+    if len(digitos) == 11:
+        return "CPF %s.%s.%s-%s" % (digitos[:3], digitos[3:6], digitos[6:9], digitos[9:])
+    if len(digitos) == 14:
+        return "CNPJ %s.%s.%s/%s-%s" % (digitos[:2], digitos[2:5], digitos[5:8], digitos[8:12], digitos[12:])
+    return ""
+
+
 def baixa(nome, destino):
     ultimo = None
     for tentativa in range(3):
@@ -50,8 +60,9 @@ def le(nome, caminho):
             if not nome_reg:
                 continue
             aliases = [a.strip() for a in (linha.get("aliases") or "").replace(";", "|").split("|") if len(a.strip()) > 2]
-            docs = [d.strip() for d in (linha.get("identifiers") or "").replace(";", "|").split("|")
-                    if d.strip() and "*" not in d]
+            brutos = [d.strip() for d in (linha.get("identifiers") or "").replace(";", "|").split("|")
+                      if d.strip() and "*" not in d]
+            docs = [x for x in (formata_documento(b) for b in brutos) if x]
             esquema = (linha.get("schema") or "").lower()
             saida.append({
                 "i": nome + "-" + (linha.get("id") or nome_reg)[:40],
