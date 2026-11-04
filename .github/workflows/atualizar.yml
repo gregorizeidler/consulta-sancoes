@@ -24,6 +24,8 @@ jobs:
         run: python3 src/gera_site.py
       - name: Testes do motor de busca
         run: node tests/test_motor.js
+      - name: Testes da base normalizada
+        run: python3 tests/test_dados.py
       - name: Testes do manifesto
         run: node tests/test_manifesto.js
       - name: Guardar snapshot de ids para o diff do dia seguinte
