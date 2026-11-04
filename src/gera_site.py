@@ -164,7 +164,10 @@ def main():
     <div class="filtros">
       <div class="chips" id="fontes">
         <button class="chip ativo" data-fonte="todas">Todas</button>
-        <button class="chip" data-fonte="ceis">CEIS (Brasil)</button>
+        <button class="chip" data-fonte="ceis">CEIS</button>
+        <button class="chip" data-fonte="slavery">Lista Suja</button>
+        <button class="chip" data-fonte="tcu">TCU</button>
+        <button class="chip" data-fonte="bcb">BCB</button>
         <button class="chip" data-fonte="ofac">OFAC</button>
         <button class="chip" data-fonte="un">ONU</button>
         <button class="chip" data-fonte="eu">UE</button>
