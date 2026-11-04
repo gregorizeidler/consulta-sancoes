@@ -203,7 +203,7 @@
       var d = null;
       for (var i = 0; i < dados.length; i++) { if (dados[i][0] === id) { d = dados[i]; break; } }
       if (!d) { alvo.innerHTML = "<p>Registro <code>" + escapa(id) + "</code> não encontrado nesta carga.</p>"; return; }
-      var F = { ofac: "OFAC (EUA)", un: "ONU", eu: "União Europeia", pep: "PEP (Brasil)", ceis: "CEIS (Brasil)" };
+      var F = { ofac: "OFAC (EUA)", un: "ONU", eu: "União Europeia", pep: "PEP (Brasil)", ceis: "CEIS (Brasil)", slavery: "Lista Suja (Brasil)", tcu: "TCU (Brasil)", bcb: "BCB (Brasil)" };
       var T = { pessoa: "Pessoa", entidade: "Entidade", embarcacao: "Embarcação", aeronave: "Aeronave" };
       var al = (d[2] || []);
       var dec = decisaoDe(d[0]);
