@@ -90,6 +90,14 @@ h1{font-family:Georgia,"DejaVu Serif",serif;font-size:30px;margin:0 0 10px;lette
 .alerta{background:#fff6e5;border-left:3px solid #d99a00;padding:10px 12px;border-radius:0 8px 8px 0}
 .link-remover{background:none;border:0;color:#a33;cursor:pointer;font-size:12px;text-decoration:underline;font-family:inherit}
 .vazio{text-align:center;color:var(--cinza);padding:30px 0;font-size:15px}
+.resultado-verifica:empty{display:none}
+.veredito{margin-top:14px;padding:14px 16px;border-radius:10px;border:1px solid #bfe3cf;background:#f1faf5}
+.veredito.falha{border-color:#f0c7c7;background:#fdf3f3}
+.veredito strong{display:block;font-size:16px;margin-bottom:6px}
+.veredito p{margin:0 0 6px;font-size:14px}
+.veredito code{font-family:"DejaVu Sans Mono",monospace;font-size:12px;word-break:break-all}
+.ok-cadeia{color:var(--verde);font-weight:600}
+.ruim-cadeia{color:#a33;font-weight:600}
 footer{border-top:1px solid var(--linha);padding:20px 0 40px;color:var(--cinza);font-size:13px}
 footer p{margin:0 0 6px}
 .miudo{font-size:12px}
