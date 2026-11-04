@@ -85,12 +85,17 @@ def ofac(caminho):
                 paises.append(c)
         docs = []
         LIXO = ("secondary sanctions", "sanctions information", "website", "email", "gender",
-                "digital currency", "unknown", "remarks")
+                "digital currency", "unknown", "remarks", "transactions prohibited",
+                "owned or controlled")
         for i in e.findall("idList/id"):
             numero = texto(i, "idNumber")
-            tipo = texto(i, "idType") or "documento"
-            if numero and not any(x in tipo.lower() for x in LIXO):
-                docs.append((tipo + ": " + numero)[:60])
+            # cuidado: nao reaproveitar a variavel "tipo" (do sdnType) aqui dentro.
+            # ate 03/11/2026 isso sobrescrevia o tipo da entidade e jogava 12.513
+            # registros (47% da base) em baldes como "Secondary sanctions risk:".
+            tipo_doc = texto(i, "idType") or "documento"
+            # rotulo longo ou com cara de observacao nao e tipo de documento
+            if numero and len(tipo_doc) <= 40 and not any(x in tipo_doc.lower() for x in LIXO):
+                docs.append((tipo_doc + ": " + numero)[:60])
         nasc = [texto(d, "dateOfBirthItem") or texto(d, "dateOfBirth") for d in e.findall("dateOfBirthList/dateOfBirthItem")]
         nasc = [d for d in nasc if d]
         saida.append({
@@ -128,9 +133,9 @@ def onu(caminho):
             docs = []
             for d in e.findall("INDIVIDUAL_DOCUMENT"):
                 numero = texto(d, "NUMBER")
-                tipo = texto(d, "TYPE_OF_DOCUMENT") or "documento"
+                tipo_doc = texto(d, "TYPE_OF_DOCUMENT") or "documento"
                 if numero:
-                    docs.append((tipo + ": " + numero)[:60])
+                    docs.append((tipo_doc + ": " + numero)[:60])
             lista = texto(e, "LIST_TYPE/VALUE") or ""
             saida.append({
                 "i": "un-" + (ref or normaliza(nome)), "f": "un", "t": tipo, "n": nome,
@@ -171,9 +176,9 @@ def ue(caminho):
         docs = []
         for ident in e.findall(NS + "identification"):
             numero = ident.get("number") or ""
-            tipo = ident.get("identificationTypeDescription") or ident.get("identificationTypeCode") or "documento"
+            tipo_doc = ident.get("identificationTypeDescription") or ident.get("identificationTypeCode") or "documento"
             if numero:
-                docs.append((tipo + ": " + numero)[:60])
+                docs.append((tipo_doc + ": " + numero)[:60])
         nasc = []
         for b in e.findall(NS + "birthdate"):
             if b.get("birthdate"):
