@@ -26,6 +26,8 @@ jobs:
         run: for f in site/*.js; do node --check "$f"; done
       - name: Testes do motor de busca
         run: node tests/test_motor.js
+      - name: Vigilancia (nomes do vigilancia.json)
+        run: node src/vigilancia.js
       - name: Testes da base normalizada
         run: python3 tests/test_dados.py
       - name: Testes do manifesto
@@ -34,7 +36,7 @@ jobs:
         run: |
           git config user.name "sancoes-bot"
           git config user.email "sancoes-bot@users.noreply.github.com"
-          git add data/ids.json data/resumo.json data/historico.json data/manifesto.json
+          git add data/ids.json data/resumo.json data/historico.json data/manifesto.json data/vigilancia-alertas.json
           git diff --quiet && git diff --staged --quiet || git commit -m "snapshot $(date -u +%Y-%m-%d)"
           git push
       - uses: actions/upload-pages-artifact@v3
