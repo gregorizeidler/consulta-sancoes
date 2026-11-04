@@ -25,8 +25,16 @@
     if (d[9]) det += "<p><b>Detalhe:</b> " + escapa(d[9]) + "</p>";
     if (d[6]) det += "<p><b>País:</b> " + escapa(d[6]) + "</p>";
     if (d[11]) det += "<p><b>Presente também em:</b> " + escapa(d[11].split(",").map(function (x) { return FONTES[x] || x; }).join(", ")) + "</p>";
+    if (typeof estado !== "undefined" && estado.q && d.__n) {
+      var exp = M.explica(M.norm(estado.q), d.__n);
+      var partes = ["casou " + exp.comuns.length + " de " + (exp.comuns.length + exp.faltando.length) + " palavra(s)"];
+      if (exp.ordemTrocada) partes.push("mesmas palavras, outra ordem");
+      if (exp.faltando.length) partes.push("faltou: " + exp.faltando.slice(0, 4).join(", "));
+      det += '<p class="porque"><b>Por que casou:</b> ' + escapa(partes.join(" \u00b7 ")) +
+        ' <span class="comp">Jaro-Winkler ' + exp.jw + "% \u00b7 trigramas " + exp.dice + "% \u00b7 cobertura " + exp.cobertura + "%</span></p>";
+    }
     det += '<p><a href="' + escapa(d[8]) + '" target="_blank" rel="noopener">Ver na fonte oficial</a></p>';
-    return '<article class="item' + (aberto ? " aberto" : "") + '">' +
+    return '<article class="item' + (aberto ? " aberto" : "") + '" data-id="' + escapa(d[0]) + '" data-nome="' + escapa(d[1]) + '" data-score="' + m.score + '">' +
       '<div class="linha"><h3>' + escapa(d[1]) + '</h3>' + selo(m.score) +
       '<span class="fonte ' + d[3] + '">' + (FONTES[d[3]] || d[3]) + '</span>' +
       '<span class="tipo">' + (TIPOS[d[4]] || d[4]) + '</span></div>' +
