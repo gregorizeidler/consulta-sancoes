@@ -330,7 +330,8 @@ def main():
     <table class="tabela"><thead><tr><th>Data</th><th>Registros</th><th>SHA-256 do CSV</th><th>Elo anterior</th></tr></thead>
     <tbody id="tabelaManifesto"><tr><td colspan="4">Carregando…</td></tr></tbody></table>
     <p class="miudo">Manifesto completo em <a href="@@PATH@@/dados/manifesto.json">dados/manifesto.json</a>.</p>
-  </section>"""
+  </section>
+  <script src="@@PATH@@/verificar.js"></script>"""
     corpo_verifica = corpo_verifica.replace("@@PATH@@", PATH)
     escreve("verificar.html", pagina("Verificar arquivo - %s" % CFG["titulo"],
                                      "Confira o SHA-256 de um CSV das listas de sanções e descubra de que dia ele é.",
