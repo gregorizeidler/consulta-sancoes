@@ -121,6 +121,9 @@ def main():
         "zip_sha256": assinatura.sha256_arquivo(os.path.join(OUT, "dados", "listas-completas.zip")),
     })
     escreve("dados/manifesto.json", json.dumps(manifesto, ensure_ascii=False, indent=1))
+    origem_pep = os.path.join(DATA, "pep.json")
+    if os.path.exists(origem_pep):
+        shutil.copyfile(origem_pep, os.path.join(OUT, "dados", "pep.json"))
     cadeia_ok, quebrado = assinatura.verifica(manifesto)
 
     escreve("style.css", open(os.path.join(ROOT, "site", "style.css"), encoding="utf-8").read())
@@ -161,6 +164,7 @@ def main():
     <div class="filtros">
       <div class="chips" id="fontes">
         <button class="chip ativo" data-fonte="todas">Todas</button>
+        <button class="chip" data-fonte="ceis">CEIS (Brasil)</button>
         <button class="chip" data-fonte="ofac">OFAC</button>
         <button class="chip" data-fonte="un">ONU</button>
         <button class="chip" data-fonte="eu">UE</button>
