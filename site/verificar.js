@@ -66,7 +66,7 @@
     var corpo = document.getElementById("tabelaManifesto");
     if (!corpo) return;
     if (!manifesto.length) {
-      corpo.innerHTML = '<tr><td colspan="4">O manifesto começa a ser publicado a partir da próxima execução diária.</td></tr>';
+      corpo.innerHTML = '<tr><td colspan="4">O manifesto começa a ser publicado a partir da próxima execução diaria.</td></tr>';
       return;
     }
     var html = "";
@@ -84,10 +84,8 @@
     if (alvo) alvo.innerHTML = html;
   }
 
-  function conferir(arquivo) {
-    mostra('<p class="progresso">Calculando o SHA-256 de ' + arquivo.name + "…</p>");
-    sha256Arquivo(arquivo).then(function (h) {
-      var achado = null, campo = "";
+  function conferirHash(h) {
+    var achado = null, campo = "";
       for (var i = 0; i < manifesto.length && !achado; i++) {
         var e = manifesto[i];
         if (e.csv_sha256 === h) { achado = e; campo = "CSV"; }
@@ -96,11 +94,11 @@
       }
       if (!achado) {
         mostra('<div class="veredito falha"><strong>Não corresponde a nenhum arquivo publicado.</strong>' +
-          "<p>Hash do arquivo enviado: <code>" + h + "</code></p>" +
+          "<p>Hash conferido: <code>" + h + "</code></p>" +
           "<p>Ou o arquivo foi editado depois de baixado, ou foi gerado fora deste site.</p></div>");
         return;
       }
-      verificaCadeiaAssincrona(manifesto, function (r) {
+      verificadeiaAssincrona(manifesto, function (r) {
         var situacao = r.ok
           ? '<p class="ok-cadeia">Corrente íntegra: os ' + manifesto.length + " dias publicados conferem, " +
             "conferidos agora no seu navegador.</p>"
@@ -112,7 +110,11 @@
           " registros — exatamente o que foi publicado naquele dia.</p>" +
           "<p>SHA-256: <code>" + h + "</code></p>" + situacao + "</div>");
       });
-    });
+  }
+
+  function conferir(arquivo) {
+    mostra('<p class="progresso">Calculando o SHA-256 de ' + arquivo.name + "…</p>");
+    sha256Arquivo(arquivo).then(conferirHash);
   }
 
   var entrada = document.getElementById("arquivoVerifica");
@@ -124,6 +126,11 @@
 
   fetch(BASE + "/dados/manifesto.json")
     .then(function (r) { return r.json(); })
-    .then(function (j) { manifesto = j || []; tabela(); })
+    .then(function (j) {
+      manifesto = j || [];
+      tabela();
+      var h = new URLSearchParams(window.location.search).get("h");
+      if (h && /^[0-9a-f]{64}$/i.test(h)) conferirHash(h.toLowerCase());
+    })
     .catch(function () { manifesto = []; tabela(); });
 })();
