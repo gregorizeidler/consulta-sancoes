@@ -236,17 +236,20 @@ def main():
         contagem[chave] = len(lista)
         registros.extend(lista)
 
-    # PEP e CEIS (Brasil). CEIS entra no índice principal; PEP fica num arquivo à parte
-    # (106 mil nomes) que o site carrega só quando o usuário pedir.
+    # Fontes brasileiras: CEIS, Lista Suja, TCU e BCB entram no índice principal;
+    # o PEP (106 mil nomes) fica num arquivo à parte, carregado só quando o usuário pedir.
     try:
-        caminho_ceis = os.path.join(bruto, "ceis.csv")
-        if fontes_br.baixa("ceis", caminho_ceis):
-            lista_ceis = fontes_br.le("ceis", caminho_ceis)
-            contagem["ceis"] = len(lista_ceis)
-            registros.extend(lista_ceis)
-        caminho_pep = os.path.join(bruto, "pep.csv")
-        if fontes_br.baixa("pep", caminho_pep):
-            lista_pep = fontes_br.le("pep", caminho_pep)
+        for chave_br, slug_br, programa_br, oficial_br in fontes_br.FONTES:
+            destino_br = os.path.join(bruto, slug_br + ".csv")
+            if fontes_br.baixa(slug_br, destino_br):
+                lista_br = fontes_br.le(chave_br, programa_br, oficial_br, destino_br)
+                contagem[chave_br] = contagem.get(chave_br, 0) + len(lista_br)
+                registros.extend(lista_br)
+                print("%s: %d registros" % (chave_br, len(lista_br)))
+        chave_pep, slug_pep, programa_pep, oficial_pep = fontes_br.PEP
+        caminho_pep = os.path.join(bruto, slug_pep + ".csv")
+        if fontes_br.baixa(slug_pep, caminho_pep):
+            lista_pep = fontes_br.le(chave_pep, programa_pep, oficial_pep, caminho_pep)
             json.dump(lista_pep, open(os.path.join(DATA, "pep.json"), "w", encoding="utf-8"),
                       ensure_ascii=False, separators=(",", ":"))
             print("pep: %d registros em dados/pep.json" % len(lista_pep))
