@@ -1,16 +1,440 @@
 {
- "gerado_em": "2026-11-03T23:17:00-03:00",
- "gerado_em_br": "03/11/2026 as 23:17",
- "total": 43676,
+ "gerado_em": "2026-11-03T23:21:47-03:00",
+ "gerado_em_br": "03/11/2026 as 23:21",
+ "total": 45189,
  "por_fonte": {
   "ofac": 19484,
   "un": 1007,
   "eu": 6269,
-  "ceis": 16916
+  "ceis": 16916,
+  "slavery": 497,
+  "tcu": 699,
+  "bcb": 317
  },
- "novos_total": 0,
+ "novos_total": 1513,
  "removidos_total": 0,
- "novos": [],
+ "novos": [
+  {
+   "n": "JOSE WILSON NUNES MOURA",
+   "f": "slavery",
+   "t": "pessoa",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-NK-a3FnyDsEZLVMU5qxonzA44"
+  },
+  {
+   "n": "CONSTRUTORA APODI LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-NK-cx4g5nGdKh2b3VfoyUgimk"
+  },
+  {
+   "n": "RENUKA VALE DO IVAI S.A. - EM RECUPERACAO JUDICIAL",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-NK-kccsfDMeu4ijZds97Ljp4A"
+  },
+  {
+   "n": "HELIO BATISTA DOS SANTOS",
+   "f": "slavery",
+   "t": "pessoa",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-Q27836036"
+  },
+  {
+   "n": "ESTADO DE RONDÔNIA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-00394585000171"
+  },
+  {
+   "n": "VIABRAS ENGENHARIA EIRELI",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-00638595000105"
+  },
+  {
+   "n": "CHURRASCARIA MARGINAL DO TIETE LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-01912390000139"
+  },
+  {
+   "n": "CENTRO DE EQUOTERAPIA MANAUS",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-01935712000165"
+  },
+  {
+   "n": "TERRA FORTE LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-01999130000142"
+  },
+  {
+   "n": "CENTROALCOOL S/A (EM RECUPERACAO JUDICIAL)",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-02896264000109"
+  },
+  {
+   "n": "JOCA PARTICIPAÇÕES S/A",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-02910540000219"
+  },
+  {
+   "n": "WL INDUSTRIA COMERCIO SERVICOS DE MAQUINAS E EQUIPAMENT",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-03594916000105"
+  },
+  {
+   "n": "J C CONSTRUCOES E IMOBILIARIA EIRELI",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-04345274000688"
+  },
+  {
+   "n": "SIPASA SERINGA INDUSTRIAL DO PARA SA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-04363966000144"
+  },
+  {
+   "n": "INDÚSTRIA DE ERVA MATE MACEDO LTDA.",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-04539645000158"
+  },
+  {
+   "n": "DISTRIBUIDORA SO VERDURAS LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-04604549000146"
+  },
+  {
+   "n": "AGROPECUARIA OURO FINO LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-04746187000209"
+  },
+  {
+   "n": "LAURENCIO RIOS DOS SANTOS",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-05089196000156"
+  },
+  {
+   "n": "O VELHO CASARAO B RESTAURANTE LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-05360521000173"
+  },
+  {
+   "n": "DIOGENES MESSIAS SILVA ALVES E SOUZA-SALINAS CHICO ROMAO E CHICO BRITO",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-05894441000106"
+  },
+  {
+   "n": "SISTEMA ELETRONICO DE SEGURANCA CERTA LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-07329645000111"
+  },
+  {
+   "n": "DIVINO IGARAPAVA TRANSPORTES E COMERCIO DE AUTOPECAS LT",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-07952018000132"
+  },
+  {
+   "n": "VULCANO EXPORT MINERACAO EXPORTACAO E IMPORTACAO LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-07954125000108"
+  },
+  {
+   "n": "ANTIX CONFECCOES LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-08220332000193"
+  },
+  {
+   "n": "LAMENHA CONSTRUCOES, INCORPORACOES E EMPREENDIMENTOS LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-08282290000115"
+  },
+  {
+   "n": "J W SOUSA LIMA LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-08672027000132"
+  },
+  {
+   "n": "VIVER BEM - RESIDENCIAL PARA IDOSOS S/S LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-08829344000110"
+  },
+  {
+   "n": "M B CINTRA E CIA LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-09074930000164"
+  },
+  {
+   "n": "ANA PAULA FERNANDES DE MENEZES LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-09376282001091"
+  },
+  {
+   "n": "EAJ ENGENHARIA LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-09578064000149"
+  },
+  {
+   "n": "JOCKEY CLUB RORAIMENSE",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-10137644000180"
+  },
+  {
+   "n": "POSTO DOM PEDRO SALES OLIVEIRA LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-10230467000181"
+  },
+  {
+   "n": "FAM CONSTRUTORA LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-10501574000105"
+  },
+  {
+   "n": "AGROFLORESTAL SERRA DAS ABELHAS LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-10525337000176"
+  },
+  {
+   "n": "VALDECI ANTONIO DE OLIVEIRA TRANSPORTE LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-10786375000182"
+  },
+  {
+   "n": "DUVALE PROJETOS E CONSTRUCOES LTDA - CNO 90.019.82963/70",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-10842734000171"
+  },
+  {
+   "n": "VIVA BEM PENSIONATO PARA TERCEIRA IDADE LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-10861617000155"
+  },
+  {
+   "n": "KANOVA ENGENHARIA E CONSTRUCOES LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-11306141000153"
+  },
+  {
+   "n": "D2 CONSTRUTORA E TRANSPORTE LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-11495771000113"
+  },
+  {
+   "n": "MARCIO ANTONIO NANTES",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-12052561000113"
+  },
+  {
+   "n": "VIESTRE ENGENHARIA LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-12331172000127"
+  },
+  {
+   "n": "BRUVAL TRANSPORTES E SERVICOS AGRICOLAS LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-12349284000105"
+  },
+  {
+   "n": "STF EMPREENDIMENTOS IMOBILIÁRIOS LTDA.",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-12782279000191"
+  },
+  {
+   "n": "ALTENHOFEN COMÉRCIO DE HORTIFRUTIGRANJEIROS LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-13165805000137"
+  },
+  {
+   "n": "G10 OLIVEIRA CONSTRUCOES LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-13458334000155"
+  },
+  {
+   "n": "M. J. DOS SANTOS CUNHA CALCARIO LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-15052296000161"
+  },
+  {
+   "n": "MARCELO BOTASSINI AMBIENTAL LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-15268537000104"
+  },
+  {
+   "n": "SR CONSTRUCOES LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-15530189000100"
+  },
+  {
+   "n": "POLO CONSTRUCOES LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-16973969000189"
+  },
+  {
+   "n": "AGROPECUARIA FORMOSA LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-17326694000154"
+  },
+  {
+   "n": "EXPECTATIVA CONSTRUCOES E INCORPORACOES LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-17460633000185"
+  },
+  {
+   "n": "FAZENDA SERRADINHO LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-17713469000170"
+  },
+  {
+   "n": "THOR MECANIZACAO AGRICOLA LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-17869920000143"
+  },
+  {
+   "n": "PASTELARIA RECANTO DA PRAIA DO LEME LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-18785644000106"
+  },
+  {
+   "n": "EDEMAR PORTO ALIMENTOS E BEBIDAS LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-19257358000122"
+  },
+  {
+   "n": "MANUANE DE LIMA VOGAS",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-19456998000161"
+  },
+  {
+   "n": "LILIANE CARVALHO DE BRITO",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-20199244000152"
+  },
+  {
+   "n": "WANDERLEI LOPES",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-20382865000177"
+  },
+  {
+   "n": "DIVINA GRILL MEIRELES LTDA",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-20433078000107"
+  },
+  {
+   "n": "CONDOMINIO RESIDENCIAL PIRACICABA II",
+   "f": "slavery",
+   "t": "entidade",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cnpj-21513094000172"
+  }
+ ],
  "removidos": [],
  "tamanho_fontes_bytes": {
   "ofac": 29271441,
