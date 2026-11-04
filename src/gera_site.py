@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """Gera o site estatico a partir de data/sancoes.json."""
-import csv, io, json, os, re, shutil, unicodedata, zipfile
+import csv, io, json, os, re, shutil, sys, unicodedata, zipfile
 from urllib.parse import urlparse
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import assinatura
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
@@ -31,7 +34,7 @@ def escreve(rel, conteudo):
 
 def nav(ativo):
     itens = [("index.html", "Busca"), ("lote.html", "Triagem em lote"),
-             ("mudancas.html", "Mudanças"), ("api.html", "API")]
+             ("mudancas.html", "Mudanças"), ("verificar.html", "Verificar arquivo"), ("api.html", "API")]
     links = "".join(
         '<a href="%s/%s"%s>%s</a>' % (PATH, href, ' class="atual"' if href == ativo else "", rotulo)
         for href, rotulo in itens)
@@ -83,6 +86,7 @@ def main():
                        r.get("x", ""), r.get("doc", [])[:4], multiplas])
     escreve("dados/indice.json", json.dumps(indice, ensure_ascii=False, separators=(",", ":")))
     escreve("dados/resumo.json", json.dumps(resumo, ensure_ascii=False, indent=1))
+    escreve("dados/resumo.json", json.dumps(resumo, ensure_ascii=False, indent=1))
     escreve("dados/historico.json", json.dumps(historico, ensure_ascii=False, separators=(",", ":")))
 
     # planilha completa
@@ -97,12 +101,30 @@ def main():
                     r.get("u", ""), r.get("x", ""), " | ".join(r.get("doc", [])),
                     ", ".join(sorted(fontes))])
     csv_bytes = buffer.getvalue().encode("utf-8-sig")
+    escreve("dados/sancoes.csv", csv_bytes)
+    nome_csv = "sancoes-ofac-onu-ue-%s.csv" % resumo.get("gerado_em", "")[:10]
     with zipfile.ZipFile(os.path.join(OUT, "dados", "listas-completas.zip"), "w", zipfile.ZIP_DEFLATED) as z:
-        z.writestr("sancoes-ofac-onu-ue.csv", csv_bytes)
+        z.writestr(nome_csv, csv_bytes)
+
+    # manifesto encadeado: hash do CSV, do indice e do zip, com o elo anterior
+    manifesto = assinatura.registra(os.path.join(DATA, "manifesto.json"), {
+        "data": resumo.get("gerado_em", "")[:10],
+        "hora": resumo.get("gerado_em", "")[11:16],
+        "total": len(registros),
+        "por_fonte": resumo.get("por_fonte", {}),
+        "csv_nome": nome_csv,
+        "csv_bytes": len(csv_bytes),
+        "csv_sha256": assinatura.sha256_arquivo(os.path.join(OUT, "dados", "sancoes.csv")),
+        "indice_sha256": assinatura.sha256_arquivo(os.path.join(OUT, "dados", "indice.json")),
+        "zip_sha256": assinatura.sha256_arquivo(os.path.join(OUT, "dados", "listas-completas.zip")),
+    })
+    escreve("dados/manifesto.json", json.dumps(manifesto, ensure_ascii=False, indent=1))
+    cadeia_ok, quebrado = assinatura.verifica(manifesto)
 
     escreve("style.css", open(os.path.join(ROOT, "site", "style.css"), encoding="utf-8").read())
     escreve("app.js", open(os.path.join(ROOT, "site", "app.js"), encoding="utf-8").read())
     escreve("motor.js", open(os.path.join(ROOT, "site", "motor.js"), encoding="utf-8").read())
+    escreve("verificar.js", open(os.path.join(ROOT, "site", "verificar.js"), encoding="utf-8").read())
 
     por_fonte = resumo.get("por_fonte", {})
     cartoes = "".join(
@@ -274,6 +296,46 @@ def main():
                                     "Histórico diário de inclusões e remoções nas listas OFAC, ONU e UE.",
                                     corpo_hist, "mudancas.html", BASE + "/mudancas.html"))
 
+    # verificar
+    corpo_verifica = """
+  <h1>Verificar um arquivo</h1>
+  <p class="entrada">Todo dia o site publica o SHA-256 do CSV e do índice, encadeado com o hash do dia anterior.
+  Solte aqui o arquivo que você apresentou ao compliance: ele diz de que dia é, e se alguma linha do passado
+  foi mexida depois.</p>
+
+  <section class="lote">
+    <div class="envio"><input type="file" id="arquivoVerifica" accept=".csv,.zip">
+      <span class="dica">Aceita o CSV avulso ou o zip das listas. Nada é enviado: o cálculo é feito no seu navegador.</span></div>
+    <div id="resultadoVerifica" class="resultado-verifica"></div>
+  </section>
+
+  <section class="sobre">
+    <h2>Como a corrente funciona</h2>
+    <p>Cada dia vira uma linha do manifesto com quatro coisas: o SHA-256 do CSV, o SHA-256 do índice JSON,
+    o SHA-256 do zip e o <strong>hash da linha anterior</strong>. A linha inteira é assinada por um quinto campo,
+    o hash da própria linha.</p>
+    <p>Mexer em qualquer dia do passado muda o hash daquela linha, o que quebra o elo de todas as seguintes:
+    a adulteração fica visível, mesmo que alguém regenere os arquivos. É a mesma ideia de uma cadeia de blocos,
+    reduzida ao que interessa aqui.</p>
+    <p>O manifesto fica versionado no repositório e é comitado pelo robô a cada execução, então o histórico do
+    Git é a segunda testemunha: cada versão do manifesto aponta para o commit que a gerou.</p>
+    <p class="alerta">Limite honesto: isso prova que o arquivo é o que o site publicou naquele dia e que o
+    histórico não foi reescrito. Não é assinatura criptográfica com chave privada — para isso seria preciso
+    uma chave guardada em segredo no repositório. Se precisar desse nível (ou de carimbo de tempo de terceiro),
+    eu preparo.</p>
+  </section>
+
+  <section class="sobre">
+    <h2>Últimos dias publicados</h2>
+    <table class="tabela"><thead><tr><th>Data</th><th>Registros</th><th>SHA-256 do CSV</th><th>Elo anterior</th></tr></thead>
+    <tbody id="tabelaManifesto"><tr><td colspan="4">Carregando…</td></tr></tbody></table>
+    <p class="miudo">Manifesto completo em <a href="@@PATH@@/dados/manifesto.json">dados/manifesto.json</a>.</p>
+  </section>"""
+    corpo_verifica = corpo_verifica.replace("@@PATH@@", PATH)
+    escreve("verificar.html", pagina("Verificar arquivo - %s" % CFG["titulo"],
+                                     "Confira o SHA-256 de um CSV das listas de sanções e descubra de que dia ele é.",
+                                     corpo_verifica, "verificar.html", BASE + "/verificar.html"))
+
     # api
     corpo_api = ("""<h1>API</h1>
   <p class="entrada">Todos os dados são arquivos estáticos públicos. Não precisa de chave, cadastro nem token.</p>
@@ -283,6 +345,8 @@ def main():
   <tr><td><a href="%(p)s/dados/resumo.json">dados/resumo.json</a></td><td>Contagens, data da carga e o que mudou nas últimas 24h</td></tr>
   <tr><td><a href="%(p)s/dados/historico.json">dados/historico.json</a></td><td>Histórico diário de inclusões e remoções</td></tr>
   <tr><td><a href="%(p)s/dados/listas-completas.zip">dados/listas-completas.zip</a></td><td>Planilha única em CSV com as três listas</td></tr>
+  <tr><td><a href="%(p)s/dados/sancoes.csv">dados/sancoes.csv</a></td><td>O mesmo CSV, avulso, para conferir o hash</td></tr>
+  <tr><td><a href="%(p)s/dados/manifesto.json">dados/manifesto.json</a></td><td>Manifesto encadeado: SHA-256 do CSV, do índice e do zip, por dia</td></tr>
   </tbody></table>
   <h2>Exemplo</h2>
   <pre class="codigo">curl -s %(b)s/dados/resumo.json</pre>
@@ -295,7 +359,7 @@ def main():
                                corpo_api, "api.html", BASE + "/api.html"))
 
     escreve("robots.txt", "User-agent: *\nAllow: /\nSitemap: %s/sitemap.xml\n" % BASE)
-    paginas = ["", "lote.html", "mudancas.html", "api.html"]
+    paginas = ["", "lote.html", "mudancas.html", "verificar.html", "api.html"]
     escreve("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n'
                            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
                            + "".join("<url><loc>%s/%s</loc></url>" % (BASE, p) for p in paginas)
@@ -306,6 +370,11 @@ def main():
     tamanho = os.path.getsize(os.path.join(OUT, "dados", "indice.json"))
     print("site gerado: %d registros | %d com documento | indice %.1f MB | historico: %d dias"
           % (len(registros), com_doc, tamanho / 1e6, len(historico)))
+    print("manifesto: %d dias | cadeia %s%s"
+          % (len(manifesto), "ok" if cadeia_ok else "QUEBRADA",
+             "" if cadeia_ok else " no elo %d" % quebrado))
+    if not cadeia_ok:
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()
