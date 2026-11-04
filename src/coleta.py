@@ -264,6 +264,11 @@ def main():
         vistos.add(r["i"])
         limpos.append(r)
 
+    # a contagem por fonte sai do que sobrou depois da dedup, senão não fecha com o arquivo
+    contagem = {}
+    for r in limpos:
+        contagem[r["f"]] = contagem.get(r["f"], 0) + 1
+
     anterior = {}
     caminho_ids = os.path.join(DATA, "ids.json")
     if os.path.exists(caminho_ids):
