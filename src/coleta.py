@@ -31,12 +31,26 @@ PAGINA = {
 def baixa(url, destino):
     if os.environ.get("REUSAR_BRUTO") == "1" and os.path.exists(destino) and os.path.getsize(destino) > 10000:
         return os.path.getsize(destino)
-    req = urllib.request.Request(url, headers=UA)
-    with urllib.request.urlopen(req, timeout=180) as r:
-        dados = r.read()
-    with open(destino, "wb") as f:
-        f.write(dados)
-    return len(dados)
+    ultimo = None
+    for tentativa in range(3):
+        try:
+            req = urllib.request.Request(url, headers=UA)
+            with urllib.request.urlopen(req, timeout=180) as r:
+                dados = r.read()
+            if len(dados) < 1000:
+                raise ValueError("resposta curta (%d bytes)" % len(dados))
+            with open(destino, "wb") as f:
+                f.write(dados)
+            return len(dados)
+        except Exception as exc:
+            ultimo = exc
+            time.sleep(5 * (tentativa + 1))
+    # sem resposta depois de 3 tentativas: mantém o arquivo da carga anterior
+    # em vez de zerar a fonte e publicar uma base incompleta
+    if os.path.exists(destino) and os.path.getsize(destino) > 10000:
+        print("AVISO: %s falhou (%s); usando o arquivo da carga anterior" % (url[:70], ultimo))
+        return os.path.getsize(destino)
+    raise ultimo
 
 def sem_namespace(raiz):
     for el in raiz.iter():
