@@ -19,7 +19,7 @@ OFICIAL = {
 }
 PROGRAMA = {
     "pep": "PEP - Pessoas Expostas Politicamente (CGU)",
-    "ceis": "CEIS - Empresas Inidoneas e Suspensas (CGU)",
+    "ceis": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
 }
 
 
