@@ -171,6 +171,29 @@
     return ["fraca", "fraca"];
   }
 
+  // Explica de onde veio o score: palavras que casaram, as que faltaram e as
+  // tres medidas que compoem o numero.
+  function explica(q, c) {
+    if (!q || !c) return { score: 0, jw: 0, dice: 0, cobertura: 0, comuns: [], faltando: [], ordemTrocada: false };
+    var tq = q.split(" ").filter(Boolean), tc = c.split(" ").filter(Boolean);
+    var comuns = [], faltando = [];
+    for (var i = 0; i < tq.length; i++) {
+      var achou = false;
+      for (var j = 0; j < tc.length; j++) {
+        if (equivalente(tq[i], tc[j])) { achou = true; break; }
+      }
+      if (achou) comuns.push(tq[i]); else faltando.push(tq[i]);
+    }
+    return {
+      score: similaridade(q, c),
+      jw: Math.round(100 * jaroWinkler(q, c)),
+      dice: Math.round(100 * dice(q, c)),
+      cobertura: Math.round(100 * cobertura(tq, tc)),
+      comuns: comuns, faltando: faltando,
+      ordemTrocada: tq.length > 1 && tq.length === tc.length && tq.slice().sort().join(" ") === tc.slice().sort().join(" ")
+    };
+  }
+
   function prepara(registros) {
     for (var k = 0; k < registros.length; k++) {
       var d = registros[k];
@@ -215,7 +238,7 @@
   }
 
   var Motor = { norm: norm, equivalente: equivalente, levLimitado: levLimitado, mascara: mascara, popcount: popcount, dice: dice, jaroWinkler: jaroWinkler,
-    cobertura: cobertura, similaridade: similaridade, melhorSim: melhorSim, faixa: faixa,
+    cobertura: cobertura, similaridade: similaridade, melhorSim: melhorSim, faixa: faixa, explica: explica,
     prepara: prepara, candidatos: candidatos };
   raiz.Motor = Motor;
   if (typeof module !== "undefined" && module.exports) module.exports = Motor;
