@@ -8,6 +8,8 @@ Gera:
 """
 import json, os, re, sys, unicodedata, urllib.request
 import xml.etree.ElementTree as ET
+
+import fontes_br
 from datetime import datetime, timezone, timedelta
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -218,6 +220,23 @@ def main():
             lista = []
         contagem[chave] = len(lista)
         registros.extend(lista)
+
+    # PEP e CEIS (Brasil). CEIS entra no índice principal; PEP fica num arquivo à parte
+    # (106 mil nomes) que o site carrega só quando o usuário pedir.
+    try:
+        caminho_ceis = os.path.join(bruto, "ceis.csv")
+        if fontes_br.baixa("ceis", caminho_ceis):
+            lista_ceis = fontes_br.le("ceis", caminho_ceis)
+            contagem["ceis"] = len(lista_ceis)
+            registros.extend(lista_ceis)
+        caminho_pep = os.path.join(bruto, "pep.csv")
+        if fontes_br.baixa("pep", caminho_pep):
+            lista_pep = fontes_br.le("pep", caminho_pep)
+            json.dump(lista_pep, open(os.path.join(DATA, "pep.json"), "w", encoding="utf-8"),
+                      ensure_ascii=False, separators=(",", ":"))
+            print("pep: %d registros em dados/pep.json" % len(lista_pep))
+    except Exception as exc:
+        print("FALHA nas fontes brasileiras: %s" % exc)
 
     # dedup por id
     vistos, limpos = set(), []
