@@ -8,6 +8,7 @@ citada em cada linha.
 """
 import csv
 import os
+import time
 import urllib.request
 
 UA = {"User-Agent": "Mozilla/5.0 (compatible; consulta-sancoes/1.0)"}
@@ -23,11 +24,22 @@ PROGRAMA = {
 
 
 def baixa(nome, destino):
-    req = urllib.request.Request(ESPELHO % ("br_" + nome), headers=UA)
-    with urllib.request.urlopen(req, timeout=300) as r, open(destino, "wb") as f:
-        for pedaco in iter(lambda: r.read(1 << 20), b""):
-            f.write(pedaco)
-    return os.path.getsize(destino)
+    ultimo = None
+    for tentativa in range(3):
+        try:
+            req = urllib.request.Request(ESPELHO % ("br_" + nome), headers=UA)
+            with urllib.request.urlopen(req, timeout=300) as r, open(destino, "wb") as arquivo:
+                for pedaco in iter(lambda: r.read(1 << 20), b""):
+                    arquivo.write(pedaco)
+            if os.path.getsize(destino) < 10000:
+                raise ValueError("resposta curta")
+            return os.path.getsize(destino)
+        except Exception as exc:
+            ultimo = exc
+            time.sleep(5 * (tentativa + 1))
+    if os.path.exists(destino) and os.path.getsize(destino) > 10000:
+        return os.path.getsize(destino)
+    raise ultimo
 
 
 def le(nome, caminho):
