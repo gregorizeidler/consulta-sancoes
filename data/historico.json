@@ -244,5 +244,13 @@
     "p": "CEIS - Empresas Inidoneas e Suspensas (CGU)"
    }
   ]
+ },
+ {
+  "data": "2026-11-03",
+  "hora": "23:17",
+  "novos": 0,
+  "removidos": 0,
+  "total": 43676,
+  "nomes": []
  }
 ]
