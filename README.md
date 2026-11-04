@@ -25,8 +25,11 @@ Site: https://gregorizeidler.github.io/consulta-sancoes
   dá para provar quando um nome entrou.
 - **Presença cruzada.** O mesmo nome em mais de uma lista aparece marcado no resultado
   ("presente também em UE, ONU").
+- **Dataset assinado com hash diário.** Todo dia entra uma linha em dados/manifesto.json com o SHA-256
+  do CSV, do índice e do zip — mais o hash da linha anterior. Mexer em qualquer dia do passado quebra a
+  corrente, e a quebra aparece na página /verificar.html.
 - **API estática.** JSON público, sem chave: dados/indice.json, dados/resumo.json,
-  dados/historico.json, dados/listas-completas.zip.
+  dados/historico.json, dados/manifesto.json, dados/listas-completas.zip.
 
 ## Motor de busca (site/motor.js)
 
@@ -69,6 +72,26 @@ base real: **~46 ms** para 26.760 registros.
 - .github/workflows/atualizar.yml roda todo dia às 06:00 (Brasília): baixa, normaliza, gera, **roda os testes**
   e publica. Se um teste falhar, nada é publicado.
 - A busca e a triagem são 100% no navegador: não há servidor, banco nem log de consulta.
+
+## Prova de integridade (src/assinatura.py)
+
+O caso de uso é o dia da auditoria: alguém pergunta "esta lista que você consultou semana passada é a mesma
+de hoje?". A resposta está no manifesto:
+
+    data, hora, total, por_fonte, csv_nome, csv_bytes,
+    csv_sha256, indice_sha256, zip_sha256, hash_anterior, cadeia_hash
+
+- `cadeia_hash` é o SHA-256 do JSON canônico da linha (chaves ordenadas) sem ele mesmo.
+- `hash_anterior` é o `cadeia_hash` do dia anterior; o primeiro dia aponta para 64 zeros.
+- A página /verificar.html recalcula tudo no navegador: você solta o CSV que apresentou e ela diz de que dia
+  ele é e se a corrente continua íntegra. Nada é enviado a servidor.
+- `node tests/test_manifesto.js` confere a corrente, o hash do CSV e do índice publicados, e simula uma
+  adulteração para garantir que a quebra seria detectada.
+- O manifesto é comitado pelo robô a cada execução, então o histórico do Git é a segunda testemunha.
+
+Limite honesto: isso é prova de integridade e de anterioridade, não assinatura com chave privada. Para
+assinatura criptográfica (ou carimbo de tempo de terceiro) é preciso uma chave guardada como segredo do
+repositório — não é o que está aqui hoje.
 
 ## Formato do índice
 
