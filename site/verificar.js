@@ -66,7 +66,7 @@
     var corpo = document.getElementById("tabelaManifesto");
     if (!corpo) return;
     if (!manifesto.length) {
-      corpo.innerHTML = '<tr><td colspan="4">O manifesto começa a ser publicado a partir da próxima execução diaria.</td></tr>';
+      corpo.innerHTML = '<tr><td colspan="4">O manifesto começa a ser publicado a partir da próxima execução diária.</td></tr>';
       return;
     }
     var html = "";
@@ -98,7 +98,7 @@
           "<p>Ou o arquivo foi editado depois de baixado, ou foi gerado fora deste site.</p></div>");
         return;
       }
-      verificadeiaAssincrona(manifesto, function (r) {
+      verificaCadeiaAssincrona(manifesto, function (r) {
         var situacao = r.ok
           ? '<p class="ok-cadeia">Corrente íntegra: os ' + manifesto.length + " dias publicados conferem, " +
             "conferidos agora no seu navegador.</p>"
@@ -124,13 +124,18 @@
     });
   }
 
-  fetch(BASE + "/dados/manifesto.json")
-    .then(function (r) { return r.json(); })
+  fetch(BASE + "/dados/manifesto.json?v=" + Date.now(), { cache: "no-store" })
+    .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
     .then(function (j) {
       manifesto = j || [];
       tabela();
       var h = new URLSearchParams(window.location.search).get("h");
       if (h && /^[0-9a-f]{64}$/i.test(h)) conferirHash(h.toLowerCase());
     })
-    .catch(function () { manifesto = []; tabela(); });
+    .catch(function (e) {
+      manifesto = [];
+      var corpo = document.getElementById("tabelaManifesto");
+      if (corpo) corpo.innerHTML = '<tr><td colspan="4">Não foi possível carregar o manifesto agora (' +
+        (e && e.message ? e.message : "erro de rede") + "). Recarregue a página.</td></tr>";
+    });
 })();
