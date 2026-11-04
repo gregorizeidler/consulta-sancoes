@@ -22,6 +22,8 @@ jobs:
         run: python3 src/coleta.py
       - name: Gerar o site
         run: python3 src/gera_site.py
+      - name: Sintaxe dos scripts do site
+        run: for f in site/*.js; do node --check "$f"; done
       - name: Testes do motor de busca
         run: node tests/test_motor.js
       - name: Testes da base normalizada
