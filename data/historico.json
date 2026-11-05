@@ -394,5 +394,139 @@
   "removidos": 0,
   "total": 45189,
   "nomes": []
+ },
+ {
+  "data": "2026-11-05",
+  "hora": "14:12",
+  "novos": 50,
+  "removidos": 16,
+  "total": 45223,
+  "nomes": [
+   {
+    "n": "FUGO GROUND SERVICES INC",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "Suniel Kumar SHARMA",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "Jaspreet Preeti SHAHID",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "OCEANIEK TECHNOLOGIES INDIA",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "Ashwani Kumar DHIMAN",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "Ishwinder SINGH",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "ESWATINI MARITIME AFFAIRS AND INTERNATIONAL SHIP REGISTRY PTE. LTD.",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "PRECEPT TRENDS PRIVATE LIMITED",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "POLYNESIA MARITIME PRIVATE LIMITED",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "ALEXARYA FINSERV PRIVATE LIMITED",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "ALEXARYA MEDIA AND ENTERTAINMENT PRIVATE LIMITED",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "ARYAVART SHIP MANAGEMENT PRIVATE LIMITED",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "VIHARABOATING PRIVATE LIMITED",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "ARYAVART MARITIME AND EDUCATIONAL TRUST",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "Alisher DOMULLODZHANOV",
+    "f": "ofac",
+    "p": "IRAN-CON-ARMS-EO"
+   },
+   {
+    "n": "ROYAL MED HOSPITALAR LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "ALC MORAES COMERCIAL LTDA.",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "AGRICOL MATERIAIS DE CONSTRUÇÃO LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "59.714.698 PAULO VITOR MORAIS PEREIRA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "IMUNE DEDETIZADORA LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "C T BRIDI LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "ATUAL SERVICE LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "PAULA RIBEIRO VIEIRA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "MULTIPLOS COMERCIO E EQUIPAMENTOS LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "M.PINHEIRO CONSTRUCOES E SERVICOS LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   }
+  ]
  }
 ]

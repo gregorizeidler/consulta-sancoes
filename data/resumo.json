@@ -1,23 +1,391 @@
 {
- "gerado_em": "2026-11-04T13:56:56-03:00",
- "gerado_em_br": "04/11/2026 as 13:56",
- "total": 45189,
+ "gerado_em": "2026-11-05T14:12:12-03:00",
+ "gerado_em_br": "05/11/2026 as 14:12",
+ "total": 45223,
  "por_fonte": {
-  "ofac": 19484,
+  "ofac": 19499,
   "un": 1007,
   "eu": 6269,
-  "ceis": 16916,
+  "ceis": 16935,
   "slavery": 497,
   "tcu": 699,
   "bcb": 317
  },
- "novos_total": 0,
- "removidos_total": 0,
- "novos": [],
- "removidos": [],
+ "novos_total": 50,
+ "removidos_total": 16,
+ "novos": [
+  {
+   "n": "FUGO GROUND SERVICES INC",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59050"
+  },
+  {
+   "n": "Suniel Kumar SHARMA",
+   "f": "ofac",
+   "t": "pessoa",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59053"
+  },
+  {
+   "n": "Jaspreet Preeti SHAHID",
+   "f": "ofac",
+   "t": "pessoa",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59054"
+  },
+  {
+   "n": "OCEANIEK TECHNOLOGIES INDIA",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59055"
+  },
+  {
+   "n": "Ashwani Kumar DHIMAN",
+   "f": "ofac",
+   "t": "pessoa",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59056"
+  },
+  {
+   "n": "Ishwinder SINGH",
+   "f": "ofac",
+   "t": "pessoa",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59057"
+  },
+  {
+   "n": "ESWATINI MARITIME AFFAIRS AND INTERNATIONAL SHIP REGISTRY PTE. LTD.",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59058"
+  },
+  {
+   "n": "PRECEPT TRENDS PRIVATE LIMITED",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59059"
+  },
+  {
+   "n": "POLYNESIA MARITIME PRIVATE LIMITED",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59060"
+  },
+  {
+   "n": "ALEXARYA FINSERV PRIVATE LIMITED",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59061"
+  },
+  {
+   "n": "ALEXARYA MEDIA AND ENTERTAINMENT PRIVATE LIMITED",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59062"
+  },
+  {
+   "n": "ARYAVART SHIP MANAGEMENT PRIVATE LIMITED",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59063"
+  },
+  {
+   "n": "VIHARABOATING PRIVATE LIMITED",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59064"
+  },
+  {
+   "n": "ARYAVART MARITIME AND EDUCATIONAL TRUST",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59065"
+  },
+  {
+   "n": "Alisher DOMULLODZHANOV",
+   "f": "ofac",
+   "t": "pessoa",
+   "p": "IRAN-CON-ARMS-EO",
+   "i": "ofac-59090"
+  },
+  {
+   "n": "ROYAL MED HOSPITALAR LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-0344ae005f7e654adef9c6b0d7209943"
+  },
+  {
+   "n": "ALC MORAES COMERCIAL LTDA.",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-12313789cf683efade1a6cfc3672064d"
+  },
+  {
+   "n": "AGRICOL MATERIAIS DE CONSTRUÇÃO LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-149bcc9980c95f917cf5bbafc202ef8f"
+  },
+  {
+   "n": "59.714.698 PAULO VITOR MORAIS PEREIRA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-1fb49ffdc52662ec21533c6bc168cda6"
+  },
+  {
+   "n": "IMUNE DEDETIZADORA LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-234f6e5ca5ea7bf74275d14b70e47965"
+  },
+  {
+   "n": "C T BRIDI LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-3562ca65312462634087d9081dd0d9ce"
+  },
+  {
+   "n": "ATUAL SERVICE LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-36211a1a3fc516ecde8f0cf93f1dd2af"
+  },
+  {
+   "n": "PAULA RIBEIRO VIEIRA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-3631702388f6131825dd88aa3d5762d2"
+  },
+  {
+   "n": "MULTIPLOS COMERCIO E EQUIPAMENTOS LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-3c5949978224d2ff2634b4780696268b"
+  },
+  {
+   "n": "M.PINHEIRO CONSTRUCOES E SERVICOS LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-499e2a631d01224fc6f5c7d27abbddd3"
+  },
+  {
+   "n": "ATIVE DISTRIBUIDORA E-COMMERCE LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-5f0611baee9632a7533b33d22c255b82"
+  },
+  {
+   "n": "RENOVA CONSTRUCOES LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-6367e97f99c03832fa1331e033ccc496"
+  },
+  {
+   "n": "SHANALLY SERVICOS DE VIGILANCIA LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-6861c77de754428a6167865a2eccd0cb"
+  },
+  {
+   "n": "WEDERSON RODRIGUES DE OLIVEIRA",
+   "f": "ceis",
+   "t": "pessoa",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-69f18dd48f81bf2258e2ebc447f26399"
+  },
+  {
+   "n": "Gibene Atacado de Suprimentos Ltda",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-6b894d3e8abc5b6c5c5f4624d4e4edbe"
+  },
+  {
+   "n": "TORRE FORTE ATACADO E VAREJO LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-70c84976ad5bb3a35f449fbb4645e339"
+  },
+  {
+   "n": "PROVISAO DISTRIBUIDORA E COMERCIO LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-75dd96a372d4159d728ff16104798a53"
+  },
+  {
+   "n": "42.591.314 JORGE CAVALCANTI LOUREIRO BRAGA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-7a8e15c08f8b72bc1915e9f0c8f8d00f"
+  },
+  {
+   "n": "TAY COMÉRCIO E SERVIÇOS LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-7ae6a336d2e8731bf9b31cc82613f956"
+  },
+  {
+   "n": "Vox Company Ltda",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-8b3c6e7147583d3af36c1886179f03ae"
+  },
+  {
+   "n": "CINECON DISTRIBUIDORA LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-9195f37d11b2c57ea6246ccf6b8714a9"
+  },
+  {
+   "n": "MADO SERVICOS ELETRICOS LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-97fa5a12d93c04ff4d14a3c4a01e32e2"
+  },
+  {
+   "n": "ARSERV COMERCIO E SERVICOS EM SISTEMA DE REFRIGERACAO LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-b4568255873f14745c280cdb32bdc483"
+  },
+  {
+   "n": "VARN TECH SOLUTIONS LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-bb746df69d00ae185624c0396ebbe552"
+  },
+  {
+   "n": "64.370.011 LUIZ FERNANDO SILVA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-cbdb7864458c0ed5d67a0ac4b81d9080"
+  },
+  {
+   "n": "WB CAMARGO ENGENHARIA LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-cd220f19c2896b345a238defbab1d4ed"
+  },
+  {
+   "n": "DBS COMMERCE & SOLUTIONS LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-d169d6fe4df29dda0fc46db2b7593973"
+  },
+  {
+   "n": "SS CONFIANCA LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-da5977b1b65ee800ddd9b8e25a091eec"
+  },
+  {
+   "n": "CONSTRUTORA W.B.F. LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-dc94ebc6d90e3fc5c7f558c9f70ed57e"
+  },
+  {
+   "n": "VET PLANALTO PRODUTOS E SERVIÇOS VETERINÁRIOS LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-e9373920a474cd2726890a3e9c2619d4"
+  },
+  {
+   "n": "VITORIO BEATRIZ DEITOS UMPIERREZ",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-ed4337c837420c86529da68d0afc5993"
+  },
+  {
+   "n": "FABRICIO SALES DE FARIA",
+   "f": "ceis",
+   "t": "pessoa",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-eff44d7cf128d6a5eb7286f0e1e3efa1"
+  },
+  {
+   "n": "LOTHUS CONSULTORIA E TECNOLOGIA LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-f87e9f726f2b1f00093ec8f0397dfc8d"
+  },
+  {
+   "n": "EAS SOLUCOES E SERVICOS LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-ff769b93fc4ee64ba9627af4abd82638"
+  },
+  {
+   "n": "J. N. SERVICOS ESPECIALIZADOS LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-ffa9f81b74165d04d4d5a88ab6a826e8"
+  }
+ ],
+ "removidos": [
+  "ceis-br-ceis-00ff51d7d7217cd21188f9be055b361a",
+  "ceis-br-ceis-09791728083bc63bcb0888bbeb5a89d6",
+  "ceis-br-ceis-1420527d79515f4b5e766121307dcb1d",
+  "ceis-br-ceis-2189cfc32462671df0def7683b6cc1db",
+  "ceis-br-ceis-29942da188c32fa7b5c2dcc1c73d4f79",
+  "ceis-br-ceis-329a884ad966fdc403443d0136653535",
+  "ceis-br-ceis-37460fdfd61d5bbcd787685368573191",
+  "ceis-br-ceis-4306d6befcf63115b8a931d17dbeaa09",
+  "ceis-br-ceis-4b1052a5395932c1bbe5eaa5c815e127",
+  "ceis-br-ceis-57109210752b325cae7d20d640df470c",
+  "ceis-br-ceis-5aa4e087d19d73a39b4a6808ffac792e",
+  "ceis-br-ceis-8b2694e17e84eb418cbee3e3bdb86793",
+  "ceis-br-ceis-8cfa518321696b0c78d31f22d05d9c93",
+  "ceis-br-ceis-b2064f041b20fca96cfec3ab0b5fe6af",
+  "ceis-br-ceis-f7a16db3ca62f35f80b4b21d6bd9ab62",
+  "ceis-br-ceis-f7b6e0fa0bf67348483291b313bf576b"
+ ],
  "tamanho_fontes_bytes": {
-  "ofac": 29271441,
-  "un": 2177571,
+  "ofac": 29468632,
+  "un": 2177566,
   "eu": 25899600
  },
  "primeira_carga": false
