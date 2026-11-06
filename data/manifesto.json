@@ -61,5 +61,26 @@
   "zip_sha256": "c2929431335c544924bc0953d9b766773a4daff101bbe84c71ae4ec9faffc8f4",
   "hash_anterior": "30e2ef7fa60d3b633784f38ef932aeed6e1c72f120492fd40be9fbee5edd2e56",
   "cadeia_hash": "cdaa357d098d6305371b43a43a0f3ed140b3b2e7c04a2ae030d520d21e84f7f4"
+ },
+ {
+  "data": "2026-11-06",
+  "hora": "10:36",
+  "total": 45293,
+  "por_fonte": {
+   "ofac": 19555,
+   "un": 1007,
+   "eu": 6269,
+   "ceis": 16950,
+   "slavery": 496,
+   "tcu": 699,
+   "bcb": 317
+  },
+  "csv_nome": "sancoes-ofac-onu-ue-2026-11-06.csv",
+  "csv_bytes": 11425679,
+  "csv_sha256": "d075e2f27e2828b6c7c61deace1696c72553cb0bbaf4b5345168672836fbd66e",
+  "indice_sha256": "7ba50a7395704e333b9bef658b37a638535835565807d68aba78690284516e24",
+  "zip_sha256": "8a9c72f52ca0ae8fec2261bb65f615e5642a45a6616058169e1437c0a3918c71",
+  "hash_anterior": "cdaa357d098d6305371b43a43a0f3ed140b3b2e7c04a2ae030d520d21e84f7f4",
+  "cadeia_hash": "d4d9c7bdbfe82510107400cfff219e70d106d3b190b1bbed3e468c1426291fe0"
  }
 ]

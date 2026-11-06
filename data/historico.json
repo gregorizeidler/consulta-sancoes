@@ -528,5 +528,139 @@
     "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
    }
   ]
+ },
+ {
+  "data": "2026-11-06",
+  "hora": "10:36",
+  "novos": 88,
+  "removidos": 18,
+  "total": 45293,
+  "nomes": [
+   {
+    "n": "ASIAN WELFARE LOTTERIES CO LTD",
+    "f": "ofac",
+    "p": "TCO"
+   },
+   {
+    "n": "CB GENERAL INSURANCE PLC",
+    "f": "ofac",
+    "p": "TCO"
+   },
+   {
+    "n": "CAMBODIAN RESOURCE ENERGY DEVELOPMENT CO LTD",
+    "f": "ofac",
+    "p": "TCO"
+   },
+   {
+    "n": "CAMBODIAN UNITE WEI YE INVESTMENT CO LTD",
+    "f": "ofac",
+    "p": "TCO"
+   },
+   {
+    "n": "DT ZHI ZAO CO LTD",
+    "f": "ofac",
+    "p": "TCO"
+   },
+   {
+    "n": "FIRST AQUATIC INDUSTRIAL CO LTD",
+    "f": "ofac",
+    "p": "TCO"
+   },
+   {
+    "n": "MO NET BEAUTY CO LTD",
+    "f": "ofac",
+    "p": "TCO"
+   },
+   {
+    "n": "PRINCE INTERNATIONAL AIRLINES CO LTD",
+    "f": "ofac",
+    "p": "TCO"
+   },
+   {
+    "n": "RICHENG PROPERTY DEVELOPER CO LTD",
+    "f": "ofac",
+    "p": "TCO"
+   },
+   {
+    "n": "TIAN XU INTERNATIONAL TECHNOLOGY PLC",
+    "f": "ofac",
+    "p": "TCO"
+   },
+   {
+    "n": "ZHX PRINTING EQUIPMENT CAMBODIA CO LTD",
+    "f": "ofac",
+    "p": "TCO"
+   },
+   {
+    "n": "Yong QIU",
+    "f": "ofac",
+    "p": "TCO"
+   },
+   {
+    "n": "Yujing HE",
+    "f": "ofac",
+    "p": "TCO"
+   },
+   {
+    "n": "SUPER LIGHT SPEED KH TECHNOLOGY CO., LTD.",
+    "f": "ofac",
+    "p": "TCO"
+   },
+   {
+    "n": "Visal PANG",
+    "f": "ofac",
+    "p": "TCO"
+   },
+   {
+    "n": "CAMBODIA FIRST UNITE CONSTRUCTION GROUP CO., LTD.",
+    "f": "ofac",
+    "p": "TCO"
+   },
+   {
+    "n": "FIRST UNITE INTERNATIONAL LOGISTICS CO., LTD.",
+    "f": "ofac",
+    "p": "TCO"
+   },
+   {
+    "n": "FIRST UNITE NETWORKS ENTERTAINMENT CO., LTD.",
+    "f": "ofac",
+    "p": "TCO"
+   },
+   {
+    "n": "FIRST UNITE PROPERTY CO., LTD.",
+    "f": "ofac",
+    "p": "TCO"
+   },
+   {
+    "n": "FIRST UNITE DECORATION CAMBODIA CO., LTD.",
+    "f": "ofac",
+    "p": "TCO"
+   },
+   {
+    "n": "CAMBODIAN FIRST UNITE CONSTRUCTION MACHINERY CO., LTD.",
+    "f": "ofac",
+    "p": "TCO"
+   },
+   {
+    "n": "LINKEDUS TECHNOLOGY CO., LTD.",
+    "f": "ofac",
+    "p": "TCO"
+   },
+   {
+    "n": "CAMBO DUTY FREE MERCHANDISE CO., LTD.",
+    "f": "ofac",
+    "p": "TCO"
+   },
+   {
+    "n": "MARCO POLO HOTEL CO. LTD.",
+    "f": "ofac",
+    "p": "TCO"
+   },
+   {
+    "n": "U-LIFE GO NOW CO., LTD.",
+    "f": "ofac",
+    "p": "TCO"
+   }
+  ]
  }
 ]
