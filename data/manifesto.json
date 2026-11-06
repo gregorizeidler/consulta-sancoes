@@ -64,7 +64,7 @@
  },
  {
   "data": "2026-11-06",
-  "hora": "14:02",
+  "hora": "14:14",
   "total": 45293,
   "por_fonte": {
    "ofac": 19555,
@@ -79,8 +79,8 @@
   "csv_bytes": 11425679,
   "csv_sha256": "d075e2f27e2828b6c7c61deace1696c72553cb0bbaf4b5345168672836fbd66e",
   "indice_sha256": "7ba50a7395704e333b9bef658b37a638535835565807d68aba78690284516e24",
-  "zip_sha256": "3be8b4b47bdb1954577b29e2e11046189511c7be9445c9db40a650a9ad321dc7",
+  "zip_sha256": "ead21297397fa29864941d6d81fa435f7fe6c6df3a2c31a850243cc25a52c052",
   "hash_anterior": "cdaa357d098d6305371b43a43a0f3ed140b3b2e7c04a2ae030d520d21e84f7f4",
-  "cadeia_hash": "abeba62e4392f81db5593905126302238f3df4404d1bbba458db27c7c1e4e794"
+  "cadeia_hash": "353c55462d1c7f31752f72590921035d09b62689d2d3151118369b3dbfe9ea51"
  }
 ]
