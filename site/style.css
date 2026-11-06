@@ -6,7 +6,7 @@
   --sombra:0 1px 2px rgba(15,23,42,.04),0 2px 8px rgba(15,23,42,.04);
   --sombra-forte:0 4px 6px rgba(15,23,42,.04),0 16px 40px rgba(15,23,42,.10);
   --raio:14px;
-  --c-ofac:#15803d; --c-un:#2563eb; --c-eu:#7c3aed; --c-ceis:#c2410c; --c-slavery:#b91c1c; --c-tcu:#0e7490; --c-bcb:#a16207; --c-pep:#be185d;
+  --c-ofac:#15803d; --c-un:#2563eb; --c-eu:#7c3aed; --c-ceis:#c2410c; --c-slavery:#b91c1c; --c-tcu:#0e7490; --c-bcb:#a16207; --c-pep:#be185d; --c-ofacns:#4d7c0f; --c-uk:#1d4ed8; --c-cnep:#9a3412;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -257,4 +257,25 @@ main p code,.sobre code{background:#eef2f7;padding:1px 6px;border-radius:5px;fon
   .dossie-rodape{position:fixed;bottom:0;left:0;right:0}
   @page{margin:18mm}
 }
-[hidden]{display:none!important}
+.fonte-info{margin:26px 0 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.1)}
+.fonte-info h4{margin:0 0 10px}
+.fonte-info-lista{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 20px;font-size:12.5px}
+.fonte-info-item strong{color:#e2e8f0;font-weight:600;margin-right:4px}
+.fonte-info-aviso{color:#fbbf24;font-weight:600}
+.fonte-info-alerta{margin:18px 0 0;font-size:13.5px}
+
+/* contexto da consulta: nascimento, pais e documento entram na nota */
+.contexto{display:grid;grid-template-columns:1fr 1fr 1.4fr;gap:12px;margin:12px 0 4px}
+.contexto .campo label{display:block;font-size:12.5px;font-weight:600;color:var(--texto);margin:0 0 4px}
+.contexto .opc{font-weight:400;color:#94a3b8}
+.contexto input{width:100%;box-sizing:border-box;font:inherit;font-size:14.5px;padding:10px 12px;border:1.5px solid var(--linha-forte);border-radius:10px;background:#fff;outline:none}
+.contexto input:hover{border-color:#94a3b8}
+.contexto input:focus{border-color:var(--azul);box-shadow:0 0 0 3px rgba(37,99,235,.15)}
+@media (max-width:640px){.contexto{grid-template-columns:1fr}}
+.aj{display:inline-block;margin-left:6px;padding:1px 8px;border-radius:999px;font-size:11.5px;font-weight:600;white-space:nowrap;background:#f1f5f9;color:#475569}
+.aj.pos{background:#dcfce7;color:#166534}
+.aj.neg{background:#fee2e2;color:#991b1b}
+.aviso{margin:8px 0;padding:10px 14px;border-radius:10px;background:#fef3c7;color:#92400e;font-size:13.5px;line-height:1.45}
+.aviso[hidden]{display:none!important}
+.fonte.ofacns{background:#ecfccb;color:var(--c-ofacns)}.fonte.uk{background:#dbeafe;color:var(--c-uk)}.fonte.cnep{background:#ffedd5;color:var(--c-cnep)}
+.item:has(.fonte.ofacns){border-left-color:var(--c-ofacns)}.item:has(.fonte.uk){border-left-color:var(--c-uk)}.item:has(.fonte.cnep){border-left-color:var(--c-cnep)}

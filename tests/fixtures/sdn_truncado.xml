@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="yes"?>
+<sdnList xmlns="https://sanctionssearch.ofac.treas.gov/XML">
+  <publshInformation><Publish_Date>11/04/2026</Publish_Date><Record_Count>3</Record_Count></publshInformation>
+  <sdnEntry><uid>100</uid><lastName>ACME TRADING LLC</lastName><sdnType>Entity</sdnType>
+    <programList><program>SDGT</program></programList></sdnEntry>
+  <sdnEntry><uid>101</uid><firstName>Ivan</firstName><lastName>PETROV</lastName><sdnType>Individual</sdnType>
+    <programList><program>RUSSIA-EO14024</program></programList>
+    <idList><id><idType>Passport</idType><idNumber>P123456</idNumber></id></idList></sdnEntry>
+  

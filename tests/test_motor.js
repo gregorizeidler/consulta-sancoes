@@ -66,8 +66,59 @@ if (!fs.existsSync(arquivo)) {
   console.log("  (" + (r1.length) + " candidatos com >=70% para 'sberbnak'; " + ms + " ms)");
   const porDoc = dados.filter(d => d.__docs.length && d.__docs[0].length > 5);
   ok(porDoc.length > 1000, "base tem registros com documento", String(porDoc.length));
+  const arqPep = path.join(__dirname, "..", "docs", "dados", "pep.json");
+  if (fs.existsSync(arqPep)) {
+    const pep = JSON.parse(fs.readFileSync(arqPep, "utf8"));
+    ok(pep.length > 0 && Array.isArray(pep[0]) && pep[0].length === 12, "pep.json usa o mesmo formato posicional do indice");
+    const srv = Motor.servidor();
+    srv.carregar(JSON.parse(fs.readFileSync(arquivo, "utf8")));
+    srv.adicionar(pep);
+    const comMasc = pep.find((d) => d[10].some((x) => x.indexOf("*") > -1));
+    const r = srv.buscar({ q: comMasc[1] }, { limiar: 85, fonte: "pep", tipo: "todos", maximo: 50 });
+    ok(r.resultados.some((x) => x.rec[0] === comMasc[0]), "registro PEP carregado no motor e achado pelo nome");
+  }
 }
 
-console.log("");
-console.log(falhas === 0 ? "TODOS OS " + total + " TESTES PASSARAM" : falhas + " DE " + total + " FALHARAM");
-process.exit(falhas === 0 ? 0 : 1);
+console.log("documentos, datas e contexto");
+ok(Motor.validaCPF("52998224725"), "CPF valido passa no digito verificador");
+ok(!Motor.validaCPF("52998224724"), "CPF com digito errado reprova");
+ok(!Motor.validaCPF("11111111111"), "CPF de digitos repetidos reprova");
+ok(Motor.validaCNPJ("11222333000181"), "CNPJ valido passa");
+ok(!Motor.validaCNPJ("11222333000182"), "CNPJ com digito errado reprova");
+{
+  const reg = Motor.prepara([
+    ["a1", "VLADIMIR PETROV", [], "ofac", "pessoa", "", "RUSSIA", "", "", "1970-03-12", ["CPF: 529.982.247-25"], []],
+    ["a2", "VLADIMIR PETROV", [], "eu", "pessoa", "", "UKRAINE", "", "", "1985-06-01", [], []]
+  ]);
+  const b = (c) => Motor.busca(reg, c, { limiar: 60, candidatos: 50 }).resultados;
+  const score = (rs, id) => (rs.find((x) => x.rec[0] === id) || { score: 0 }).score;
+  const base = b({ q: "Vladimir Petrov" });
+  ok(score(base, "a1") === score(base, "a2"), "sem contexto os homonimos empatam");
+  const nasc = b({ q: "Vladimir Petrov", nasc: "12/03/1970" });
+  ok(score(nasc, "a1") > score(nasc, "a2"), "data de nascimento igual desempata a favor do certo");
+  ok(score(b({ q: "Vladimir Petrov", nasc: "1990" }), "a1") < score(base, "a1"), "ano de nascimento diferente derruba a nota");
+  const pr = b({ q: "Vladimir Petrov", pais: "Russia" });
+  ok(score(pr, "a1") > score(pr, "a2"), "pais igual entra no score");
+  ok(b({ q: "Vladimir Petrov", doc: "***.982.247-**" })[0].rec[0] === "a1", "CPF mascarado compativel favorece o registro certo");
+  ok(score(b({ q: "Vladimir Petrov", doc: "111.444.777-35" }), "a1") < score(base, "a1"), "CPF diferente derruba a nota");
+}
+ok(Motor.similaridade("mohammed", "muhammad") >= 85 && Motor.similaridade("mohamed", "muhammad") >= 85, "variantes Mohammed/Muhammad/Mohamed casam");
+ok(Motor.similaridade(Motor.norm("Владимир Путин"), "vladimir putin") >= 85, "cirilico casa com a grafia latina");
+
+console.log("contrato do worker");
+{
+  const srv = Motor.servidor();
+  Motor.despacha(srv, "carregar", { lista: [["x1", "ACME TRADING LLC", [], "ofac", "entidade", "", "US", "", "", "", [], []]] }).then((t) => {
+    ok(t === 1, "despacha carregar devolve o total");
+    return Motor.despacha(srv, "buscar", { consulta: { q: "acme tradng" }, opts: { limiar: 70 } });
+  }).then((r) => {
+    ok(r.resultados.length === 1 && r.resultados[0].rec[0] === "x1", "despacha buscar acha o registro com typo");
+    return Motor.despacha(srv, "nao-existe", {}).then(() => ok(false, "mensagem desconhecida rejeita"), () => ok(true, "mensagem desconhecida rejeita"));
+  }).then(fim, (e) => { ok(false, "contrato do worker", String(e)); fim(); });
+}
+
+function fim() {
+  console.log("");
+  console.log(falhas === 0 ? "TODOS OS " + total + " TESTES PASSARAM" : falhas + " DE " + total + " FALHARAM");
+  process.exit(falhas === 0 ? 0 : 1);
+}

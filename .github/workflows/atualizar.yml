@@ -18,7 +18,15 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      - name: Cache dos arquivos brutos (fallback se uma fonte cair)
+        uses: actions/cache@v4
+        with:
+          path: data/bruto
+          key: bruto-${{ github.run_id }}
+          restore-keys: bruto-
       - name: Baixar e normalizar as listas
+        env:
+          PORTAL_TRANSPARENCIA_KEY: ${{ secrets.PORTAL_TRANSPARENCIA_KEY }}
         run: python3 src/coleta.py
       - name: Gerar o site
         run: python3 src/gera_site.py
@@ -26,10 +34,18 @@ jobs:
         run: for f in site/*.js; do node --check "$f"; done
       - name: Testes do motor de busca
         run: node tests/test_motor.js
+      - name: Benchmark de precisao e recall (falha abaixo dos minimos)
+        run: node tests/benchmark.js --check
+      - name: Indice invertido contra a varredura completa
+        run: node tests/indice_oracle.js --check
+      - name: Fuzzing do motor
+        run: node tests/fuzz_motor.js 3000
       - name: Vigilancia (nomes do vigilancia.json)
         run: node src/vigilancia.js
       - name: Testes da base normalizada
         run: python3 tests/test_dados.py
+      - name: Testes das fontes (esquema, queda, CPF mascarado)
+        run: python3 tests/test_fontes.py
       - name: Testes do manifesto
         run: node tests/test_manifesto.js
       - name: Guardar snapshot de ids para o diff do dia seguinte

@@ -1,0 +1,5 @@
+"id","schema","name","aliases","birth_date","countries","addresses","identifiers","sanctions","phones","emails","program_ids","dataset","first_seen","last_seen","last_change"
+"NK-a","Organization","BANCO EXEMPLO SA","","","ru","","EXMPRU2X","","","","US-SSI","US OFAC","","",""
+"NK-b","Person","Ivan Petrov","","","ru","","","","","","US-RUSHAR","US OFAC","","",""
+"NK-c","Security","US0000000001","","","","","US0000000001","","","","","US OFAC","","",""
+"NK-d","Person","Maria Souza","","1951","ps","","","","","","US-NS-PLC","US OFAC","","",""

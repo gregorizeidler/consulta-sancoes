@@ -203,7 +203,7 @@
       var d = null;
       for (var i = 0; i < dados.length; i++) { if (dados[i][0] === id) { d = dados[i]; break; } }
       if (!d) { alvo.innerHTML = "<p>Registro <code>" + escapa(id) + "</code> não encontrado nesta carga.</p>"; return; }
-      var F = { ofac: "OFAC (EUA)", un: "ONU", eu: "União Europeia", pep: "PEP (Brasil)", ceis: "CEIS (Brasil)", slavery: "Lista Suja (Brasil)", tcu: "TCU (Brasil)", bcb: "BCB (Brasil)" };
+      var F = { ofac: "OFAC SDN (EUA)", ofacns: "OFAC não-SDN (EUA)", uk: "Reino Unido (OFSI)", cnep: "CNEP (Brasil)", un: "ONU", eu: "União Europeia", pep: "PEP (Brasil)", ceis: "CEIS (Brasil)", slavery: "Lista Suja (Brasil)", tcu: "TCU (Brasil)", bcb: "BCB (Brasil)" };
       var T = { pessoa: "Pessoa", entidade: "Entidade", embarcacao: "Embarcação", aeronave: "Aeronave" };
       var al = (d[2] || []);
       var dec = decisaoDe(d[0]);
@@ -265,11 +265,9 @@
     if (!window.SancoesApp) { estado.textContent = "indisponível nesta página"; return; }
     caixa.disabled = true;
     estado.textContent = "carregando…";
-    fetch(BASE + "/dados/pep.json?v=" + Date.now())
-      .then(function (r) { return r.json(); })
-      .then(function (lista) {
-        window.SancoesApp.adicionar(lista);
-        estado.textContent = "(" + lista.length.toLocaleString("pt-BR") + " nomes carregados)";
+    window.SancoesApp.adicionarUrl("/dados/pep.json?v=" + Date.now())
+      .then(function (r) {
+        estado.textContent = "(" + r.adicionados.toLocaleString("pt-BR") + " nomes carregados)";
         caixa.disabled = false;
       })
       .catch(function () {

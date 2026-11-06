@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="yes"?>
+<sdnList xmlns="https://sanctionssearch.ofac.treas.gov/XML">
+  <publshInformation><Publish_Date>11/04/2026</Publish_Date><Record_Count>3</Record_Count></publshInformation>
+  <sdnEntry><uid>101</uid><firstName>Ivan</firstName><lastName>PETROV</lastName><sdnType>Individual</sdnType>
+    <programList><program>RUSSIA-EO14024</program></programList></sdnEntry>
+  <sdnEntry><uid>200</uid><lastName>BANCO EXEMPLO SA</lastName><sdnType>Entity</sdnType>
+    <programList><program>UKRAINE-EO13662</program></programList>
+    <addressList><address><country>Russia</country></address></addressList>
+    <idList><id><idType>SWIFT/BIC</idType><idNumber>EXMPRU2X</idNumber></id></idList></sdnEntry>
+  <sdnEntry><uid>201</uid><firstName>Maria</firstName><lastName>SOUZA</lastName><sdnType>Individual</sdnType>
+    <programList><program>NS-PLC</program></programList>
+    <dateOfBirthList><dateOfBirthItem><dateOfBirth>1951</dateOfBirth></dateOfBirthItem></dateOfBirthList></sdnEntry>
+</sdnList>

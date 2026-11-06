@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Designations>
+  <DateGenerated>03/11/2026</DateGenerated>
+  <Designation>
+    <DateDesignated>25/01/2001</DateDesignated><UniqueID>AFG0006</UniqueID><OFSIGroupID>7270</OFSIGroupID>
+    <Nomes>
+      <Name><Name1>MOHAMMAD</Name1><Name2>HASSAN</Name2><Name6>AKHUND</Name6><NameType>Primary Name</NameType></Name>
+      <Name><Name6>Hasan Akhund</Name6><NameType>Alias</NameType></Name>
+    </Nomes>
+    <RegimeName>The Afghanistan (Sanctions) (EU Exit) Regulations 2020</RegimeName>
+    <IndividualEntityShip>Individual</IndividualEntityShip>
+    <Addresses><Address><AddressLine1>Kabul</AddressLine1><AddressCountry>Afghanistan</AddressCountry></Address></Addresses>
+    <IndividualDetails><Individual>
+      <DOBs><DOB>dd/mm/1945</DOB><DOB>12/11/1946</DOB></DOBs>
+      <PassportDetails><Passport><PassportNumber>D0009871</PassportNumber></Passport></PassportDetails>
+      <NationalIdentifierDetails><NationalIdentifier><NationalIdentifierNumber>545167</NationalIdentifierNumber></NationalIdentifier></NationalIdentifierDetails>
+      <Nationalities><Nationality>Afghanistan</Nationality></Nationalities>
+    </Individual></IndividualDetails>
+  </Designation>
+  <Designation>
+    <DateDesignated>29/06/2012</DateDesignated><UniqueID>RUS0100</UniqueID>
+    <Nomes><Name><Name6>ELECTRA PRO LLC</Name6><NameType>Primary name</NameType></Name></Nomes>
+    <RegimeName>The Russia (Sanctions) (EU Exit) Regulations 2019</RegimeName>
+    <IndividualEntityShip>Entity</IndividualEntityShip>
+    <EntityDetails><Entity><BusinessRegistrationNumbers><BusinessRegistrationNumber>1147746050935</BusinessRegistrationNumber></BusinessRegistrationNumbers></Entity></EntityDetails>
+  </Designation>
+  <Designation>
+    <DateDesignated>03/10/2017</DateDesignated><UniqueID>DPR0075</UniqueID>
+    <Nomes><Name><Name6>Petrel 8</Name6><NameType>Primary name</NameType></Name>
+           <Name><Name6>Jal Vahini</Name6><NameType>Alias</NameType></Name></Nomes>
+    <RegimeName>The Democratic People's Republic of Korea (Sanctions) (EU Exit) Regulations 2019</RegimeName>
+    <IndividualEntityShip>Ship</IndividualEntityShip>
+    <ShipDetails><Ship><IMONumbers><IMONumber>IMO9562233</IMONumber></IMONumbers></Ship></ShipDetails>
+  </Designation>
+</Designations>

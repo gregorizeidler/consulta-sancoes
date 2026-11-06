@@ -1,0 +1,12 @@
+{
+  "85": {
+    "precisao": 0.94, "recall": 0.98, "f1": 0.96, "top1": 0.98, "mrr": 0.99, "negativosLimpos": 0.97,
+    "porCategoria": {
+      "digitacao": 0.99, "digitacao2": 0.98, "ordem": 0.99, "translit": 0.95, "translit+ordem": 0.88,
+      "alias": 0.99, "cirilico": 0.99, "formato": 0.99, "mix-negativo": 0.96, "comum-negativo": 0.7,
+      "nasc-confere": 0.99, "nasc-diverge": 0.98, "pais-diverge": 0.98,
+      "cpf-completo": 0.99, "cpf-mascarado": 0.99, "cpf-diverge": 0.97, "cpf-dv-invalido": 0.99
+    }
+  },
+  "70": { "recall": 0.985, "top1": 0.98, "mrr": 0.99 }
+}

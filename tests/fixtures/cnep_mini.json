@@ -1,0 +1,36 @@
+[
+ {
+  "id": 9001,
+  "dataInicioSancao": "15/03/2024",
+  "pessoa": {
+   "cnpjFormatado": "12.345.678/0001-90",
+   "razaoSocialReceita": "EMPRESA PUNIDA S/A",
+   "nomeFantasiaReceita": "PUNIDA",
+   "tipo": "Pessoa jurídica"
+  },
+  "sancionado": {
+   "nome": "EMPRESA PUNIDA SA",
+   "codigoFormatado": "12.345.678/0001-90"
+  },
+  "tipoSancao": {
+   "descricaoResumida": "Multa"
+  }
+ },
+ {
+  "id": 9002,
+  "dataInicioSancao": "01/02/2023",
+  "pessoa": {
+   "cpfFormatado": "***.123.456-**",
+   "tipo": "Pessoa física"
+  },
+  "sancionado": {
+   "nome": "FULANO DE TAL"
+  }
+ },
+ {
+  "id": 9003,
+  "sancionado": {
+   "nome": ""
+  }
+ }
+]

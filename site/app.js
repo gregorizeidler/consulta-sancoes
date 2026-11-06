@@ -3,9 +3,64 @@
   var M = window.Motor;
   var link = document.querySelector('link[rel="stylesheet"]');
   var BASE = link ? link.getAttribute("href").replace(/\/style\.css.*$/, "") : "";
-  var dados = [];
-  var FONTES = { ofac: "OFAC", un: "ONU", eu: "UE", pep: "PEP", ceis: "CEIS", slavery: "Lista Suja", tcu: "TCU", bcb: "BCB" };
+  var FONTES = { ofac: "OFAC SDN", ofacns: "OFAC não-SDN", un: "ONU", eu: "UE", uk: "Reino Unido", pep: "PEP", ceis: "CEIS", cnep: "CNEP", slavery: "Lista Suja", tcu: "TCU", bcb: "BCB" };
   var TIPOS = { pessoa: "Pessoa", entidade: "Entidade", embarcacao: "Embarcação", aeronave: "Aeronave", outro: "Outro" };
+
+  function absoluta(caminho) { return new URL(BASE + caminho, document.baseURI).href; }
+
+  // A busca roda num Web Worker: o JSON de dezenas de milhares de registros e o indice
+  // invertido nao travam a tela. Sem Worker (ou se o script nao carregar), o mesmo motor
+  // roda na thread principal pelo mesmo contrato de mensagens.
+  function criaBackend() {
+    var worker = null, local = null, pend = {}, seq = 0, pronto = false, modo = "worker";
+    function viraLocal() {
+      modo = "local";
+      local = M.servidor();
+      var ids = Object.keys(pend);
+      for (var i = 0; i < ids.length; i++) {
+        var p = pend[ids[i]]; delete pend[ids[i]];
+        M.despacha(local, p.tipo, p.args).then(p.res, p.rej);
+      }
+    }
+    try {
+      if (typeof Worker === "undefined") throw new Error("sem Worker");
+      worker = new Worker(BASE + "/worker.js");
+      worker.onmessage = function (e) {
+        var m = e.data || {};
+        if (m.pronto) { pronto = true; return; }
+        var p = pend[m.id];
+        if (!p) return;
+        delete pend[m.id];
+        if (m.ok) p.res(m.valor); else p.rej(new Error(m.erro));
+      };
+      worker.onerror = function (ev) {
+        if (ev && ev.preventDefault) ev.preventDefault();
+        if (!pronto) {
+          try { worker.terminate(); } catch (e) {}
+          worker = null;
+          viraLocal();
+          return;
+        }
+        var ids = Object.keys(pend);
+        for (var i = 0; i < ids.length; i++) { var p = pend[ids[i]]; delete pend[ids[i]]; p.rej(new Error("o worker de busca parou")); }
+      };
+    } catch (e) {
+      worker = null; modo = "local"; local = M.servidor();
+    }
+    return {
+      modo: function () { return modo; },
+      chama: function (tipo, args) {
+        return new Promise(function (res, rej) {
+          if (modo === "local") { M.despacha(local, tipo, args).then(res, rej); return; }
+          var id = ++seq;
+          pend[id] = { tipo: tipo, args: args, res: res, rej: rej };
+          worker.postMessage({ id: id, tipo: tipo, args: args });
+        });
+      }
+    };
+  }
+  var backend = criaBackend();
+  var carregado = false, totalBase = 0;
 
   function escapa(s) {
     return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
@@ -16,6 +71,14 @@
     var f = M.faixa(score);
     return '<span class="score ' + f[1] + '">' + score + '% <em>' + f[0] + '</em></span>';
   }
+  function chipsAjuste(m) {
+    var h = "";
+    for (var i = 0; i < (m.ajustes || []).length; i++) {
+      var a = m.ajustes[i];
+      h += '<span class="aj ' + (a.delta >= 0 ? "pos" : "neg") + '">' + escapa(a.rotulo) + " " + (a.delta > 0 ? "+" : "") + a.delta + "</span>";
+    }
+    return h;
+  }
   function cartao(m, aberto) {
     var d = m.rec;
     var aliases = (d[2] || []).slice(0, 6).join(", ");
@@ -25,89 +88,98 @@
     if (d[9]) det += "<p><b>Detalhe:</b> " + escapa(d[9]) + "</p>";
     if (d[6]) det += "<p><b>País:</b> " + escapa(d[6]) + "</p>";
     if (d[11]) det += "<p><b>Presente também em:</b> " + escapa(d[11].split(",").map(function (x) { return FONTES[x] || x; }).join(", ")) + "</p>";
-    if (typeof estado !== "undefined" && estado.q && d.__n) {
-      var exp = M.explica(M.norm(estado.q), d.__n);
+    var exp = m.exp;
+    if (exp) {
       var partes = ["casou " + exp.comuns.length + " de " + (exp.comuns.length + exp.faltando.length) + " palavra(s)"];
+      if (m.via) partes.push("pelo apelido \u201c" + m.via + "\u201d");
       if (exp.ordemTrocada) partes.push("mesmas palavras, outra ordem");
+      if (exp.fonetica) partes.push("grafia diferente, mesmo som");
       if (exp.faltando.length) partes.push("faltou: " + exp.faltando.slice(0, 4).join(", "));
       det += '<p class="porque"><b>Por que casou:</b> ' + escapa(partes.join(" \u00b7 ")) +
         ' <span class="comp">Jaro-Winkler ' + exp.jw + "% \u00b7 trigramas " + exp.dice + "% \u00b7 cobertura " + exp.cobertura + "%</span></p>";
+    }
+    if (m.ajustes && m.ajustes.length) {
+      det += '<p class="porque"><b>Contexto:</b> nome ' + m.base + "% \u2192 " + m.score + "% " + chipsAjuste(m) + "</p>";
     }
     det += '<p><a href="' + escapa(d[8]) + '" target="_blank" rel="noopener">Ver na fonte oficial</a></p>';
     return '<article class="item' + (aberto ? " aberto" : "") + '" data-id="' + escapa(d[0]) + '" data-nome="' + escapa(d[1]) + '" data-score="' + m.score + '">' +
       '<div class="linha"><h3>' + escapa(d[1]) + '</h3>' + selo(m.score) +
       '<span class="fonte ' + d[3] + '">' + (FONTES[d[3]] || d[3]) + '</span>' +
       '<span class="tipo">' + (TIPOS[d[4]] || d[4]) + '</span></div>' +
-      '<div class="meta">' + escapa(d[5] || "—") + '</div>' +
+      '<div class="meta">' + escapa(d[5] || "\u2014") + (m.ajustes && m.ajustes.length ? " " + chipsAjuste(m) : "") + '</div>' +
       '<div class="det">' + det + '</div></article>';
   }
 
   // ---------- busca ----------
-  var estado = { q: "", fonte: "todas", tipo: "todos", limiar: 60, achados: [], mostrados: 50 };
+  var estado = { q: "", nasc: "", pais: "", doc: "", fonte: "todas", tipo: "todos", limiar: 60, achados: [], avisos: [], total: 0, mostrados: 50 };
   var campo = document.getElementById("q");
   var lista = document.getElementById("lista");
   var contagem = document.getElementById("contagem");
   var botaoMais = document.getElementById("mais");
+  var avisosEl = document.getElementById("avisos");
+  if (!avisosEl && contagem) {
+    avisosEl = document.createElement("p");
+    avisosEl.id = "avisos"; avisosEl.className = "aviso"; avisosEl.hidden = true;
+    contagem.parentNode.insertBefore(avisosEl, contagem.nextSibling);
+  }
+  var seqBusca = 0;
 
-  // ponte para o extra.js carregar bases extras (PEP) sem recarregar a página
+  // ponte para o extra.js carregar bases extras (PEP) sem recarregar a pagina
   window.SancoesApp = {
-    adicionar: function (lista) { dados = dados.concat(M.prepara(lista)); buscar(); },
-    total: function () { return dados.length; }
+    adicionar: function (lista) {
+      return backend.chama("adicionar", { lista: lista }).then(function (t) { totalBase = t; buscar(); return t; });
+    },
+    adicionarUrl: function (caminho) {
+      return backend.chama("adicionarUrl", { url: absoluta(caminho) }).then(function (r) { totalBase = r.total; buscar(); return r; });
+    },
+    total: function () { return totalBase; }
   };
 
+  function mostraAvisos(av) {
+    if (!avisosEl) return;
+    avisosEl.hidden = !av || !av.length;
+    avisosEl.textContent = av && av.length ? av.join(" ") : "";
+  }
+
   function buscar() {
-    if (!campo) return;
-    var q = M.norm(estado.q);
-    var res = [];
-    var ms = 0;
-    if (q.length >= 3) {
-      var t0 = performance.now();
-      var cands = M.candidatos(dados, q, estado, 500);
-      for (var k = 0; k < cands.length; k++) {
-        var d = cands[k][1];
-        var s = M.melhorSim(q, d.__n, d.__aliases);
-        if (s >= estado.limiar) res.push({ rec: d, score: s });
-      }
-      // consulta que parece documento (tem numero) tambem procura nos documentos publicados
-      var digitos = estado.q.replace(/[^0-9a-z]/gi, "").toLowerCase();
-      if (/[0-9]/.test(digitos) && digitos.length >= 4) {
-        var vistos = {};
-        for (var r = 0; r < res.length; r++) vistos[res[r].rec[0]] = 1;
-        for (var n = 0; n < dados.length; n++) {
-          var dd = dados[n];
-          for (var p = 0; p < dd.__docs.length; p++) {
-            if (dd.__docs[p] && dd.__docs[p].indexOf(digitos) > -1 && !vistos[dd[0]]) {
-              vistos[dd[0]] = 1;
-              res.push({ rec: dd, score: 100 });
-              break;
-            }
-          }
-        }
-      }
-      res.sort(function (a, b) {
-        return b.score - a.score ||
-          Math.abs(a.rec.__n.length - q.length) - Math.abs(b.rec.__n.length - q.length) ||
-          a.rec[1].localeCompare(b.rec[1]);
-      });
-      ms = Math.round(performance.now() - t0);
+    if (!campo || !carregado) return;
+    var id = ++seqBusca;
+    var nomeOk = M.norm(estado.q).length >= 3;
+    if (!nomeOk && !estado.doc) {
+      estado.achados = []; estado.total = 0; estado.mostrados = 50;
+      mostraAvisos([]);
+      contagem.textContent = estado.q
+        ? "Digite ao menos 3 letras."
+        : totalBase.toLocaleString("pt-BR") + " registros carregados. Digite um nome, empresa, navio ou documento.";
+      render();
+      return;
     }
-    estado.achados = res;
-    estado.mostrados = 50;
-    if (!q) {
-      contagem.textContent = dados.length.toLocaleString("pt-BR") + " registros carregados. Digite um nome, empresa, navio ou documento.";
-    } else if (q.length < 3) {
-      contagem.textContent = "Digite ao menos 3 letras.";
-    } else {
-      contagem.textContent = res.length.toLocaleString("pt-BR") + " resultado(s) com " + estado.limiar +
-        "% ou mais de similaridade · " + ms + " ms";
-    }
-    render();
+    if (lista) lista.setAttribute("aria-busy", "true");
+    backend.chama("buscar", {
+      consulta: { q: estado.q, nasc: estado.nasc, pais: estado.pais, doc: estado.doc },
+      opts: { limiar: estado.limiar, fonte: estado.fonte, tipo: estado.tipo, maximo: 500 }
+    }).then(function (r) {
+      if (id !== seqBusca) return;
+      estado.achados = r.resultados;
+      estado.total = r.total;
+      estado.avisos = r.avisos || [];
+      estado.mostrados = 50;
+      mostraAvisos(estado.avisos);
+      contagem.textContent = r.total.toLocaleString("pt-BR") + " resultado(s) com " + estado.limiar +
+        "% ou mais de similaridade \u00b7 " + r.ms + " ms" + (backend.modo() === "worker" ? "" : " (sem worker)");
+      if (lista) lista.removeAttribute("aria-busy");
+      render();
+    }, function (e) {
+      if (id !== seqBusca) return;
+      contagem.textContent = "A busca falhou: " + e.message;
+      if (lista) lista.removeAttribute("aria-busy");
+    });
   }
   function render() {
     if (!lista) return;
     var fim = Math.min(estado.mostrados, estado.achados.length);
     var html = "";
-    if (estado.q && !estado.achados.length && M.norm(estado.q).length >= 3) {
+    if ((estado.q || estado.doc) && !estado.achados.length && (M.norm(estado.q).length >= 3 || estado.doc)) {
       html = '<p class="vazio">Nenhum registro acima de ' + estado.limiar + '% de similaridade. ' +
         'Baixe a similaridade mínima, tente só o sobrenome ou confira a grafia em outro alfabeto.</p>';
     }
@@ -118,13 +190,22 @@
 
   if (campo) {
     var timer = null;
-    campo.addEventListener("input", function () {
-      clearTimeout(timer);
-      timer = setTimeout(function () {
-        estado.q = campo.value.trim();
-        try { history.replaceState(null, "", estado.q ? "?q=" + encodeURIComponent(estado.q) : window.location.pathname); } catch (e) {}
-        buscar();
-      }, 150);
+    var CAMPOS = ["q", "nasc", "pais", "doc"], ELS = {};
+    CAMPOS.forEach(function (k) { ELS[k] = document.getElementById(k === "q" ? "q" : "f-" + k) || (k === "q" ? campo : null); });
+    function lerCampos() {
+      CAMPOS.forEach(function (k) { if (ELS[k]) estado[k] = ELS[k].value.trim(); });
+      try {
+        var ps = new URLSearchParams();
+        CAMPOS.forEach(function (k) { if (estado[k]) ps.set(k, estado[k]); });
+        history.replaceState(null, "", ps.toString() ? "?" + ps.toString() : window.location.pathname);
+      } catch (e) {}
+    }
+    CAMPOS.forEach(function (k) {
+      if (!ELS[k]) return;
+      ELS[k].addEventListener("input", function () {
+        clearTimeout(timer);
+        timer = setTimeout(function () { lerCampos(); buscar(); }, 150);
+      });
     });
     var lf = document.getElementById("fontes");
     if (lf) lf.addEventListener("click", function (ev) {
@@ -152,7 +233,9 @@
       card.classList.toggle("aberto");
     });
     var params = new URLSearchParams(window.location.search);
-    if (params.get("q")) { campo.value = params.get("q"); estado.q = params.get("q").trim(); }
+    CAMPOS.forEach(function (k) {
+      if (params.get(k) && ELS[k]) { ELS[k].value = params.get(k); estado[k] = params.get(k).trim(); }
+    });
   }
 
   // ---------- CSV ----------
@@ -178,36 +261,20 @@
   }
   var COL_NOME = ["nome", "name", "cliente", "fornecedor", "razao social", "beneficiario", "titular", "socio", "contraparte"];
   var COL_DOC = ["documento", "doc", "cpf", "cnpj", "passaporte", "passport", "id", "rg"];
+  var COL_NASC = ["nascimento", "data de nascimento", "data nascimento", "nasc", "dt nascimento", "dob", "birth date", "date of birth", "birthdate"];
+  var COL_PAIS = ["pais", "country", "nacionalidade", "nationality"];
   function acharColuna(cabecalho, alvos) {
     for (var i = 0; i < cabecalho.length; i++) {
       if (alvos.indexOf(M.norm(cabecalho[i])) > -1) return i;
     }
     return -1;
   }
-  function melhorPara(nome, doc) {
-    var q = M.norm(nome);
-    var cands = q.length >= 3 ? M.candidatos(dados, q, { fonte: "todas", tipo: "todos" }, 300) : [];
-    var melhor = null;
-    var alvoDoc = (doc || "").replace(/[^0-9a-z]/gi, "").toLowerCase();
-    for (var k = 0; k < cands.length; k++) {
-      var d = cands[k][1];
-      var s = M.melhorSim(q, d.__n, d.__aliases);
-      if (!melhor || s > melhor.score) melhor = { rec: d, score: s };
-    }
-    if (alvoDoc.length >= 4) {
-      for (var n = 0; n < dados.length; n++) {
-        var dd = dados[n];
-        for (var p = 0; p < dd.__docs.length; p++) {
-          if (dd.__docs[p] && dd.__docs[p].indexOf(alvoDoc) > -1) {
-            if (!melhor || 100 > melhor.score) melhor = { rec: dd, score: 100 };
-          }
-        }
-      }
-    }
-    return melhor;
+  function melhorPara(nome, doc, nasc, pais) {
+    if (!(nome || doc)) return Promise.resolve(null);
+    return backend.chama("melhor", { consulta: { q: nome, doc: doc, nasc: nasc, pais: pais }, opts: { candidatos: 300 } }).catch(function () { return null; });
   }
 
-  var lote = { resultados: [], colNome: 0, colDoc: -1, linhas: [], limiar: 85 };
+  var lote = { resultados: [], colNome: 0, colDoc: -1, colNasc: -1, colPais: -1, linhas: [], limiar: 85 };
   var arquivo = document.getElementById("arquivo");
   var tabelaLote = document.getElementById("tabelaLote");
   var resumoLote = document.getElementById("resumoLote");
@@ -217,24 +284,23 @@
 
   function processarLote() {
     if (!lote.linhas.length) return;
-    var total = lote.linhas.length;
-    var saida = [];
-    var i = 0;
+    var total = lote.linhas.length, saida = [], i = 0;
     resumoLote.innerHTML = '<p class="progresso">Triando 0 de ' + total + '…</p>';
     function passo() {
-      var fim = Math.min(i + 10, total);
-      for (; i < fim; i++) {
-        var linha = lote.linhas[i];
-        var nome = linha[lote.colNome] || "";
-        var doc = lote.colDoc > -1 ? (linha[lote.colDoc] || "") : "";
-        var m = (nome || doc) ? melhorPara(nome, doc) : null;
+      if (i >= total) { lote.resultados = saida; mostrarLote(); return; }
+      var linha = lote.linhas[i];
+      var nome = linha[lote.colNome] || "";
+      var doc = lote.colDoc > -1 ? (linha[lote.colDoc] || "") : "";
+      var nasc = lote.colNasc > -1 ? (linha[lote.colNasc] || "") : "";
+      var pais = lote.colPais > -1 ? (linha[lote.colPais] || "") : "";
+      melhorPara(nome, doc, nasc, pais).then(function (m) {
         saida.push({ nome: nome, doc: doc, melhor: m });
-      }
-      var pct = Math.round(100 * i / total);
-      resumoLote.innerHTML = '<p class="progresso">Triando ' + i + ' de ' + total + ' (' + pct + '%)…</p>';
-      if (i < total) { setTimeout(passo, 0); return; }
-      lote.resultados = saida;
-      mostrarLote();
+        i++;
+        if (i % 10 === 0 || i === total) {
+          resumoLote.innerHTML = '<p class="progresso">Triando ' + i + ' de ' + total + ' (' + Math.round(100 * i / total) + '%)…</p>';
+        }
+        passo();
+      });
     }
     passo();
   }
@@ -270,12 +336,13 @@
   }
   function baixarResultado() {
     var linhas = [["linha", "nome_enviado", "documento", "melhor_correspondencia", "similaridade",
-      "lista", "tipo", "programa", "pais", "link_fonte"]];
+      "lista", "tipo", "programa", "pais", "link_fonte", "ajustes_de_contexto"]];
     for (var k = 0; k < lote.resultados.length; k++) {
       var r = lote.resultados[k], m = r.melhor;
       linhas.push([k + 2, r.nome, r.doc, m ? m.rec[1] : "", m ? m.score : 0,
         m ? (FONTES[m.rec[3]] || m.rec[3]) : "", m ? (TIPOS[m.rec[4]] || m.rec[4]) : "",
-        m ? m.rec[5] : "", m ? m.rec[6] : "", m ? m.rec[8] : ""]);
+        m ? m.rec[5] : "", m ? m.rec[6] : "", m ? m.rec[8] : "",
+        m && m.ajustes ? m.ajustes.map(function (a) { return a.rotulo + " " + (a.delta > 0 ? "+" : "") + a.delta; }).join(" | ") : ""]);
     }
     var csv = linhas.map(function (l) {
       return l.map(function (c) { var s = String(c == null ? "" : c); return '"' + s.replace(/"/g, '""') + '"'; }).join(";");
@@ -296,9 +363,11 @@
       lote.linhas = csv.linhas;
       lote.colNome = col;
       lote.colDoc = acharColuna(csv.cabecalho, COL_DOC);
+      lote.colNasc = acharColuna(csv.cabecalho, COL_NASC);
+      lote.colPais = acharColuna(csv.cabecalho, COL_PAIS);
     } else {
       lote.colNome = 0;
-      lote.colDoc = -1;
+      lote.colDoc = -1; lote.colNasc = -1; lote.colPais = -1;
       lote.linhas = linhas.map(function (l) { return [l.split(/[;,]/)[0].trim()]; });
     }
     processarLote();
@@ -337,19 +406,22 @@
     if (!alvo) return;
     var nomes = carregarWatch();
     if (!nomes.length) { alvo.innerHTML = '<p class="dica">Nenhum nome cadastrado ainda.</p>'; return; }
-    var html = '<table class="tabela"><thead><tr><th>Nome vigiado</th><th>Situação</th>' +
-      '<th>Melhor correspondência</th><th></th></tr></thead><tbody>';
-    for (var k = 0; k < nomes.length; k++) {
-      var m = melhorPara(nomes[k], "");
-      var situacao = m && m.score >= 85 ? '<span class="score forte">ALERTA</span>'
-        : (m && m.score >= 70 ? '<span class="score possivel">verificar</span>'
-          : '<span class="score ok">sem correspondência</span>');
-      html += '<tr><td>' + escapa(nomes[k]) + '</td><td>' + situacao + '</td><td>' +
-        (m && m.score >= 70 ? escapa(m.rec[1]) + " " + selo(m.score) : "—") + '</td>' +
-        '<td><button class="link-remover" data-nome="' + escapa(nomes[k]) + '">remover</button></td></tr>';
-    }
-    html += '</tbody></table>';
-    alvo.innerHTML = html;
+    alvo.innerHTML = '<p class="progresso">Verificando ' + nomes.length + ' nome(s)…</p>';
+    Promise.all(nomes.map(function (n) { return melhorPara(n, "", "", ""); })).then(function (ms) {
+      var html = '<table class="tabela"><thead><tr><th>Nome vigiado</th><th>Situação</th>' +
+        '<th>Melhor correspondência</th><th></th></tr></thead><tbody>';
+      for (var k = 0; k < nomes.length; k++) {
+        var m = ms[k];
+        var situacao = m && m.score >= 85 ? '<span class="score forte">ALERTA</span>'
+          : (m && m.score >= 70 ? '<span class="score possivel">verificar</span>'
+            : '<span class="score ok">sem correspondência</span>');
+        html += '<tr><td>' + escapa(nomes[k]) + '</td><td>' + situacao + '</td><td>' +
+          (m && m.score >= 70 ? escapa(m.rec[1]) + " " + selo(m.score) : "—") + '</td>' +
+          '<td><button class="link-remover" data-nome="' + escapa(nomes[k]) + '">remover</button></td></tr>';
+      }
+      html += '</tbody></table>';
+      alvo.innerHTML = html;
+    });
   }
   var botaoWatch = document.getElementById("watchAdd");
   if (botaoWatch) botaoWatch.addEventListener("click", function () {
@@ -372,10 +444,10 @@
 
   // ---------- carga ----------
   if (contagem) contagem.textContent = "Carregando as listas…";
-  fetch(BASE + "/dados/indice.json")
-    .then(function (r) { return r.json(); })
-    .then(function (j) {
-      dados = M.prepara(j);
+  backend.chama("carregarUrl", { url: absoluta("/dados/indice.json") })
+    .then(function (total) {
+      carregado = true;
+      totalBase = total;
       buscar();
       mostrarWatch();
     })

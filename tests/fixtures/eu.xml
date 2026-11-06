@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export xmlns="http://eu.europa.ec/fpi/fsd/export" generationDate="2026-10-23T17:05:43.888+02:00">
+  <sanctionEntity logicalId="13"><regulation programme="IRQ" publicationDate="2003-07-08"/>
+    <subjectType code="person" classificationCode="P"/>
+    <nameAlias wholeName="Saddam Hussein Al-Tikriti"/></sanctionEntity>
+  <sanctionEntity logicalId="14"><regulation programme="IRQ" publicationDate="2003-07-08"/>
+    <subjectType code="enterprise" classificationCode="E"/>
+    <nameAlias wholeName="Empresa Exemplo Ltda"/></sanctionEntity>
+</export>

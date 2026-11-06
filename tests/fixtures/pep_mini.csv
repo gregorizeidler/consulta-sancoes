@@ -1,0 +1,7 @@
+"id","schema","name","aliases","birth_date","countries","addresses","identifiers","sanctions","phones","emails","program_ids","dataset","first_seen","last_seen","last_change"
+"NK-1","Person","VANDECIR DORIGON","","","br","","***.976.399-**","","","","","PEP","","",""
+"NK-2","Person","MARIA DA SILVA","M SILVA","1970-01-02","br","","***.804.418-**;***.111.222-**","","","","","PEP","","",""
+"NK-3","Person","JOSE COM CPF ABERTO","","","br","","123.456.789-09","","","","","PEP","","",""
+"NK-4","Company","EMPRESA LTDA","","","br","","12.345.678/0001-90","","","","","PEP","","",""
+"NK-5","Person","SEM DOCUMENTO","","","br","","","","","","","PEP","","",""
+"NK-6","Person","LIXO MASCARADO","","","br","","ab*cd","","","","","PEP","","",""
