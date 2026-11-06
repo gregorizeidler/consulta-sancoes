@@ -66,7 +66,6 @@ def pagina(titulo, descricao, corpo, ativo, canonical, hero=""):
 <title>%(t)s</title><meta name="description" content="%(d)s">
 <meta name="theme-color" content="#0b1b3f">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <link rel="canonical" href="%(c)s"><link rel="stylesheet" href="%(p)s/style.css">
 <meta property="og:title" content="%(t)s"><meta property="og:description" content="%(d)s">
 <meta property="og:type" content="website"><meta property="og:url" content="%(c)s">
