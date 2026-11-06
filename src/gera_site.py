@@ -33,6 +33,9 @@ def escreve(rel, conteudo):
     with open(caminho, abrir, **({} if "b" in abrir else {"encoding": "utf-8"})) as f:
         f.write(conteudo)
 
+ROTULO_KPI = {"ofac": "OFAC (EUA)", "un": "ONU", "eu": "União Europeia", "ceis": "CEIS",
+              "slavery": "Lista Suja", "tcu": "TCU", "bcb": "BCB"}
+
 def nav(ativo):
     itens = [("index.html", "Busca"), ("lote.html", "Triagem em lote"),
              ("mudancas.html", "Mudanças"), ("dossie.html", "Dossiê"), ("decisoes.html", "Decisões"),
@@ -40,22 +43,48 @@ def nav(ativo):
     links = "".join(
         '<a href="%s/%s"%s>%s</a>' % (PATH, href, ' class="atual"' if href == ativo else "", rotulo)
         for href, rotulo in itens)
-    return ('<header class="topo"><div class="wrap"><div class="marca">%s</div>'
-            '<div class="sub">%s</div><nav class="menu">%s</nav></div></header>'
-            % (CFG["titulo"], CFG["subtitulo"], links))
+    return ('<header class="topo"><div class="wrap topo-in">'
+            '<a class="marca" href="%s/index.html"><span class="logo"></span><span>%s</span></a>'
+            '<nav class="menu">%s</nav></div></header>' % (PATH, CFG["titulo"], links))
 
-def pagina(titulo, descricao, corpo, ativo, canonical):
+def cabecalho_pagina(corpo):
+    """Move o h1 e o paragrafo de entrada para uma faixa de titulo no topo da pagina."""
+    m = re.match(r'\s*<h1>(.*?)</h1>\s*(?:<p class="entrada">(.*?)</p>)?', corpo, re.S)
+    if not m:
+        return "", corpo
+    lead = '<p class="pagina-lead">%s</p>' % m.group(2) if m.group(2) else ""
+    faixa = ('<section class="pagina-cab"><div class="wrap"><h1>%s</h1>%s</div></section>'
+             % (m.group(1), lead))
+    return faixa, corpo[m.end():]
+
+def pagina(titulo, descricao, corpo, ativo, canonical, hero=""):
+    faixa = hero
+    if not hero:
+        faixa, corpo = cabecalho_pagina(corpo)
     return ("""<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>%(t)s</title><meta name="description" content="%(d)s">
+<meta name="theme-color" content="#0b1b3f">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <link rel="canonical" href="%(c)s"><link rel="stylesheet" href="%(p)s/style.css">
 <meta property="og:title" content="%(t)s"><meta property="og:description" content="%(d)s">
 <meta property="og:type" content="website"><meta property="og:url" content="%(c)s">
-</head><body>%(nav)s<main class="wrap">%(corpo)s</main>
-<footer><div class="wrap"><p>%(titulo)s · dados públicos, republicados com atribuição às fontes originais.</p>
-<p class="miudo">Consulta informativa. Não é aconselhamento jurídico nem substitui a fonte oficial.</p></div></footer>
+</head><body class="%(cls)s">%(nav)s%(faixa)s<main class="wrap">%(corpo)s</main>
+<footer class="rodape-site"><div class="wrap">
+<div class="rodape-grade">
+<div class="rodape-marca"><strong>%(titulo)s</strong>
+<p>Dados públicos de sanções e pessoas expostas politicamente, republicados todos os dias com atribuição às fontes originais.</p></div>
+<div><h4>Produto</h4><a href="%(p)s/index.html">Busca</a><a href="%(p)s/lote.html">Triagem em lote</a>
+<a href="%(p)s/dossie.html">Dossiê</a><a href="%(p)s/decisoes.html">Decisões</a></div>
+<div><h4>Dados</h4><a href="%(p)s/mudancas.html">Mudanças</a><a href="%(p)s/verificar.html">Verificar arquivo</a>
+<a href="%(p)s/api.html">API aberta</a><a href="%(p)s/dados/listas-completas.zip">Baixar listas (CSV)</a></div>
+</div>
+<p class="rodape-aviso">Consulta informativa. Não é aconselhamento jurídico, não é triagem de KYC e não substitui a fonte oficial. Homônimos são comuns: confira sempre o registro original.</p>
+</div></footer>
 <script src="%(p)s/motor.js"></script><script src="%(p)s/app.js"></script></body></html>""") % {
-        "t": titulo, "d": descricao, "c": canonical, "p": PATH,
+        "t": titulo, "d": descricao, "c": canonical, "p": PATH, "faixa": faixa,
+        "cls": "home" if hero else "interna",
         "nav": nav(ativo), "corpo": corpo, "titulo": CFG["titulo"],
     }
 
@@ -135,13 +164,26 @@ def main():
     por_fonte = resumo.get("por_fonte", {})
     cartoes = "".join(
         '<div class="kpi"><span>%s</span><strong>%s</strong></div>'
-        % (NOMES.get(k, k), format(v, ",d").replace(",", "."))
+        % (ROTULO_KPI.get(k, NOMES.get(k, k)), format(v, ",d").replace(",", "."))
         for k, v in por_fonte.items())
     cartoes += '<div class="kpi kpi-total"><span>Total</span><strong>%s</strong></div>' % (
         format(resumo.get("total", 0), ",d").replace(",", "."))
     com_doc = sum(1 for r in registros if r.get("doc"))
     cartoes += '<div class="kpi"><span>Com documento</span><strong>%s</strong></div>' % (
         format(com_doc, ",d").replace(",", "."))
+
+    total_fmt = format(resumo.get("total", 0), ",d").replace(",", ".")
+    hero = ('<section class="hero"><div class="wrap">'
+            '<p class="eyebrow"><span class="ponto"></span>Dados oficiais, atualizados todos os dias</p>'
+            '<h1>Triagem de sanções e PEP em uma única busca</h1>'
+            '<p class="hero-sub">OFAC, ONU, União Europeia, CEIS, Lista Suja, TCU e Banco Central num só lugar. '
+            'Busca difusa com score de similaridade, tudo processado no seu navegador.</p>'
+            '<ul class="hero-fatos">'
+            '<li><strong>%s</strong><span>registros consultáveis</span></li>'
+            '<li><strong>%d</strong><span>listas oficiais, mais PEP</span></li>'
+            '<li><strong>%s</strong><span>última atualização</span></li>'
+            '<li><strong>SHA-256</strong><span>base verificável por dia</span></li>'
+            '</ul></div></section>' % (total_fmt, len(por_fonte), resumo.get("gerado_em_br", "")))
 
     mudou = ""
     if resumo.get("novos"):
@@ -154,7 +196,7 @@ def main():
                  % (resumo["novos_total"], itens, PATH))
     else:
         mudou = ('<section class="mudou"><h2>Nada novo nas últimas 24h</h2>'
-                 '<p>As três listas não tiveram inclusão. <a href="%s/mudancas.html">Ver histórico</a>.</p></section>' % PATH)
+                 '<p>As listas não tiveram inclusão. <a href="%s/mudancas.html">Ver histórico</a>.</p></section>' % PATH)
 
     corpo = """
   <section class="busca">
@@ -230,9 +272,9 @@ def main():
 
   <section class="sobre">
     <h2>O que este site é (e o que não é)</h2>
-    <p>Reúne as três listas de sanções mais usadas no Brasil em um só lugar, direto das fontes oficiais:
-    a <strong>OFAC</strong> (Tesouro dos EUA), o <strong>Conselho de Segurança da ONU</strong> e a
-    <strong>União Europeia</strong>. Os dados são baixados e republicados todos os dias às 06:00 (horário de Brasília).</p>
+    <p>Reúne as principais listas de sanções usadas no Brasil em um só lugar, direto das fontes oficiais:
+    <strong>OFAC</strong> (Tesouro dos EUA), <strong>Conselho de Segurança da ONU</strong>, <strong>União Europeia</strong>,
+    <strong>CEIS</strong>, <strong>Lista Suja</strong>, <strong>TCU</strong> e <strong>Banco Central</strong>, além de PEP. Os dados são baixados e republicados todos os dias às 06:00 (horário de Brasília).</p>
     <p><strong>O que não é:</strong> não é parecer jurídico, não é triagem de KYC e não substitui a consulta à fonte
     oficial. Homônimo existe e é comum: um nome igual não significa que a pessoa é a mesma. Antes de qualquer
     decisão, abra o registro na fonte (o link está em cada resultado) e confira documento, data de nascimento e país.</p>
@@ -244,13 +286,13 @@ def main():
     escreve("index.html", pagina("%s - OFAC, ONU e UE em uma busca" % CFG["titulo"],
                                  "Consulte e faça triagem em lote nas listas de sanções da OFAC, ONU e União Europeia. "
                                  "Busca difusa com score de similaridade, checagem por documento e tudo no navegador.",
-                                 corpo, "index.html", BASE + "/"))
+                                 corpo, "index.html", BASE + "/", hero=hero))
 
     # lote
     corpo_lote = """
   <h1>Triagem em lote</h1>
   <p class="entrada">Envie um CSV com a sua carteira de clientes, fornecedores ou parceiros e receba, linha por linha,
-  o melhor resultado em cada uma das três listas, com percentual de similaridade.</p>
+  o melhor resultado em cada lista, com percentual de similaridade.</p>
 
   <section class="lote">
     <div class="envio">
@@ -273,7 +315,7 @@ def main():
 
   <section class="sobre">
     <h2>Como o score é calculado</h2>
-    <p>Cada linha é comparada com os 26 mil registros das três listas usando três medidas combinadas:
+    <p>Cada linha é comparada com os registros de todas as listas usando três medidas combinadas:
     <strong>Jaro-Winkler</strong> (peso 45%, boa para erro de digitação e prefixo igual),
     <strong>Dice sobre trigramas</strong> (peso 35%, boa para nome reordenado) e
     <strong>cobertura de tokens</strong> (peso 20%, quantas palavras do nome consultado aparecem no registro).</p>
@@ -297,7 +339,7 @@ def main():
     if not linhas:
         linhas = '<tr><td colspan="4">O histórico começa a ser gravado a partir da segunda execução diária.</td></tr>'
     corpo_hist = ("""<h1>Mudanças</h1>
-  <p class="entrada">Tudo o que entrou e saiu das três listas, dia a dia. O histórico é o que
+  <p class="entrada">Tudo o que entrou e saiu das listas, dia a dia. O histórico é o que
   transforma consulta em monitoramento: dá para provar quando um nome apareceu.</p>
   <table class="tabela"><thead><tr><th>Quando</th><th>Entraram</th><th>Saíram</th><th>Nomes</th></tr></thead>
   <tbody>%s</tbody></table>
