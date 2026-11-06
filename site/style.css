@@ -257,3 +257,4 @@ main p code,.sobre code{background:#eef2f7;padding:1px 6px;border-radius:5px;fon
   .dossie-rodape{position:fixed;bottom:0;left:0;right:0}
   @page{margin:18mm}
 }
+[hidden]{display:none!important}
