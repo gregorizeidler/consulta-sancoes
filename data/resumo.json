@@ -1,7 +1,7 @@
 {
- "gerado_em": "2026-11-06T14:19:25-03:00",
- "gerado_em_br": "06/11/2026 as 14:19",
- "total": 45293,
+ "gerado_em": "2026-11-06T16:10:35-03:00",
+ "gerado_em_br": "06/11/2026 as 16:10",
+ "total": 52106,
  "por_fonte": {
   "ofac": 19555,
   "un": 1007,
@@ -9,7 +9,9 @@
   "ceis": 16950,
   "slavery": 496,
   "tcu": 699,
-  "bcb": 317
+  "bcb": 317,
+  "ofacns": 393,
+  "uk": 6420
  },
  "novos_total": 0,
  "removidos_total": 0,
@@ -20,5 +22,78 @@
   "un": 2177566,
   "eu": 25899600
  },
- "primeira_carga": false
+ "primeira_carga": false,
+ "fontes_info": {
+  "ofac": {
+   "carregado_em": "2026-11-06",
+   "origem": "oficial",
+   "registros": 19555,
+   "bytes": 29535568,
+   "sha256": "ee7fc73e9f3b4ca4dd3a304446c8cdd03bf2595f049a9d8f8dff7314d4c02d58"
+  },
+  "un": {
+   "carregado_em": "2026-11-06",
+   "origem": "oficial",
+   "registros": 1007,
+   "bytes": 2177566,
+   "sha256": "90c09c80b1a094db6d794ccc3eb7cdeb058b55ab4ebc0dd0a6f295dc03f30202"
+  },
+  "eu": {
+   "carregado_em": "2026-11-06",
+   "origem": "oficial",
+   "registros": 6269,
+   "bytes": 25899600,
+   "sha256": "636800c3e494b2ef8934f51f5e23c914a6208a383ac850e674b1b35a7d49d34f"
+  },
+  "ofacns": {
+   "carregado_em": "2026-11-06",
+   "origem": "oficial",
+   "registros": 393,
+   "bytes": 1078429,
+   "sha256": "a28e2e7d682ebdbeb7a555d09e5f86e4c81554f434bf340ab74c0a0875b61e07"
+  },
+  "uk": {
+   "carregado_em": "2026-11-06",
+   "origem": "oficial",
+   "registros": 6420,
+   "bytes": 22084218,
+   "sha256": "b9edf715b3eae03c5e6ea0f6e060ebb19a6b3ebba06d6b98d038f5d12376d4ab"
+  },
+  "ceis": {
+   "carregado_em": "2026-11-06",
+   "origem": "espelho",
+   "registros": 16950,
+   "bytes": 23121641,
+   "sha256": "7bb109f0d35c311f76be813ae0d294b109d0528ee65c81da0d9ba4a5b25b8f79"
+  },
+  "slavery": {
+   "carregado_em": "2026-11-06",
+   "origem": "espelho",
+   "registros": 496,
+   "bytes": 149370,
+   "sha256": "83f6453b544f175cfa8ff1aa89a0886600cdb7c5e59a322e102e5f5b7998c968"
+  },
+  "tcu": {
+   "carregado_em": "2026-11-06",
+   "origem": "espelho",
+   "registros": 699,
+   "bytes": 367872,
+   "sha256": "226fd0a7e697407b06af62a342af1242d5281fdf26c58dec07291853e116c234"
+  },
+  "bcb": {
+   "carregado_em": "2026-11-06",
+   "origem": "espelho",
+   "registros": 317,
+   "bytes": 71006,
+   "sha256": "a048ab8755e2e3457321bf33f9c396c4b02e7abb3d3033b5bb5e99ea029537e9"
+  },
+  "pep": {
+   "carregado_em": "2026-11-06",
+   "origem": "espelho",
+   "registros": 106422,
+   "bytes": 24682171,
+   "sha256": "9f9db96506de8526d3b2752b1784829b75103ab629137e1b22354b48d770889d"
+  }
+ },
+ "avisos": []
 }
