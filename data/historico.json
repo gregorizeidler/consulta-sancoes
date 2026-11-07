@@ -702,5 +702,139 @@
   "removidos": 0,
   "total": 52106,
   "nomes": []
+ },
+ {
+  "data": "2026-11-07",
+  "hora": "12:30",
+  "novos": 40,
+  "removidos": 33,
+  "total": 52113,
+  "nomes": [
+   {
+    "n": "DIVERSE TRADE INC",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "NIA NATIONS CURRENCY LTD",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "CCC INC",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "B GALAXY INC",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "2397639 ONTARIO LTD",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "1380079 BC LTD",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "TOP PC TECHNICIAN INC",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "DARVISH EXCHANGE",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "EMANUEL PINHEIRO",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "MARKE COORDENACAO E PLANEJAMENTO EM PRESTACAO DE SERVICOS LTDA.",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "RIOLUB LUBRIFICANTES E LOGÍSTICA LTDA.",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "VIRTUAL COMMERX DISTRIBUIDORA LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "NELIO MARTINS PEREIRA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "INNOVARE GESTAO E COMERCIO LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "MAMA SERVICE TRANSPORTES LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "ME PEREIRA LICITA LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "ALICE SILVA CRUZ NETA LTDA.",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "SEGPLUS SISTEMAS DE SEGURANÇA EIRELI",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "GM27 COMERCIO E ASSESSORIA LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "29.374.660 INGRID PRISCILA NATALINO ARAUJO MACHADO",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "CS MOBI TECH LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "COMBAT SERVICOS ESPECIALIZADOS LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "MARIA EDUARDA DOS SANTOS VICENTE LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "C.S. MARTINS COMERCIO DE OVOS",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "WEST MATERIAIS PARA CONSTRUCAO E CONSTRUTORA LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   }
+  ]
  }
 ]
