@@ -844,5 +844,19 @@
   "removidos": 0,
   "total": 52113,
   "nomes": []
+ },
+ {
+  "data": "2026-11-09",
+  "hora": "16:35",
+  "novos": 1,
+  "removidos": 3,
+  "total": 52111,
+  "nomes": [
+   {
+    "n": "DALLAS AIRMOTIVE MANUTENCAO DE MOTORES AERONAUTICOS LTDA.",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   }
+  ]
  }
 ]

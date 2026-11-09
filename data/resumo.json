@@ -1,22 +1,34 @@
 {
- "gerado_em": "2026-11-08T12:50:24-03:00",
- "gerado_em_br": "08/11/2026 as 12:50",
- "total": 52113,
+ "gerado_em": "2026-11-09T16:35:39-03:00",
+ "gerado_em_br": "09/11/2026 as 16:35",
+ "total": 52111,
  "por_fonte": {
   "ofac": 19563,
   "un": 1007,
   "eu": 6269,
   "ceis": 16949,
   "slavery": 496,
-  "tcu": 699,
+  "tcu": 697,
   "bcb": 317,
   "ofacns": 393,
   "uk": 6420
  },
- "novos_total": 0,
- "removidos_total": 0,
- "novos": [],
- "removidos": [],
+ "novos_total": 1,
+ "removidos_total": 3,
+ "novos": [
+  {
+   "n": "DALLAS AIRMOTIVE MANUTENCAO DE MOTORES AERONAUTICOS LTDA.",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-NK-EGBgYf6TKHFxmzwiChLKKN"
+  }
+ ],
+ "removidos": [
+  "ceis-br-ceis-5655283211369efda86760f078ffeea2",
+  "tcu-NK-2Tp6teBFwBmyMNN88ZLQgp",
+  "tcu-br-cpf-07375524840"
+ ],
  "tamanho_fontes_bytes": {
   "ofac": 29555846,
   "un": 2177566,
@@ -25,79 +37,75 @@
  "primeira_carga": false,
  "fontes_info": {
   "ofac": {
-   "carregado_em": "2026-11-08",
+   "carregado_em": "2026-11-09",
    "origem": "oficial",
    "registros": 19563,
    "bytes": 29555846,
    "sha256": "bbf4658b7803ed6aa25712670bd6dfea56b6f9f93001d99e5d8ea221b237a597"
   },
   "un": {
-   "carregado_em": "2026-11-08",
+   "carregado_em": "2026-11-09",
    "origem": "oficial",
    "registros": 1007,
    "bytes": 2177566,
    "sha256": "a61ed5984d9139e968a5a747b2c8c3479a0d537ed344bd670c41db458163bc1b"
   },
   "eu": {
-   "carregado_em": "2026-11-06",
-   "origem": "cache",
+   "carregado_em": "2026-11-09",
+   "origem": "oficial",
    "registros": 6269,
    "bytes": 25899600,
    "sha256": "636800c3e494b2ef8934f51f5e23c914a6208a383ac850e674b1b35a7d49d34f"
   },
   "ofacns": {
-   "carregado_em": "2026-11-08",
+   "carregado_em": "2026-11-09",
    "origem": "oficial",
    "registros": 393,
    "bytes": 1078429,
    "sha256": "e5d79f7882910b6efce71c682c3983c9fe6179d91427e3d47d9a829283cc5625"
   },
   "uk": {
-   "carregado_em": "2026-11-08",
+   "carregado_em": "2026-11-09",
    "origem": "oficial",
    "registros": 6420,
    "bytes": 22084218,
    "sha256": "b9edf715b3eae03c5e6ea0f6e060ebb19a6b3ebba06d6b98d038f5d12376d4ab"
   },
   "ceis": {
-   "carregado_em": "2026-11-08",
+   "carregado_em": "2026-11-09",
    "origem": "espelho",
    "registros": 16949,
-   "bytes": 23104871,
-   "sha256": "60c7a708f01a8800cadf7e126c02ba68b2b49ecf7280484e3b3325418fb23bfb"
+   "bytes": 23104848,
+   "sha256": "44a03c1f78912807f2657f12ce417859e539acf70bf04634560bfb5c0bd50be6"
   },
   "slavery": {
-   "carregado_em": "2026-11-08",
+   "carregado_em": "2026-11-09",
    "origem": "espelho",
    "registros": 496,
    "bytes": 149370,
    "sha256": "83f6453b544f175cfa8ff1aa89a0886600cdb7c5e59a322e102e5f5b7998c968"
   },
   "tcu": {
-   "carregado_em": "2026-11-08",
+   "carregado_em": "2026-11-09",
    "origem": "espelho",
-   "registros": 699,
-   "bytes": 367087,
-   "sha256": "8db762ebb7ee8f195c9c11151fa11a41546fad91cfe656de9e08bf66468bba9c"
+   "registros": 697,
+   "bytes": 366110,
+   "sha256": "76d5db11cae568861968939a21884a7a3ae77069a31db11925bd6753ac6c0d18"
   },
   "bcb": {
-   "carregado_em": "2026-11-08",
+   "carregado_em": "2026-11-09",
    "origem": "espelho",
    "registros": 317,
    "bytes": 71006,
-   "sha256": "6faea7a4fd47d4d5fb73aa1524e05d314d88187d47da6880a6e552e0a9253854"
+   "sha256": "fd64a57d37a86452e5aeddb0c135dec8d872085ee08abc05a24936d5bec6d807"
   },
   "pep": {
-   "carregado_em": "2026-11-08",
+   "carregado_em": "2026-11-09",
    "origem": "espelho",
    "registros": 106422,
    "bytes": 24682171,
    "sha256": "9f9db96506de8526d3b2752b1784829b75103ab629137e1b22354b48d770889d"
   }
  },
- "avisos": [
-  "eu (oficial): download falhou: HTTP Error 500: Internal Server Error",
-  "eu: usando o arquivo da carga anterior",
-  "eu: dados de 06/11 (nao foi possivel atualizar hoje)"
- ]
+ "avisos": []
 }
