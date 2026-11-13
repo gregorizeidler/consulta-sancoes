@@ -1260,5 +1260,119 @@
     "p": "Russia (Sanctions)"
    }
   ]
+ },
+ {
+  "data": "2026-11-13",
+  "hora": "13:59",
+  "novos": 21,
+  "removidos": 35,
+  "total": 52074,
+  "nomes": [
+   {
+    "n": "LOS MENDOZA DRUG TRAFFICKING ORGANIZATION",
+    "f": "ofac",
+    "p": "ILLICIT-DRUGS-EO14059, SDGT"
+   },
+   {
+    "n": "LOS LORENZANAS",
+    "f": "ofac",
+    "p": "FTO, SDGT"
+   },
+   {
+    "n": "TUPAN SAUDE CENTER LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "LICITEMAX COMERCIO E SERVICOS LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "ENGEO CONSULTORIA E ASSESSORIA LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "BRAVIA GEOTECNOLOGIAS LTDA.",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "CLAUDEMARIO HENRIQUE DO NASCIMENTO",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "CARVALHO COMERCIO LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "ARAUSUPRI INFORMÁTICA LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "SUPERMERCADO KARISMA LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "EMPRESERV LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "Medstar Distribuidora Ltda.",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "ADMI COMÉRCIO DE MATERIAIS DE CONSTRUÇÃO E CONSTRUÇÃO CIVIL LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "MINHA BALADA LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "R JARDIM COMERCIO E MANUTENCAO DE CELULARES LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "EVOLUX 360 LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "VALDECI TORNO OESTE LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "SENTURIAN 360 SECURITY LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "FORTALEZA COMERCIO E SERVICOS LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "THIAGO FELIX DE SOUZA",
+    "f": "tcu",
+    "p": "TCU - Pessoas Inabilitadas"
+   },
+   {
+    "n": "JOAO AGOSTINHO DO NASCIMENTO",
+    "f": "tcu",
+    "p": "TCU - Pessoas Inabilitadas"
+   }
+  ]
  }
 ]
