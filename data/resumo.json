@@ -1,22 +1,274 @@
 {
- "gerado_em": "2026-11-15T13:08:05-03:00",
- "gerado_em_br": "15/11/2026 as 13:08",
- "total": 52077,
+ "gerado_em": "2026-11-16T16:22:16-03:00",
+ "gerado_em_br": "16/11/2026 as 16:22",
+ "total": 52059,
  "por_fonte": {
   "ofac": 19565,
   "un": 1007,
   "eu": 6269,
-  "ceis": 16893,
-  "slavery": 496,
+  "ceis": 16879,
+  "slavery": 498,
   "tcu": 697,
-  "bcb": 317,
+  "bcb": 311,
   "ofacns": 393,
   "uk": 6440
  },
- "novos_total": 0,
- "removidos_total": 0,
- "novos": [],
- "removidos": [],
+ "novos_total": 29,
+ "removidos_total": 47,
+ "novos": [
+  {
+   "n": "L&M MONTAGEM E CONTROLE LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-02daff10fadceca1c494cad96b4a15bf"
+  },
+  {
+   "n": "SAO JOAO MATERIAIS ELETRICOS E TRANSPORTADORA LTDA.",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-200912e6d8147778354a8f3a24693f01"
+  },
+  {
+   "n": "HQZ PRÓTESES DENTÁRIAS LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-211ec433dd3e4d34c2638e3e8be5daa0"
+  },
+  {
+   "n": "CONSTRUTORA INTEGRA ENGENHARIA LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-33fe1f1280751be0793e6283a918c5b4"
+  },
+  {
+   "n": "Guizardi Junior Constrtutora Incorporadora Ltda",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-3b92d9d85e7e65d3dc9b4b0943145bc4"
+  },
+  {
+   "n": "ALX CONSTRUTORA LOCACOES E SERVICOS LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-405e699b3b155468a7c24966684c933a"
+  },
+  {
+   "n": "JOSELITO DA SILVA CARDOSO",
+   "f": "ceis",
+   "t": "pessoa",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-43174055061d4b4ffd229e5f488d54fa"
+  },
+  {
+   "n": "HIDRATA - BOMBAS POCOS E SERVICOS AMBIENTAIS LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-43fd13d3d454ed3fc92cdd6492d13763"
+  },
+  {
+   "n": "TIAGO SOUZA DE FREITAS",
+   "f": "ceis",
+   "t": "pessoa",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-4f59533203cca60d0dfeb5d2ea3d4d5a"
+  },
+  {
+   "n": "TEP CONSTRUTORA LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-5c31a6445192aaa0f19d3ad2c4b72ccb"
+  },
+  {
+   "n": "EDSON TELES MACHADO",
+   "f": "ceis",
+   "t": "pessoa",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-67402316e1cae4e58762027144687a59"
+  },
+  {
+   "n": "VALDOMIRO COSTA DOS SANTOS",
+   "f": "ceis",
+   "t": "pessoa",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-675c23b9cd5e2a1ac3d4d99fc194ac93"
+  },
+  {
+   "n": "EUNICE SILVA DOS SANTOS",
+   "f": "ceis",
+   "t": "pessoa",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-686ea01a5e8c53f009711a9ec37fb4ec"
+  },
+  {
+   "n": "EDUARDO FERREIRA DE JESUS NETO",
+   "f": "ceis",
+   "t": "pessoa",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-77cafc03775afc71cbfc7d2252d18df8"
+  },
+  {
+   "n": "J L CONSTRUCOES E LOCACOES LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-87fc0314d3559ded767bd592fa215ea9"
+  },
+  {
+   "n": "MARCIO DE SOUZA SAMPAIO",
+   "f": "ceis",
+   "t": "pessoa",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-88b9d03a1bed373cdf65f2ae8c40ff00"
+  },
+  {
+   "n": "VERDAM LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-8cb089c4c0176e6a49c05805ac145543"
+  },
+  {
+   "n": "ACS PRO SOLUCOES EM TI LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-926e620376c91d9337091c0c9f7cea0c"
+  },
+  {
+   "n": "58.464.245 YELINES JOSEFINA CASTRO SUAREZ",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-92dd636cc5c5680335deb9709f6759e8"
+  },
+  {
+   "n": "PEREIRA COMERCIO DE ARTIGOS DESCARTAVEIS LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-9c94c2598597e6f8badb878befb767b0"
+  },
+  {
+   "n": "V. DE MELO A. NEGÓCIOS",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-ad391d5f27625527b36f7bbda3d44843"
+  },
+  {
+   "n": "JOLITEX INFORMATICA LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-b1e60ec7171dc58d3fb33157225cf870"
+  },
+  {
+   "n": "60.096.540 GABRIELLA VITAL DE OLIVEIRA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-b5adf7f397347ff0e35aaafe3b13f0fc"
+  },
+  {
+   "n": "PROVER UNIFORMES E SOLUCOES LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-c6077a1bb036416f32ee66585ec719ce"
+  },
+  {
+   "n": "OBM VIAGENS LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-c66cdaa5f94a0a707cbd8894e420acd1"
+  },
+  {
+   "n": "ERIKLYS LUAN DE LIMA MARTINHO",
+   "f": "ceis",
+   "t": "pessoa",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-dad91f879376395d2489bba6324372cb"
+  },
+  {
+   "n": "ROUVER SILVA DE OLIVEIRA",
+   "f": "ceis",
+   "t": "pessoa",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-e55ae7fe1e7a93d9a9d36629b150a275"
+  },
+  {
+   "n": "CARLOS EDUARDO FERREIRA DE ALMEIDA",
+   "f": "slavery",
+   "t": "pessoa",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cpf-29085257808"
+  },
+  {
+   "n": "ELEOTERIO BACHI",
+   "f": "slavery",
+   "t": "pessoa",
+   "p": "Lista Suja do Trabalho Escravo (MTE)",
+   "i": "slavery-br-cpf-68211988020"
+  }
+ ],
+ "removidos": [
+  "bcb-br-cpf-048-747",
+  "bcb-br-cpf-302-199",
+  "bcb-br-cpf-569-096",
+  "bcb-br-cpf-848-029",
+  "bcb-br-cpf-866-749",
+  "bcb-br-cpf-912-936",
+  "ceis-br-ceis-030c13c9f8607d930cd27e0a407d5079",
+  "ceis-br-ceis-106ecb930587b82f03b0cbedbc4ecd63",
+  "ceis-br-ceis-17f979c29a63075d49ecedb8a688bd45",
+  "ceis-br-ceis-1b25592410c6643fc19c774faff182e5",
+  "ceis-br-ceis-1c551cdbad7d730bc99e7d723f6f0090",
+  "ceis-br-ceis-239666622f5d1849d4670ca120f2f5d7",
+  "ceis-br-ceis-3537b979670684b808509676bdb4cc1b",
+  "ceis-br-ceis-38a37a913dad038053be859155302a62",
+  "ceis-br-ceis-3a29f37411e6b98751cb186af7c12651",
+  "ceis-br-ceis-3c4b865c8cd7c1e67ae6aba0df02af5d",
+  "ceis-br-ceis-3d54c14ec2a04a36526bfc2274a04b42",
+  "ceis-br-ceis-3dd9edf31344259dab399d0d1c0ea0ae",
+  "ceis-br-ceis-45ec244dca6ff0f4a91c3e22f8ef7066",
+  "ceis-br-ceis-4d628a223185221cebd19eda3f381811",
+  "ceis-br-ceis-4e4118635ba9252bba234d47b3b78978",
+  "ceis-br-ceis-4f3b75c0208e4c4ab704953876f3b6a5",
+  "ceis-br-ceis-56a4a7291090b8723fde9fcb0ab70b64",
+  "ceis-br-ceis-5b62f43f576d060a63a127b6634e9c9e",
+  "ceis-br-ceis-5c81fc761829b0c7092dcc348bd06cb4",
+  "ceis-br-ceis-6272ef12392a7af68d1c721274f51cc7",
+  "ceis-br-ceis-6e27c151e475d8409f55890a315b557e",
+  "ceis-br-ceis-75e6d325a6dabe2d1e908f250773bfba",
+  "ceis-br-ceis-7cb82de57c0c69252932e1f7414a721d",
+  "ceis-br-ceis-7fc769aefc49f81df59de10134fae432",
+  "ceis-br-ceis-8ed6bf64da72c01555bada08a8f417d7",
+  "ceis-br-ceis-8ee95ac300ab7bd5bd1f1b8f5b9cf067",
+  "ceis-br-ceis-9c1d56e99dd46244dde11a74d8264fcb",
+  "ceis-br-ceis-a65b86416d425b88af8dad4d5ac014e6",
+  "ceis-br-ceis-adb4abaf6aff0e2dd3b3f9887564a250",
+  "ceis-br-ceis-af44c259d5fd40866720cbfbabe760e6",
+  "ceis-br-ceis-b4e11f8a300d37267c1806d49822e866",
+  "ceis-br-ceis-bf1052655cae1d117f6f6d65781b37a5",
+  "ceis-br-ceis-c6c8e3b9767c54ad864f9dba5b1f6965",
+  "ceis-br-ceis-c7fa4af16999985698b17fc2a832078a",
+  "ceis-br-ceis-cafe42b9daed82e839d8e054b0db2915",
+  "ceis-br-ceis-d19d144fe3cdee1abf4cb96c26107f0f",
+  "ceis-br-ceis-e0951dd0a2e39bd82c9c5069ff32f300",
+  "ceis-br-ceis-e33da0cf2434e025b866693bc7ea7b12",
+  "ceis-br-ceis-e8e872be15b7395c796809ecbe4486ec",
+  "ceis-br-ceis-f6361103e9147ecd5e42a4ea0325e2b7",
+  "ceis-br-ceis-fe21c26781b557d72cb4cd749d8e7743"
+ ],
  "tamanho_fontes_bytes": {
   "ofac": 29558472,
   "un": 2177747,
@@ -25,70 +277,70 @@
  "primeira_carga": false,
  "fontes_info": {
   "ofac": {
-   "carregado_em": "2026-11-15",
+   "carregado_em": "2026-11-16",
    "origem": "oficial",
    "registros": 19565,
    "bytes": 29558472,
    "sha256": "55badef6928044db9fd5e798e6279802c1fa2019fa82a580a2e0d29a741ec9ae"
   },
   "un": {
-   "carregado_em": "2026-11-15",
+   "carregado_em": "2026-11-16",
    "origem": "oficial",
    "registros": 1007,
    "bytes": 2177747,
    "sha256": "a2cd86afe4234d823143c966f95cd2ae17a6aaa59364d0240b49712955b9dcfd"
   },
   "eu": {
-   "carregado_em": "2026-11-15",
+   "carregado_em": "2026-11-16",
    "origem": "oficial",
    "registros": 6269,
    "bytes": 25899600,
    "sha256": "636800c3e494b2ef8934f51f5e23c914a6208a383ac850e674b1b35a7d49d34f"
   },
   "ofacns": {
-   "carregado_em": "2026-11-15",
+   "carregado_em": "2026-11-16",
    "origem": "oficial",
    "registros": 393,
    "bytes": 1078429,
    "sha256": "9d0625e4e156db586879e7141be024b7650a950f005decd207f2518bdb902284"
   },
   "uk": {
-   "carregado_em": "2026-11-15",
+   "carregado_em": "2026-11-16",
    "origem": "oficial",
    "registros": 6440,
    "bytes": 22168338,
    "sha256": "7b3185f86831077c54c3f47d1186da957d65d1c721180d51001c848ee6a9cce1"
   },
   "ceis": {
-   "carregado_em": "2026-11-15",
+   "carregado_em": "2026-11-16",
    "origem": "espelho",
-   "registros": 16893,
-   "bytes": 22972578,
-   "sha256": "2ff4a5fdc5fd957ea79f19919fda25a801ac04c6616fb77a0905e2dca527dbe5"
+   "registros": 16879,
+   "bytes": 22955714,
+   "sha256": "a1f02d1699bdbeab7f53a4f69d906d2d6bdcc23b328620d1d54476488ef89ae9"
   },
   "slavery": {
-   "carregado_em": "2026-11-15",
+   "carregado_em": "2026-11-16",
    "origem": "espelho",
-   "registros": 496,
-   "bytes": 149370,
-   "sha256": "62ad96b4b7c3b98378b8453dd88a645493232e067e5d46c15904a3ceb259def2"
+   "registros": 498,
+   "bytes": 149967,
+   "sha256": "e6e4ec5deea1c6d356955b55f4665c30645765d6c965d8e8cd45ddcedd4d31d4"
   },
   "tcu": {
-   "carregado_em": "2026-11-15",
+   "carregado_em": "2026-11-16",
    "origem": "espelho",
    "registros": 697,
    "bytes": 366215,
-   "sha256": "1b0d30d8603839375a168f7bbe4a217ad3ca4cda9b059a09b45b373481d194d7"
+   "sha256": "9334f01c0c5795f05bd9be83c769a7b2419d7362b62f3d0e602b6218c1d5b996"
   },
   "bcb": {
-   "carregado_em": "2026-11-15",
+   "carregado_em": "2026-11-16",
    "origem": "espelho",
-   "registros": 317,
-   "bytes": 71006,
-   "sha256": "2647526610bb1ad18c2fe73d6b72ffa0b9e981d57f763ea58e3a4e1819c6d3cc"
+   "registros": 311,
+   "bytes": 69698,
+   "sha256": "219210c2041ba8a33b39f6b77a8a980ec2add90095de768936164990d601123f"
   },
   "pep": {
-   "carregado_em": "2026-11-15",
+   "carregado_em": "2026-11-16",
    "origem": "espelho",
    "registros": 106413,
    "bytes": 24680065,
