@@ -1650,5 +1650,89 @@
     "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
    }
   ]
+ },
+ {
+  "data": "2026-11-17",
+  "hora": "15:16",
+  "novos": 15,
+  "removidos": 1,
+  "total": 52073,
+  "nomes": [
+   {
+    "n": "PLAYRIO PARQUES INFANTIL LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "MJWF SERVIÇOS DE CONSTRUÇÃO CIVIL LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "LAYANA GARCIA XAVIER",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "M P P COMERCIAL",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "SGC PRESTADORA DE SERVICOS LTDA - EPP",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "COOPERATIVA MISTA AGROPECUÁRIA E ECONOMIA SOLIDÁRIA LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "HAR HEVRON DEVELOPMENT COMPANY LTD",
+    "f": "uk",
+    "p": "Global Human Rights and International Humanitarian Law Sanctions"
+   },
+   {
+    "n": "ARIEL RESIDENTIAL JUDEA AND SAMARIA LIMITED",
+    "f": "uk",
+    "p": "Global Human Rights and International Humanitarian Law Sanctions"
+   },
+   {
+    "n": "AMI GVIRTZMAN ARCHITECTS 2021 LTD",
+    "f": "uk",
+    "p": "Global Human Rights and International Humanitarian Law Sanctions"
+   },
+   {
+    "n": "HEMDAT SHOMRON LTD",
+    "f": "uk",
+    "p": "Global Human Rights and International Humanitarian Law Sanctions"
+   },
+   {
+    "n": "Z.F. BUILDING COMPANY LTD",
+    "f": "uk",
+    "p": "Global Human Rights and International Humanitarian Law Sanctions"
+   },
+   {
+    "n": "S.A.G. (VELVEL) BUILDING & DEVELOPMENT LTD.",
+    "f": "uk",
+    "p": "Global Human Rights and International Humanitarian Law Sanctions"
+   },
+   {
+    "n": "LEV HAHAR YAZAMUT LIMITED",
+    "f": "uk",
+    "p": "Global Human Rights and International Humanitarian Law Sanctions"
+   },
+   {
+    "n": "HAREY ZAHAV MANAGEMENT LTD",
+    "f": "uk",
+    "p": "Global Human Rights and International Humanitarian Law Sanctions"
+   },
+   {
+    "n": "TZAV 9",
+    "f": "uk",
+    "p": "Global Human Rights and International Humanitarian Law Sanctions"
+   }
+  ]
  }
 ]
