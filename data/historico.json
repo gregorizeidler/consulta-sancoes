@@ -1868,5 +1868,139 @@
     "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
    }
   ]
+ },
+ {
+  "data": "2026-11-19",
+  "hora": "15:01",
+  "novos": 50,
+  "removidos": 34,
+  "total": 52097,
+  "nomes": [
+   {
+    "n": "Angelo FIGLIOMENI",
+    "f": "ofac",
+    "p": "ILLICIT-DRUGS-EO14059"
+   },
+   {
+    "n": "Cosimo FIGLIOMENI",
+    "f": "ofac",
+    "p": "ILLICIT-DRUGS-EO14059"
+   },
+   {
+    "n": "Francesco COMMISSO",
+    "f": "ofac",
+    "p": "ILLICIT-DRUGS-EO14059"
+   },
+   {
+    "n": "Rocco Remo COMMISSO",
+    "f": "ofac",
+    "p": "ILLICIT-DRUGS-EO14059"
+   },
+   {
+    "n": "Luigi VESCIO SR.",
+    "f": "ofac",
+    "p": "ILLICIT-DRUGS-EO14059"
+   },
+   {
+    "n": "Vincenzo DEMARIA",
+    "f": "ofac",
+    "p": "ILLICIT-DRUGS-EO14059"
+   },
+   {
+    "n": "FRATELLI VESCIO FUNERAL HOMES LTD.",
+    "f": "ofac",
+    "p": "ILLICIT-DRUGS-EO14059"
+   },
+   {
+    "n": "VESCIO FUNERAL HOMES INC.",
+    "f": "ofac",
+    "p": "ILLICIT-DRUGS-EO14059"
+   },
+   {
+    "n": "VESCIO FUNERAL HOME MAPLE INC.",
+    "f": "ofac",
+    "p": "ILLICIT-DRUGS-EO14059"
+   },
+   {
+    "n": "Rose VESCIO",
+    "f": "ofac",
+    "p": "ILLICIT-DRUGS-EO14059"
+   },
+   {
+    "n": "Luigi VESCIO JR.",
+    "f": "ofac",
+    "p": "ILLICIT-DRUGS-EO14059"
+   },
+   {
+    "n": "Laura VESCIO",
+    "f": "ofac",
+    "p": "ILLICIT-DRUGS-EO14059"
+   },
+   {
+    "n": "PHANTOM LIMOUSINE SERVICES INC.",
+    "f": "ofac",
+    "p": "ILLICIT-DRUGS-EO14059"
+   },
+   {
+    "n": "COMANCHERO OUTLAW MOTORCYCLE GANG",
+    "f": "ofac",
+    "p": "ILLICIT-DRUGS-EO14059"
+   },
+   {
+    "n": "Marco Francis COFFEN",
+    "f": "ofac",
+    "p": "ILLICIT-DRUGS-EO14059"
+   },
+   {
+    "n": "Alexandre VARELA VILLAR",
+    "f": "ofac",
+    "p": "ILLICIT-DRUGS-EO14059"
+   },
+   {
+    "n": "Allan John Norman MEEHAN",
+    "f": "ofac",
+    "p": "ILLICIT-DRUGS-EO14059"
+   },
+   {
+    "n": "Pasilika NAUFAHU",
+    "f": "ofac",
+    "p": "ILLICIT-DRUGS-EO14059"
+   },
+   {
+    "n": "Vetekina NAUFAHU",
+    "f": "ofac",
+    "p": "ILLICIT-DRUGS-EO14059"
+   },
+   {
+    "n": "Saw Shwe WAH",
+    "f": "ofac",
+    "p": "CYBER4"
+   },
+   {
+    "n": "Saw A ONE",
+    "f": "ofac",
+    "p": "CYBER4"
+   },
+   {
+    "n": "Hui ZHAO",
+    "f": "ofac",
+    "p": "CYBER4"
+   },
+   {
+    "n": "BEI FANG BO LIN CONSTRUCTION DECORATION CO., LTD.",
+    "f": "ofac",
+    "p": "CYBER4"
+   },
+   {
+    "n": "ZHZ INVESTMENT CONSULTING CO., LTD.",
+    "f": "ofac",
+    "p": "CYBER4"
+   },
+   {
+    "n": "QUATROCOR GRAFICA E EDITORA LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   }
+  ]
  }
 ]
