@@ -2136,5 +2136,44 @@
     "p": "UKR"
    }
   ]
+ },
+ {
+  "data": "2026-11-21",
+  "hora": "13:39",
+  "novos": 6,
+  "removidos": 0,
+  "total": 52133,
+  "nomes": [
+   {
+    "n": "Mojtaba ARABNEJAD",
+    "f": "ofac",
+    "p": "SDGT, IFSR"
+   },
+   {
+    "n": "Mohammad Javad BAVAND",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "Majid TAJ",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "Mohammadhossein SERVATI",
+    "f": "ofac",
+    "p": "SDGT, IFSR"
+   },
+   {
+    "n": "FRANCISCO DAS CHAGAS SOUSA",
+    "f": "tcu",
+    "p": "TCU - Pessoas Inabilitadas"
+   },
+   {
+    "n": "CELI DE OLIVEIRA MELLO",
+    "f": "tcu",
+    "p": "TCU - Pessoas Inabilitadas"
+   }
+  ]
  }
 ]

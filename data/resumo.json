@@ -1,458 +1,137 @@
 {
- "gerado_em": "2026-11-20T14:37:51-03:00",
- "gerado_em_br": "20/11/2026 as 14:37",
- "total": 52127,
+ "gerado_em": "2026-11-21T13:39:00-03:00",
+ "gerado_em_br": "21/11/2026 as 13:39",
+ "total": 52133,
  "por_fonte": {
-  "ofac": 19595,
+  "ofac": 19599,
   "un": 1007,
   "eu": 6303,
   "ceis": 16877,
   "slavery": 497,
-  "tcu": 698,
+  "tcu": 700,
   "bcb": 309,
   "ofacns": 393,
   "uk": 6448
  },
- "novos_total": 49,
- "removidos_total": 19,
+ "novos_total": 6,
+ "removidos_total": 0,
  "novos": [
   {
-   "n": "Oleg Ivanovich SLADKEVICH",
-   "f": "eu",
+   "n": "Mojtaba ARABNEJAD",
+   "f": "ofac",
    "t": "pessoa",
-   "p": "UKR",
-   "i": "eu-185180"
+   "p": "SDGT, IFSR",
+   "i": "ofac-59250"
   },
   {
-   "n": "Rustam Nurgaliyevich MINNIKHANOV",
-   "f": "eu",
+   "n": "Mohammad Javad BAVAND",
+   "f": "ofac",
    "t": "pessoa",
-   "p": "UKR",
-   "i": "eu-185186"
+   "p": "IRAN-EO13902",
+   "i": "ofac-59251"
   },
   {
-   "n": "Александр Михайлович КАЛЯГИН",
-   "f": "eu",
+   "n": "Majid TAJ",
+   "f": "ofac",
    "t": "pessoa",
-   "p": "UKR",
-   "i": "eu-185210"
+   "p": "IRAN-EO13902",
+   "i": "ofac-59252"
   },
   {
-   "n": "Oleg Vladimirovich TROFIMOV",
-   "f": "eu",
+   "n": "Mohammadhossein SERVATI",
+   "f": "ofac",
    "t": "pessoa",
-   "p": "UKR",
-   "i": "eu-185219"
+   "p": "SDGT, IFSR",
+   "i": "ofac-59253"
   },
   {
-   "n": "Ирина Викторовна КРАВЧЕНКО",
-   "f": "eu",
+   "n": "FRANCISCO DAS CHAGAS SOUSA",
+   "f": "tcu",
    "t": "pessoa",
-   "p": "UKR",
-   "i": "eu-185227"
+   "p": "TCU - Pessoas Inabilitadas",
+   "i": "tcu-br-cpf-09813896434"
   },
   {
-   "n": "송도원국제소년단야영소",
-   "f": "eu",
-   "t": "entidade",
-   "p": "UKR",
-   "i": "eu-185233"
-  },
-  {
-   "n": "Всероссийский детский центр “Океан”",
-   "f": "eu",
-   "t": "entidade",
-   "p": "UKR",
-   "i": "eu-185237"
-  },
-  {
-   "n": "Preobrazhensky Defence and Sports Centre",
-   "f": "eu",
-   "t": "entidade",
-   "p": "UKR",
-   "i": "eu-185248"
-  },
-  {
-   "n": "ООО СОК “Ромашка”",
-   "f": "eu",
-   "t": "entidade",
-   "p": "UKR",
-   "i": "eu-185262"
-  },
-  {
-   "n": "The Moscow City Tourism Committee",
-   "f": "eu",
-   "t": "entidade",
-   "p": "UKR",
-   "i": "eu-185271"
-  },
-  {
-   "n": "Children’s camp “Art-Quest”",
-   "f": "eu",
-   "t": "entidade",
-   "p": "UKR",
-   "i": "eu-185281"
-  },
-  {
-   "n": "LLC “DOK ‘Sputnik’”",
-   "f": "eu",
-   "t": "entidade",
-   "p": "UKR",
-   "i": "eu-185289"
-  },
-  {
-   "n": "ООО \"АРТ-КВЕСТ\"",
-   "f": "eu",
-   "t": "entidade",
-   "p": "UKR",
-   "i": "eu-185320"
-  },
-  {
-   "n": "Али Османович ЧОМАЕВ",
-   "f": "eu",
+   "n": "CELI DE OLIVEIRA MELLO",
+   "f": "tcu",
    "t": "pessoa",
-   "p": "UKR",
-   "i": "eu-185332"
-  },
-  {
-   "n": "Максим Николаевич ШВЕЦ",
-   "f": "eu",
-   "t": "pessoa",
-   "p": "UKR",
-   "i": "eu-185338"
-  },
-  {
-   "n": "Renard Vladimirovich KUTKOVSKY",
-   "f": "eu",
-   "t": "pessoa",
-   "p": "UKR",
-   "i": "eu-185344"
-  },
-  {
-   "n": "Ганна Станіславівна МОЛЧАНОВА",
-   "f": "eu",
-   "t": "pessoa",
-   "p": "UKR",
-   "i": "eu-185350"
-  },
-  {
-   "n": "Svetlana Edislavovna BESPALOVA",
-   "f": "eu",
-   "t": "pessoa",
-   "p": "UKR",
-   "i": "eu-185360"
-  },
-  {
-   "n": "ДОЛ «Солнечный берег»",
-   "f": "eu",
-   "t": "entidade",
-   "p": "UKR",
-   "i": "eu-185385"
-  },
-  {
-   "n": "FGBI “DOP ‘Raduga’”",
-   "f": "eu",
-   "t": "entidade",
-   "p": "UKR",
-   "i": "eu-185397"
-  },
-  {
-   "n": "LLC “TsDiYUP “Mir”",
-   "f": "eu",
-   "t": "entidade",
-   "p": "UKR",
-   "i": "eu-185410"
-  },
-  {
-   "n": "ООО \"ЛЕТО\"",
-   "f": "eu",
-   "t": "entidade",
-   "p": "UKR",
-   "i": "eu-185418"
-  },
-  {
-   "n": "LLC “Otdykh‑71“",
-   "f": "eu",
-   "t": "entidade",
-   "p": "UKR",
-   "i": "eu-185426"
-  },
-  {
-   "n": "LLC Sanatorium “Vita”",
-   "f": "eu",
-   "t": "entidade",
-   "p": "UKR",
-   "i": "eu-185436"
-  },
-  {
-   "n": "LLC Children's Health Complex \"Signal\"",
-   "f": "eu",
-   "t": "entidade",
-   "p": "UKR",
-   "i": "eu-185447"
-  },
-  {
-   "n": "ООО ДОЦ \"Котлостроитель\"",
-   "f": "eu",
-   "t": "entidade",
-   "p": "UKR",
-   "i": "eu-185456"
-  },
-  {
-   "n": "The Centre for the Study of the Youth Environment and Monitoring of Networks",
-   "f": "eu",
-   "t": "entidade",
-   "p": "UKR",
-   "i": "eu-185465"
-  },
-  {
-   "n": "Children's Health and Education Center \"Brigantine\"",
-   "f": "eu",
-   "t": "entidade",
-   "p": "UKR",
-   "i": "eu-185472"
-  },
-  {
-   "n": "Ramil Nailevich BADGUTDINOV",
-   "f": "eu",
-   "t": "pessoa",
-   "p": "UKR",
-   "i": "eu-185933"
-  },
-  {
-   "n": "Sergey Aleksandrovich BASHKOV",
-   "f": "eu",
-   "t": "pessoa",
-   "p": "UKR",
-   "i": "eu-185944"
-  },
-  {
-   "n": "Sergey Nikolaevich BESSONOV",
-   "f": "eu",
-   "t": "pessoa",
-   "p": "UKR",
-   "i": "eu-185955"
-  },
-  {
-   "n": "Viktor Evgenevich IVANOV",
-   "f": "eu",
-   "t": "pessoa",
-   "p": "UKR",
-   "i": "eu-185966"
-  },
-  {
-   "n": "Aleksandr Yurevich DYUKAREV",
-   "f": "eu",
-   "t": "pessoa",
-   "p": "UKR",
-   "i": "eu-185977"
-  },
-  {
-   "n": "Olga Alekseevna BELYAVTSEVA",
-   "f": "eu",
-   "t": "pessoa",
-   "p": "UKR",
-   "i": "eu-186049"
-  },
-  {
-   "n": "MEGA LOCACOES E EVENTOS LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-1216ccc83851b08117ae6641ff890436"
-  },
-  {
-   "n": "ECOSAMAS SERVICOS LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-39be1000eb6caf103fd3d171215c5ec1"
-  },
-  {
-   "n": "REBOCAR REMOCAO E GUARDA DE VEICULOS LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-54d497a83b5eb9cd4291fb0cb9e33eb8"
-  },
-  {
-   "n": "REBOCAR REMOCAO E GUARDA DE VEICULOS LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-744da0ff71c84e56050ce3d6e41c5231"
-  },
-  {
-   "n": "T K PRODUCOES LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-790d9b84ba95a9c0b67e87c65eb87608"
-  },
-  {
-   "n": "REBOCAR REMOCAO E GUARDA DE VEICULOS LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-816def70e6c7d6c48083ca87208d3603"
-  },
-  {
-   "n": "VETOR MULTICOM LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-9d7ff45a53691740c8a49f1d2ca26b16"
-  },
-  {
-   "n": "REBOCAR REMOCAO E GUARDA DE VEICULOS LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-a45edf21222613cd339767b8fcb8f44a"
-  },
-  {
-   "n": "REBOCAR REMOCAO E GUARDA DE VEICULOS LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-a56559c8426eff10aaaf980b0288567d"
-  },
-  {
-   "n": "IPESPE INST DE PESQUISAS SOCIAIS POLITICAS E ECONOMICAS",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-aea63d36bbf2297bac0efd168ed4a122"
-  },
-  {
-   "n": "MM PRODUCOES E MARKETING LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-b59889a4ab951408b17ace776e4847fb"
-  },
-  {
-   "n": "CELIGA - MANUTENCAO ELETRICA LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-c9a3d8cce1e3bd1ff242ae3118f3375a"
-  },
-  {
-   "n": "REBOCAR REMOCAO E GUARDA DE VEICULOS LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-dca423dcaf59ba466d464756cbdd5181"
-  },
-  {
-   "n": "REBOCAR REMOCAO E GUARDA DE VEICULOS LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-e137a2b05a4586838cd810590f298e65"
-  },
-  {
-   "n": "SPE BELMAIS ESTANCIA DO CONDE CONDOMINIO CLUB EMPREENDIMENTOS IMOBILIARIOS LTDA",
-   "f": "slavery",
-   "t": "entidade",
-   "p": "Lista Suja do Trabalho Escravo (MTE)",
-   "i": "slavery-br-cnpj-42198516000132"
+   "p": "TCU - Pessoas Inabilitadas",
+   "i": "tcu-br-cpf-26198029115"
   }
  ],
- "removidos": [
-  "ceis-br-ceis-14fcd886e3959f1ce86085a3d2e5125d",
-  "ceis-br-ceis-1d11c47f15a2f6c995de6fe91fedf60f",
-  "ceis-br-ceis-34c1d72b0514723a4485a5a34d690412",
-  "ceis-br-ceis-4b0667c257468eef87dc21b629a45922",
-  "ceis-br-ceis-5376ef7b35b55b5e15b2b20e782337d2",
-  "ceis-br-ceis-614a7cda87fea22be06382ccd778f0c1",
-  "ceis-br-ceis-63e335c0545062a89c143d4d448f37de",
-  "ceis-br-ceis-70420cd28ec92ebcc845b249308087a3",
-  "ceis-br-ceis-89ff0bcd82c9a0c39ea577a87c93c4ab",
-  "ceis-br-ceis-9110a201d3a9c9eda37431c4b011eaa1",
-  "ceis-br-ceis-9d4f8ad82a3b9d53ce69b954b24c0713",
-  "ceis-br-ceis-b4e5ff809b629e43b877246604e978f5",
-  "ceis-br-ceis-d1e65d7b72f6a8d0150adecfd99dcf76",
-  "ceis-br-ceis-db6f57f771792039e2abd1c6b50d7cc0",
-  "ceis-br-ceis-f87a8a46ca1acd993ffc06ccf413340a",
-  "ceis-br-ceis-fcee5e4b61f3302ab29c6fb3b9b6c361",
-  "slavery-br-cnpj-30421632000270",
-  "slavery-br-cpf-05462652607",
-  "uk-RUS3470"
- ],
+ "removidos": [],
  "tamanho_fontes_bytes": {
-  "ofac": 29607157,
-  "un": 2180756,
+  "ofac": 29614437,
+  "un": 2180873,
   "eu": 26066969
  },
  "primeira_carga": false,
  "fontes_info": {
   "ofac": {
-   "carregado_em": "2026-11-20",
+   "carregado_em": "2026-11-21",
    "origem": "oficial",
-   "registros": 19595,
-   "bytes": 29607157,
-   "sha256": "95e53034408fc95df8bca939354b75611a849fca6d0ea142002da456abbc5802"
+   "registros": 19599,
+   "bytes": 29614437,
+   "sha256": "8a8e2c8b2fd2d56dcb8be01a3f82ef795f00887124fe15ed4acd6abe410135c5"
   },
   "un": {
-   "carregado_em": "2026-11-20",
+   "carregado_em": "2026-11-21",
    "origem": "oficial",
    "registros": 1007,
-   "bytes": 2180756,
-   "sha256": "48bf2a1554d63ac7bf74f9656dcb184dcdc0f34fd8ef7589804933bb816e178e"
+   "bytes": 2180873,
+   "sha256": "a05b88c2c21ed978746a79bb945c3587f093fe8db14c693975a804ba25c29ad1"
   },
   "eu": {
-   "carregado_em": "2026-11-20",
+   "carregado_em": "2026-11-21",
    "origem": "oficial",
    "registros": 6303,
    "bytes": 26066969,
    "sha256": "3eea03e34a447659af3196440a1b5303da7884d41a01f834c38cbec0dee0bf14"
   },
   "ofacns": {
-   "carregado_em": "2026-11-20",
+   "carregado_em": "2026-11-21",
    "origem": "oficial",
    "registros": 393,
    "bytes": 1078429,
-   "sha256": "70b0e43488c2b65bf2806503f10cff683a70332ddcf7f700b371f87a87f60243"
+   "sha256": "f659a4085f59b4cc347822604d0af1272486f6e0e140fa0f5d897c7e695f9f60"
   },
   "uk": {
-   "carregado_em": "2026-11-20",
+   "carregado_em": "2026-11-21",
    "origem": "oficial",
    "registros": 6448,
    "bytes": 22198502,
    "sha256": "6b558b1981c232efaff3c52e87da32369849163c7948c56646b8f3bdf7befabf"
   },
   "ceis": {
-   "carregado_em": "2026-11-20",
+   "carregado_em": "2026-11-21",
    "origem": "espelho",
    "registros": 16877,
-   "bytes": 22912077,
-   "sha256": "ccd612d1e93c547d74f57c53466d800676e1c23d71b3df8da49940d7039ab92c"
+   "bytes": 22915916,
+   "sha256": "53e4bf2ba2a8fe1b21e92ddd637c6f3f69d7437a8362cd9a427ceadbe2d8bdc9"
   },
   "slavery": {
-   "carregado_em": "2026-11-20",
+   "carregado_em": "2026-11-21",
    "origem": "espelho",
    "registros": 497,
    "bytes": 149759,
    "sha256": "8c246a5dcb9575d43ba0ec42010054bdab2d676a40f45a8ed6763be5f61c490a"
   },
   "tcu": {
-   "carregado_em": "2026-11-20",
+   "carregado_em": "2026-11-21",
    "origem": "espelho",
-   "registros": 698,
-   "bytes": 366439,
-   "sha256": "a3d141e4f37d287b3f8ddab6518e0607cd40956b9e2c69326497f5c34a5856ea"
+   "registros": 700,
+   "bytes": 367673,
+   "sha256": "3969df01f42ba049413c879e8a1c88a72bee42506eee69a7db5c59cf75c1f837"
   },
   "bcb": {
-   "carregado_em": "2026-11-20",
+   "carregado_em": "2026-11-21",
    "origem": "espelho",
    "registros": 309,
    "bytes": 69248,
-   "sha256": "ebcdaba9a85e272e8ade56470d6ef87c0bcf08e262c5ce9c9626672396f9e4b9"
+   "sha256": "304da6853df03fe2acb7bd6ce6d17c5dda2514d36f74c3ce8930f0c10bebe09f"
   },
   "pep": {
-   "carregado_em": "2026-11-20",
+   "carregado_em": "2026-11-21",
    "origem": "espelho",
    "registros": 106406,
    "bytes": 24678485,
