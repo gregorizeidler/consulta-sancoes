@@ -1,6 +1,6 @@
 {
- "gerado_em": "2026-11-21T13:39:00-03:00",
- "gerado_em_br": "21/11/2026 as 13:39",
+ "gerado_em": "2026-11-22T13:56:51-03:00",
+ "gerado_em_br": "22/11/2026 as 13:56",
  "total": 52133,
  "por_fonte": {
   "ofac": 19599,
@@ -13,52 +13,9 @@
   "ofacns": 393,
   "uk": 6448
  },
- "novos_total": 6,
+ "novos_total": 0,
  "removidos_total": 0,
- "novos": [
-  {
-   "n": "Mojtaba ARABNEJAD",
-   "f": "ofac",
-   "t": "pessoa",
-   "p": "SDGT, IFSR",
-   "i": "ofac-59250"
-  },
-  {
-   "n": "Mohammad Javad BAVAND",
-   "f": "ofac",
-   "t": "pessoa",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59251"
-  },
-  {
-   "n": "Majid TAJ",
-   "f": "ofac",
-   "t": "pessoa",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59252"
-  },
-  {
-   "n": "Mohammadhossein SERVATI",
-   "f": "ofac",
-   "t": "pessoa",
-   "p": "SDGT, IFSR",
-   "i": "ofac-59253"
-  },
-  {
-   "n": "FRANCISCO DAS CHAGAS SOUSA",
-   "f": "tcu",
-   "t": "pessoa",
-   "p": "TCU - Pessoas Inabilitadas",
-   "i": "tcu-br-cpf-09813896434"
-  },
-  {
-   "n": "CELI DE OLIVEIRA MELLO",
-   "f": "tcu",
-   "t": "pessoa",
-   "p": "TCU - Pessoas Inabilitadas",
-   "i": "tcu-br-cpf-26198029115"
-  }
- ],
+ "novos": [],
  "removidos": [],
  "tamanho_fontes_bytes": {
   "ofac": 29614437,
@@ -68,70 +25,70 @@
  "primeira_carga": false,
  "fontes_info": {
   "ofac": {
-   "carregado_em": "2026-11-21",
+   "carregado_em": "2026-11-22",
    "origem": "oficial",
    "registros": 19599,
    "bytes": 29614437,
    "sha256": "8a8e2c8b2fd2d56dcb8be01a3f82ef795f00887124fe15ed4acd6abe410135c5"
   },
   "un": {
-   "carregado_em": "2026-11-21",
+   "carregado_em": "2026-11-22",
    "origem": "oficial",
    "registros": 1007,
    "bytes": 2180873,
-   "sha256": "a05b88c2c21ed978746a79bb945c3587f093fe8db14c693975a804ba25c29ad1"
+   "sha256": "1f72a7b1a8275d888f45cf21fb70756b9a31ff9abb723acf4fd3515ab0d269ac"
   },
   "eu": {
-   "carregado_em": "2026-11-21",
+   "carregado_em": "2026-11-22",
    "origem": "oficial",
    "registros": 6303,
    "bytes": 26066969,
    "sha256": "3eea03e34a447659af3196440a1b5303da7884d41a01f834c38cbec0dee0bf14"
   },
   "ofacns": {
-   "carregado_em": "2026-11-21",
+   "carregado_em": "2026-11-22",
    "origem": "oficial",
    "registros": 393,
    "bytes": 1078429,
    "sha256": "f659a4085f59b4cc347822604d0af1272486f6e0e140fa0f5d897c7e695f9f60"
   },
   "uk": {
-   "carregado_em": "2026-11-21",
+   "carregado_em": "2026-11-22",
    "origem": "oficial",
    "registros": 6448,
    "bytes": 22198502,
    "sha256": "6b558b1981c232efaff3c52e87da32369849163c7948c56646b8f3bdf7befabf"
   },
   "ceis": {
-   "carregado_em": "2026-11-21",
+   "carregado_em": "2026-11-22",
    "origem": "espelho",
    "registros": 16877,
    "bytes": 22915916,
-   "sha256": "53e4bf2ba2a8fe1b21e92ddd637c6f3f69d7437a8362cd9a427ceadbe2d8bdc9"
+   "sha256": "7adc5fff5b964f0508c1460e4f1a37806ce8dcab60e71b4c66092df543b540b2"
   },
   "slavery": {
-   "carregado_em": "2026-11-21",
+   "carregado_em": "2026-11-22",
    "origem": "espelho",
    "registros": 497,
    "bytes": 149759,
    "sha256": "8c246a5dcb9575d43ba0ec42010054bdab2d676a40f45a8ed6763be5f61c490a"
   },
   "tcu": {
-   "carregado_em": "2026-11-21",
+   "carregado_em": "2026-11-22",
    "origem": "espelho",
    "registros": 700,
    "bytes": 367673,
-   "sha256": "3969df01f42ba049413c879e8a1c88a72bee42506eee69a7db5c59cf75c1f837"
+   "sha256": "12900923341ba8dac08d63cdef75ddd08a7033f3b393cb782b0a09f0baacee82"
   },
   "bcb": {
-   "carregado_em": "2026-11-21",
+   "carregado_em": "2026-11-22",
    "origem": "espelho",
    "registros": 309,
    "bytes": 69248,
-   "sha256": "304da6853df03fe2acb7bd6ce6d17c5dda2514d36f74c3ce8930f0c10bebe09f"
+   "sha256": "4dd7ff7c4d8604e8a9aad966c5916b3c332735734b38e0bb7f0cbd1f3005cd17"
   },
   "pep": {
-   "carregado_em": "2026-11-21",
+   "carregado_em": "2026-11-22",
    "origem": "espelho",
    "registros": 106406,
    "bytes": 24678485,
