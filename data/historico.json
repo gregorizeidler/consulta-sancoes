@@ -2183,5 +2183,139 @@
   "removidos": 0,
   "total": 52133,
   "nomes": []
+ },
+ {
+  "data": "2026-11-23",
+  "hora": "17:56",
+  "novos": 35,
+  "removidos": 0,
+  "total": 52168,
+  "nomes": [
+   {
+    "n": "H N B TRADING CO LLC",
+    "f": "ofac",
+    "p": "SDGT, IFSR"
+   },
+   {
+    "n": "GRAND TARGET HEAVY EQUIPMENT AND MACHINERY SPARE PARTS TRADING L.L.C",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "RECAZ STAR GENERAL TRADING LLC",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "RAHBAR BAZARGANI NESIM BAHARAN QESHM COMPANY",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "HEMRAJ TRADING L.L.C",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "MINA FASHKI AND PARTNERS EXCHANGE COMPANY",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "OGA GLOBAL GENERAL TRADING L.L.C",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "EWAN AL MADEENA GENERAL TRADING LLC",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "DEXTEROUS GLOBAL DMCC",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "Ali KALHOR",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "GESPL INTERNATIONAL GENERAL TRADING LLC",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "MEETHALE RAW MATERIALS TRADING COMPANY LLC",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "Valiollah HEMMATI",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "Sayyed Mohammad JALALI",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "Mina FASHKI",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "Farzad FASHKI",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "BOGAZICI GUMRUKLEME ITHALAT IHRACAT TURIZM PETROL URUNLERI SANAYI VE TICARET LIMITED SIRKETI",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "GRANDEZ TRADING LIMITED",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "KHORE AL HILAL GOODS WHOLESALERS TRADING LLC",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "ROYAH ALTAHABIA TRADING L.L.C",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "NORDIC INTERNATIONAL TRADING LLC",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "ALAM AL SAHRA BUILDING MATERIALS TRADING CO. L.L.C",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "BERKELEY TRADING LLC",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "INTEGRAL PETRO ENERGY TRADING LLC",
+    "f": "ofac",
+    "p": "IRAN-EO13902"
+   },
+   {
+    "n": "ROBUST TRADING LLC",
+    "f": "ofac",
+    "p": "IRAN-EO13871"
+   }
+  ]
  }
 ]

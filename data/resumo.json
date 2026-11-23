@@ -1,9 +1,9 @@
 {
- "gerado_em": "2026-11-22T13:56:51-03:00",
- "gerado_em_br": "22/11/2026 as 13:56",
- "total": 52133,
+ "gerado_em": "2026-11-23T17:56:33-03:00",
+ "gerado_em_br": "23/11/2026 as 17:56",
+ "total": 52168,
  "por_fonte": {
-  "ofac": 19599,
+  "ofac": 19629,
   "un": 1007,
   "eu": 6303,
   "ceis": 16877,
@@ -11,28 +11,274 @@
   "tcu": 700,
   "bcb": 309,
   "ofacns": 393,
-  "uk": 6448
+  "uk": 6453
  },
- "novos_total": 0,
+ "novos_total": 35,
  "removidos_total": 0,
- "novos": [],
+ "novos": [
+  {
+   "n": "H N B TRADING CO LLC",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "SDGT, IFSR",
+   "i": "ofac-59110"
+  },
+  {
+   "n": "GRAND TARGET HEAVY EQUIPMENT AND MACHINERY SPARE PARTS TRADING L.L.C",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59111"
+  },
+  {
+   "n": "RECAZ STAR GENERAL TRADING LLC",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59112"
+  },
+  {
+   "n": "RAHBAR BAZARGANI NESIM BAHARAN QESHM COMPANY",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59113"
+  },
+  {
+   "n": "HEMRAJ TRADING L.L.C",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59114"
+  },
+  {
+   "n": "MINA FASHKI AND PARTNERS EXCHANGE COMPANY",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59116"
+  },
+  {
+   "n": "OGA GLOBAL GENERAL TRADING L.L.C",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59117"
+  },
+  {
+   "n": "EWAN AL MADEENA GENERAL TRADING LLC",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59118"
+  },
+  {
+   "n": "DEXTEROUS GLOBAL DMCC",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59119"
+  },
+  {
+   "n": "Ali KALHOR",
+   "f": "ofac",
+   "t": "pessoa",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59120"
+  },
+  {
+   "n": "GESPL INTERNATIONAL GENERAL TRADING LLC",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59121"
+  },
+  {
+   "n": "MEETHALE RAW MATERIALS TRADING COMPANY LLC",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59122"
+  },
+  {
+   "n": "Valiollah HEMMATI",
+   "f": "ofac",
+   "t": "pessoa",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59123"
+  },
+  {
+   "n": "Sayyed Mohammad JALALI",
+   "f": "ofac",
+   "t": "pessoa",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59124"
+  },
+  {
+   "n": "Mina FASHKI",
+   "f": "ofac",
+   "t": "pessoa",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59125"
+  },
+  {
+   "n": "Farzad FASHKI",
+   "f": "ofac",
+   "t": "pessoa",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59126"
+  },
+  {
+   "n": "BOGAZICI GUMRUKLEME ITHALAT IHRACAT TURIZM PETROL URUNLERI SANAYI VE TICARET LIMITED SIRKETI",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59127"
+  },
+  {
+   "n": "GRANDEZ TRADING LIMITED",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59128"
+  },
+  {
+   "n": "KHORE AL HILAL GOODS WHOLESALERS TRADING LLC",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59130"
+  },
+  {
+   "n": "ROYAH ALTAHABIA TRADING L.L.C",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59178"
+  },
+  {
+   "n": "NORDIC INTERNATIONAL TRADING LLC",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59180"
+  },
+  {
+   "n": "ALAM AL SAHRA BUILDING MATERIALS TRADING CO. L.L.C",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59183"
+  },
+  {
+   "n": "BERKELEY TRADING LLC",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59184"
+  },
+  {
+   "n": "INTEGRAL PETRO ENERGY TRADING LLC",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59185"
+  },
+  {
+   "n": "ROBUST TRADING LLC",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13871",
+   "i": "ofac-59186"
+  },
+  {
+   "n": "IRAN CENTER FOR EXCHANGE OF CURRENCY AND GOLD",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59187"
+  },
+  {
+   "n": "MELLAT EXCHANGE COMPANY",
+   "f": "ofac",
+   "t": "entidade",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59230"
+  },
+  {
+   "n": "Mahmoud AKHLAGHI",
+   "f": "ofac",
+   "t": "pessoa",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59231"
+  },
+  {
+   "n": "Parviz FAZLJU",
+   "f": "ofac",
+   "t": "pessoa",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59232"
+  },
+  {
+   "n": "Mohammad Hossein ABBASI",
+   "f": "ofac",
+   "t": "pessoa",
+   "p": "IRAN-EO13902",
+   "i": "ofac-59233"
+  },
+  {
+   "n": "Myo Htut HLAING",
+   "f": "uk",
+   "t": "pessoa",
+   "p": "Global Human Rights and International Humanitarian Law Sanctions",
+   "i": "uk-GHR0218"
+  },
+  {
+   "n": "Myat Thet Oo",
+   "f": "uk",
+   "t": "pessoa",
+   "p": "Myanmar (Sanctions)",
+   "i": "uk-MYA0086"
+  },
+  {
+   "n": "Myo Min TUN",
+   "f": "uk",
+   "t": "pessoa",
+   "p": "Myanmar (Sanctions)",
+   "i": "uk-MYA0088"
+  },
+  {
+   "n": "Kyaw SOE",
+   "f": "uk",
+   "t": "pessoa",
+   "p": "Myanmar (Sanctions)",
+   "i": "uk-MYA0089"
+  },
+  {
+   "n": "Kyaw Swar OO",
+   "f": "uk",
+   "t": "pessoa",
+   "p": "Myanmar (Sanctions)",
+   "i": "uk-MYA0090"
+  }
+ ],
  "removidos": [],
  "tamanho_fontes_bytes": {
-  "ofac": 29614437,
+  "ofac": 29657739,
   "un": 2180873,
   "eu": 26066969
  },
  "primeira_carga": false,
  "fontes_info": {
   "ofac": {
-   "carregado_em": "2026-11-22",
+   "carregado_em": "2026-11-23",
    "origem": "oficial",
-   "registros": 19599,
-   "bytes": 29614437,
-   "sha256": "8a8e2c8b2fd2d56dcb8be01a3f82ef795f00887124fe15ed4acd6abe410135c5"
+   "registros": 19629,
+   "bytes": 29657739,
+   "sha256": "6ffb23f8c0b92518f15317010ec1d41a96bda876760690e5c76da8f38221e0a9"
   },
   "un": {
-   "carregado_em": "2026-11-22",
+   "carregado_em": "2026-11-23",
    "origem": "oficial",
    "registros": 1007,
    "bytes": 2180873,
@@ -40,60 +286,64 @@
   },
   "eu": {
    "carregado_em": "2026-11-22",
-   "origem": "oficial",
+   "origem": "cache",
    "registros": 6303,
    "bytes": 26066969,
    "sha256": "3eea03e34a447659af3196440a1b5303da7884d41a01f834c38cbec0dee0bf14"
   },
   "ofacns": {
-   "carregado_em": "2026-11-22",
+   "carregado_em": "2026-11-23",
    "origem": "oficial",
    "registros": 393,
    "bytes": 1078429,
-   "sha256": "f659a4085f59b4cc347822604d0af1272486f6e0e140fa0f5d897c7e695f9f60"
+   "sha256": "49e9298019d06631a29adf6a6726009c5da3c7b2ed4a71e86ba7e7d3d9422378"
   },
   "uk": {
-   "carregado_em": "2026-11-22",
+   "carregado_em": "2026-11-23",
    "origem": "oficial",
-   "registros": 6448,
-   "bytes": 22198502,
-   "sha256": "6b558b1981c232efaff3c52e87da32369849163c7948c56646b8f3bdf7befabf"
+   "registros": 6453,
+   "bytes": 22213062,
+   "sha256": "1bc0bb7aff69346de398a26bd9c8eeb0823c1e083dd0d803b0ee91784f2b55c1"
   },
   "ceis": {
-   "carregado_em": "2026-11-22",
+   "carregado_em": "2026-11-23",
    "origem": "espelho",
    "registros": 16877,
    "bytes": 22915916,
-   "sha256": "7adc5fff5b964f0508c1460e4f1a37806ce8dcab60e71b4c66092df543b540b2"
+   "sha256": "f78d35cdfd14e21038564a52b6a9e10ed427e821c0bc1f6ea765134784b55391"
   },
   "slavery": {
-   "carregado_em": "2026-11-22",
+   "carregado_em": "2026-11-23",
    "origem": "espelho",
    "registros": 497,
    "bytes": 149759,
    "sha256": "8c246a5dcb9575d43ba0ec42010054bdab2d676a40f45a8ed6763be5f61c490a"
   },
   "tcu": {
-   "carregado_em": "2026-11-22",
+   "carregado_em": "2026-11-23",
    "origem": "espelho",
    "registros": 700,
    "bytes": 367673,
-   "sha256": "12900923341ba8dac08d63cdef75ddd08a7033f3b393cb782b0a09f0baacee82"
+   "sha256": "5cd35bc19bf039e8422326430134d3d926ae7047cab8921fe83f147194bc6595"
   },
   "bcb": {
-   "carregado_em": "2026-11-22",
+   "carregado_em": "2026-11-23",
    "origem": "espelho",
    "registros": 309,
    "bytes": 69248,
-   "sha256": "4dd7ff7c4d8604e8a9aad966c5916b3c332735734b38e0bb7f0cbd1f3005cd17"
+   "sha256": "6fa75f98e47457cb166dfe091f944cdefde2d449dec3d1c116118f454ac44a50"
   },
   "pep": {
-   "carregado_em": "2026-11-22",
+   "carregado_em": "2026-11-23",
    "origem": "espelho",
    "registros": 106406,
    "bytes": 24678485,
    "sha256": "187418711a221d9fc0ae63c2f3f3a78bc04d5ccab9eb79034ffa70b511e3294c"
   }
  },
- "avisos": []
+ "avisos": [
+  "eu (oficial): download falhou: HTTP Error 500: Internal Server Error",
+  "eu: usando o arquivo da carga anterior",
+  "eu: dados de 22/11 (nao foi possivel atualizar hoje)"
+ ]
 }
