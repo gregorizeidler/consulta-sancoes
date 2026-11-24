@@ -1,268 +1,476 @@
 {
- "gerado_em": "2026-11-23T17:56:33-03:00",
- "gerado_em_br": "23/11/2026 as 17:56",
- "total": 52168,
+ "gerado_em": "2026-11-24T17:00:02-03:00",
+ "gerado_em_br": "24/11/2026 as 17:00",
+ "total": 52125,
  "por_fonte": {
   "ofac": 19629,
   "un": 1007,
   "eu": 6303,
-  "ceis": 16877,
+  "ceis": 16830,
   "slavery": 497,
   "tcu": 700,
   "bcb": 309,
   "ofacns": 393,
-  "uk": 6453
+  "uk": 6457
  },
- "novos_total": 35,
- "removidos_total": 0,
+ "novos_total": 56,
+ "removidos_total": 99,
  "novos": [
   {
-   "n": "H N B TRADING CO LLC",
-   "f": "ofac",
+   "n": "ALPHA BRAZIL SOLUCOES E SERVICOS LTDA",
+   "f": "ceis",
    "t": "entidade",
-   "p": "SDGT, IFSR",
-   "i": "ofac-59110"
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-01a8a3501fcbeec2b3b7a57c6861f1ee"
   },
   {
-   "n": "GRAND TARGET HEAVY EQUIPMENT AND MACHINERY SPARE PARTS TRADING L.L.C",
-   "f": "ofac",
+   "n": "TREM BALA FABRICA E MANUTENCAO DE ARTIGOS DE FIBRA LTDA",
+   "f": "ceis",
    "t": "entidade",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59111"
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-0da3b6ee4b23f7596757da9a79fdde34"
   },
   {
-   "n": "RECAZ STAR GENERAL TRADING LLC",
-   "f": "ofac",
+   "n": "JCM EMPREENDIMENTOS LTDA",
+   "f": "ceis",
    "t": "entidade",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59112"
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-0f4a653a52e3f2459603c245d0923bdd"
   },
   {
-   "n": "RAHBAR BAZARGANI NESIM BAHARAN QESHM COMPANY",
-   "f": "ofac",
+   "n": "J R MÓVEIS PLANEJADOS COMÉRCIO E SERVIÇOS LTDA",
+   "f": "ceis",
    "t": "entidade",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59113"
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-15dbc63f090ec7a6a0f30d184d66fec1"
   },
   {
-   "n": "HEMRAJ TRADING L.L.C",
-   "f": "ofac",
+   "n": "CAMILA REGIA CORDEIRO ALVES DOS SANTOS",
+   "f": "ceis",
    "t": "entidade",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59114"
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-174315f3272d1c9c32e07948233a6de4"
   },
   {
-   "n": "MINA FASHKI AND PARTNERS EXCHANGE COMPANY",
-   "f": "ofac",
-   "t": "entidade",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59116"
-  },
-  {
-   "n": "OGA GLOBAL GENERAL TRADING L.L.C",
-   "f": "ofac",
-   "t": "entidade",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59117"
-  },
-  {
-   "n": "EWAN AL MADEENA GENERAL TRADING LLC",
-   "f": "ofac",
-   "t": "entidade",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59118"
-  },
-  {
-   "n": "DEXTEROUS GLOBAL DMCC",
-   "f": "ofac",
-   "t": "entidade",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59119"
-  },
-  {
-   "n": "Ali KALHOR",
-   "f": "ofac",
+   "n": "ALLAN SILVERIO DE PAULA",
+   "f": "ceis",
    "t": "pessoa",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59120"
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-1c6a4a07fdd5b9c6c61e8cfc55dd6719"
   },
   {
-   "n": "GESPL INTERNATIONAL GENERAL TRADING LLC",
-   "f": "ofac",
+   "n": "Casa Blanca Empreendimentos Imobiliários Ltda",
+   "f": "ceis",
    "t": "entidade",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59121"
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-1f5d3a0e02b7d9c1d0fe23f031c4b68f"
   },
   {
-   "n": "MEETHALE RAW MATERIALS TRADING COMPANY LLC",
-   "f": "ofac",
+   "n": "RDN SERVICOS LTDA EM RECUPERACAO JUDICIAL",
+   "f": "ceis",
    "t": "entidade",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59122"
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-2749e2688bbfdbcfbf46588322d2f618"
   },
   {
-   "n": "Valiollah HEMMATI",
-   "f": "ofac",
+   "n": "MULTIX CONSTRUTORA E NEGÓCIOS LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-2f5a27eaa574bad1a8382adb9c480cb5"
+  },
+  {
+   "n": "M MATOS FORNECEDOR",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-3430b08892f5035ee7873ccf6b7e15f9"
+  },
+  {
+   "n": "CLEBER BARALDI VIANA",
+   "f": "ceis",
    "t": "pessoa",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59123"
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-36ca301ebcd92c5122e3aae424a15013"
   },
   {
-   "n": "Sayyed Mohammad JALALI",
-   "f": "ofac",
+   "n": "SOLUÇÃO DIESEL PN LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-3ca6b05db8da2d0a8401bbe39a7f4a6b"
+  },
+  {
+   "n": "AMAC MANUTENCAO LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-406e3f34e03aea4b224308139ee95130"
+  },
+  {
+   "n": "HIGH QUALITY CLOTHES LTDA - ME",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-42e5b7e219d51b9f275f39cd4fa794b7"
+  },
+  {
+   "n": "TENDAS GALVAO LTDA.",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-437249b4232da99627b7fa24a34388db"
+  },
+  {
+   "n": "MIRANDA DISTRIBUIDORA LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-48a781414c922626b3c6f806ef69574f"
+  },
+  {
+   "n": "MULTIPLA TELEATENDIMENTO E MAO DE OBRA LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-4ca6a9fec099163477441efecadf1de4"
+  },
+  {
+   "n": "JG comercial LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-52a5bf6a83f48d825fef9c219c4c8db2"
+  },
+  {
+   "n": "IJ CASTRO CONSTRUTORA LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-5d8ea0e73ac178eebcf202984a5a449b"
+  },
+  {
+   "n": "CLAUDINEI BATISTA DE ARAUJO",
+   "f": "ceis",
    "t": "pessoa",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59124"
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-61e6bb5361f606556e6d6aeba266f053"
   },
   {
-   "n": "Mina FASHKI",
-   "f": "ofac",
+   "n": "NILZA BARBOSA BENINI",
+   "f": "ceis",
    "t": "pessoa",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59125"
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-69fb11bbf85e49c039301d40ba364a47"
   },
   {
-   "n": "Farzad FASHKI",
-   "f": "ofac",
+   "n": "Gascan Mineirense Comércio de EPI-EPP",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-6b5321c24cf80a91fd10e7feb865a281"
+  },
+  {
+   "n": "SEMPREMED COMERCIO ATACADISTA LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-701680861853cc6eaecfea51d365d2e1"
+  },
+  {
+   "n": "K & K ADMINISTRAÇÃO ESPORTIVA LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-73e9e69b2a58998ec4ae196126ab8b91"
+  },
+  {
+   "n": "EDVALDO JERONIMO",
+   "f": "ceis",
    "t": "pessoa",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59126"
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-7759009fa58c061abf03faefb9e74750"
   },
   {
-   "n": "BOGAZICI GUMRUKLEME ITHALAT IHRACAT TURIZM PETROL URUNLERI SANAYI VE TICARET LIMITED SIRKETI",
-   "f": "ofac",
-   "t": "entidade",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59127"
-  },
-  {
-   "n": "GRANDEZ TRADING LIMITED",
-   "f": "ofac",
-   "t": "entidade",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59128"
-  },
-  {
-   "n": "KHORE AL HILAL GOODS WHOLESALERS TRADING LLC",
-   "f": "ofac",
-   "t": "entidade",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59130"
-  },
-  {
-   "n": "ROYAH ALTAHABIA TRADING L.L.C",
-   "f": "ofac",
-   "t": "entidade",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59178"
-  },
-  {
-   "n": "NORDIC INTERNATIONAL TRADING LLC",
-   "f": "ofac",
-   "t": "entidade",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59180"
-  },
-  {
-   "n": "ALAM AL SAHRA BUILDING MATERIALS TRADING CO. L.L.C",
-   "f": "ofac",
-   "t": "entidade",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59183"
-  },
-  {
-   "n": "BERKELEY TRADING LLC",
-   "f": "ofac",
-   "t": "entidade",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59184"
-  },
-  {
-   "n": "INTEGRAL PETRO ENERGY TRADING LLC",
-   "f": "ofac",
-   "t": "entidade",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59185"
-  },
-  {
-   "n": "ROBUST TRADING LLC",
-   "f": "ofac",
-   "t": "entidade",
-   "p": "IRAN-EO13871",
-   "i": "ofac-59186"
-  },
-  {
-   "n": "IRAN CENTER FOR EXCHANGE OF CURRENCY AND GOLD",
-   "f": "ofac",
-   "t": "entidade",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59187"
-  },
-  {
-   "n": "MELLAT EXCHANGE COMPANY",
-   "f": "ofac",
-   "t": "entidade",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59230"
-  },
-  {
-   "n": "Mahmoud AKHLAGHI",
-   "f": "ofac",
+   "n": "DIVALDO ALVES DE MELO",
+   "f": "ceis",
    "t": "pessoa",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59231"
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-7c3189faa36a375ac43835e76ea25c52"
   },
   {
-   "n": "Parviz FAZLJU",
-   "f": "ofac",
+   "n": "PROSPERITY COMÉRCIO E SERVIÇOS LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-8025baa0a970411dfa99bd2273b0e1b4"
+  },
+  {
+   "n": "ASSOCIACAO DE CATADORES DE MATERIAL RECICLAVEL DO ESTADO DO RIO DE JANEIRO - ACE",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-82176ed6355bccc3ad82f504faf5f30a"
+  },
+  {
+   "n": "E7 COMERCIO DE CONFECCOES LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-8cdd6f8cb7aff96b95424cdaee5697cc"
+  },
+  {
+   "n": "AGENCIA DE DESENVOLVIMENTO E INOVACAO BRASILEIRA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-947f94b1fcf6a0dab3f18c6fb343dd4c"
+  },
+  {
+   "n": "INOVEGREEN SOLUÇÕES AMBIENTAIS LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-94f7b692a3c59072954a2728f380b4c2"
+  },
+  {
+   "n": "SIDNEI SANTANA",
+   "f": "ceis",
    "t": "pessoa",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59232"
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-9c9e9d31ff487016822b8599f41b9adf"
   },
   {
-   "n": "Mohammad Hossein ABBASI",
-   "f": "ofac",
+   "n": "63.626.010 ALEX PIRES DE OLIVEIRA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-9cb3e891cd50cc26eb2aeb33e0ccb128"
+  },
+  {
+   "n": "PEDRO VAZ DA SILVA FILHO",
+   "f": "ceis",
    "t": "pessoa",
-   "p": "IRAN-EO13902",
-   "i": "ofac-59233"
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-9f2c3e41074379d269ec86ac28b9a1bf"
   },
   {
-   "n": "Myo Htut HLAING",
+   "n": "KRODS TECNOLOGIA LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-a9940e7001abf7f2c01034a5be522695"
+  },
+  {
+   "n": "RAFAEL DE AGUIAR BARBOSA",
+   "f": "ceis",
+   "t": "pessoa",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-b14bf0a0c2b58ba10357464f2e67c4b3"
+  },
+  {
+   "n": "ULTRASISTECH SISTEMAS INTELIGENTES LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-b17f16a24e40a223d3374aae8f91d572"
+  },
+  {
+   "n": "N DE SOUZA AUTOMACOES",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-b530bc4edf2d098e69cfd7ced6c2965a"
+  },
+  {
+   "n": "OZEAS DOS SANTOS AREDES",
+   "f": "ceis",
+   "t": "pessoa",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-b656e02bb4e6abf5b7a9afcb454e7157"
+  },
+  {
+   "n": "G&B SERVICOS ESPECIALIZADOS LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-b87f2a7cd0b73afbd286d45f06f4b88b"
+  },
+  {
+   "n": "VITOR HENRIQUE MARQUES DE LIMA - CONSTRUCAO DE EDIFICIOS LTDA.",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-b8cac93d25c0477d5d02b518172cbc96"
+  },
+  {
+   "n": "ANTONIO BERNINO SALZEDO FILHO",
+   "f": "ceis",
+   "t": "pessoa",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-bf1a36e7f5b2ff2756adfb89868c8cee"
+  },
+  {
+   "n": "MG LACRES DE SEGURANCA LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-c0eef218026a8fd9410a376990cd5556"
+  },
+  {
+   "n": "WALTER BELLAFONTE DE ALMEIDA",
+   "f": "ceis",
+   "t": "pessoa",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-c30df5a5f107a9486871690c0e7d1e44"
+  },
+  {
+   "n": "59.414.388 MARIA DO CARMO DE LIMA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-c6a12408208fb30331eb26c2b7b02e9d"
+  },
+  {
+   "n": "MULTIFOAM DO BRASIL LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-cb84e40c3f1b556d6f96d4b0f33cb63b"
+  },
+  {
+   "n": "M & C Comércio de Móveis Ltda",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-dc03b8d9be940855233679996be5c4d4"
+  },
+  {
+   "n": "GOUVEIA SOLUCOES COMERCIAIS E SERVICOS LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-e7ff6e0fbc3736406e96a046f7147fab"
+  },
+  {
+   "n": "GILSON VITORINO JUNIOR",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-e9505d23f02f36b8954d08f775413cb8"
+  },
+  {
+   "n": "CLAUDINEI LUIZ SARAIVA REZENDE 10199487600",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-eb43f6fe7abb2e93cd30af6931dc21c6"
+  },
+  {
+   "n": "FLAVIO ALVES FORTES",
+   "f": "ceis",
+   "t": "pessoa",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-f16d59bf12b8b33082e2a56dc666da07"
+  },
+  {
+   "n": "A.B.M.T. EQUIPAMENTOS ELETRICOS LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-fd69c8e276eac80ff2d8a7508c5e973f"
+  },
+  {
+   "n": "Sarim Al Din Mufadal",
    "f": "uk",
    "t": "pessoa",
    "p": "Global Human Rights and International Humanitarian Law Sanctions",
-   "i": "uk-GHR0218"
+   "i": "uk-GHR0214"
   },
   {
-   "n": "Myat Thet Oo",
+   "n": "Mohamed MOUFLEH",
    "f": "uk",
    "t": "pessoa",
-   "p": "Myanmar (Sanctions)",
-   "i": "uk-MYA0086"
+   "p": "Global Human Rights and International Humanitarian Law Sanctions",
+   "i": "uk-GHR0215"
   },
   {
-   "n": "Myo Min TUN",
+   "n": "Abdul Hakim AL KHAIWANI",
    "f": "uk",
    "t": "pessoa",
-   "p": "Myanmar (Sanctions)",
-   "i": "uk-MYA0088"
+   "p": "Global Human Rights and International Humanitarian Law Sanctions",
+   "i": "uk-GHR0216"
   },
   {
-   "n": "Kyaw SOE",
+   "n": "Abdulkarim Amiruddin Hussein AL-HOUTHI",
    "f": "uk",
    "t": "pessoa",
-   "p": "Myanmar (Sanctions)",
-   "i": "uk-MYA0089"
-  },
-  {
-   "n": "Kyaw Swar OO",
-   "f": "uk",
-   "t": "pessoa",
-   "p": "Myanmar (Sanctions)",
-   "i": "uk-MYA0090"
+   "p": "Global Human Rights and International Humanitarian Law Sanctions",
+   "i": "uk-GHR0217"
   }
  ],
- "removidos": [],
+ "removidos": [
+  "ceis-NK-GLcqQxxrsJ752qQf7ZKehH",
+  "ceis-br-ceis-041baaafd0c96cbb966785fc071a7005",
+  "ceis-br-ceis-06db162273f82b1d631650752889d40d",
+  "ceis-br-ceis-08a5e883ea1a08548165a4131e4092d9",
+  "ceis-br-ceis-0f0d4fdae20bb537b88342465008bb84",
+  "ceis-br-ceis-120b2c510ab5b1a1fe2bd7892dd24549",
+  "ceis-br-ceis-1245b51d73952c5920932690e01a94ec",
+  "ceis-br-ceis-170ad4894c642bb8f0bf1fe6b7c6c14a",
+  "ceis-br-ceis-1b3e836490862c1e7f4068c4020f178d",
+  "ceis-br-ceis-1d3886cf81b7e61ce8370dd4521db9ea",
+  "ceis-br-ceis-1def4bf10966a43d7bb15153517eabdc",
+  "ceis-br-ceis-21d2c48e6c13135d42131cd6fb964c57",
+  "ceis-br-ceis-222ff3361ad488c11a39b5a9483de109",
+  "ceis-br-ceis-27e21314e5b6627b49b96a966d304674",
+  "ceis-br-ceis-28e3941c840432a5f3672744a0989f80",
+  "ceis-br-ceis-29c9ec644f0a85c61f0d51c2797419c6",
+  "ceis-br-ceis-2d7d2e44707239b984c50c9426188419",
+  "ceis-br-ceis-31c4bc71e38e3809bf0539bab6cf30fb",
+  "ceis-br-ceis-36984406c714eed712618fcb1c2bacde",
+  "ceis-br-ceis-393de4a174208bc7dc3f9f914cfba4f8",
+  "ceis-br-ceis-3c6fc5279aee0db30ad36078fc0d2ff8",
+  "ceis-br-ceis-3dfa4ffe0bddb8f43e77495e79d38845",
+  "ceis-br-ceis-4164a918cf4eace44ca02981a1964194",
+  "ceis-br-ceis-420dbd0550e512d54273bb435b529131",
+  "ceis-br-ceis-4a87aba795f70e86f88033e2f2c9ca83",
+  "ceis-br-ceis-53096fd0c04b2283b21e2abcb67b917f",
+  "ceis-br-ceis-56e707ba171657e003359a16f0189ad3",
+  "ceis-br-ceis-5c10f92ece055bf1abf73ff7b3e54947",
+  "ceis-br-ceis-5e73fe38c791bb4fd322d0ec2651d228",
+  "ceis-br-ceis-5ee67a4f7e158278c0f4991305d36e66",
+  "ceis-br-ceis-5fc865f56c8dc6e19d30c87c94b2478f",
+  "ceis-br-ceis-608d757142220826a57671d0d7205da3",
+  "ceis-br-ceis-61193470d9bd8f794bf27e61a116d36c",
+  "ceis-br-ceis-6192981884916f83693376147be6b9bc",
+  "ceis-br-ceis-657eef20df95c559b636e5130c4b2bda",
+  "ceis-br-ceis-66d2f1b0fe10fb520110b54140f54cca",
+  "ceis-br-ceis-6afb21ceb9ab23a3f45a88e9fb026419",
+  "ceis-br-ceis-6b9ec58071bfb9473e390ea39d743863",
+  "ceis-br-ceis-6d9bfa4c1865191de7d584a644fe01d7",
+  "ceis-br-ceis-6e31cbaa7f2cea681d61c98b8bca91d0",
+  "ceis-br-ceis-6e800267c0358959f1cd0c5d3c11a80a",
+  "ceis-br-ceis-70c84976ad5bb3a35f449fbb4645e339",
+  "ceis-br-ceis-75488c1403e0a23c7cc684317e6dc4ce",
+  "ceis-br-ceis-77083d3dcab3d689474482ded34f81a5",
+  "ceis-br-ceis-7b6b1260d208bf22c2c4851466194861",
+  "ceis-br-ceis-7c442ce504124682d0b9100d71e1639f",
+  "ceis-br-ceis-8019d2e8f1f3c49d32fe4f217c9e0e94",
+  "ceis-br-ceis-8486430b18edadaeb0b92993386921fc",
+  "ceis-br-ceis-877bdc41137093d261aaa45a104b3d14",
+  "ceis-br-ceis-8b3c6e7147583d3af36c1886179f03ae",
+  "ceis-br-ceis-8e06d7a4111c215015517a4f27184fa7",
+  "ceis-br-ceis-8e0a9705b9084f1f2fd1c3d9e5611a7b",
+  "ceis-br-ceis-934dae7a6a9b64c9fb8855c9d6561603",
+  "ceis-br-ceis-93a0568b0d1416ebedd34a04c96fa546",
+  "ceis-br-ceis-941545dacec33a7ea8c7762fe44b49b9",
+  "ceis-br-ceis-9512180576ec33ec64e9ce9fa5c4a793",
+  "ceis-br-ceis-951b4baf1902c235a62334775d825f83",
+  "ceis-br-ceis-9c94c2598597e6f8badb878befb767b0",
+  "ceis-br-ceis-a10ca3c4dace803237aab995871f47ae",
+  "ceis-br-ceis-a1ca82add51273e85d78a97e35b389dd"
+ ],
  "tamanho_fontes_bytes": {
   "ofac": 29657739,
   "un": 2180873,
@@ -271,79 +479,75 @@
  "primeira_carga": false,
  "fontes_info": {
   "ofac": {
-   "carregado_em": "2026-11-23",
+   "carregado_em": "2026-11-24",
    "origem": "oficial",
    "registros": 19629,
    "bytes": 29657739,
    "sha256": "6ffb23f8c0b92518f15317010ec1d41a96bda876760690e5c76da8f38221e0a9"
   },
   "un": {
-   "carregado_em": "2026-11-23",
+   "carregado_em": "2026-11-24",
    "origem": "oficial",
    "registros": 1007,
    "bytes": 2180873,
-   "sha256": "1f72a7b1a8275d888f45cf21fb70756b9a31ff9abb723acf4fd3515ab0d269ac"
+   "sha256": "cb634fa0ebae0c15e3e4ec162967a98c01af85279d0a9548de55eaa50ab19cda"
   },
   "eu": {
-   "carregado_em": "2026-11-22",
-   "origem": "cache",
+   "carregado_em": "2026-11-24",
+   "origem": "oficial",
    "registros": 6303,
    "bytes": 26066969,
    "sha256": "3eea03e34a447659af3196440a1b5303da7884d41a01f834c38cbec0dee0bf14"
   },
   "ofacns": {
-   "carregado_em": "2026-11-23",
+   "carregado_em": "2026-11-24",
    "origem": "oficial",
    "registros": 393,
    "bytes": 1078429,
    "sha256": "49e9298019d06631a29adf6a6726009c5da3c7b2ed4a71e86ba7e7d3d9422378"
   },
   "uk": {
-   "carregado_em": "2026-11-23",
+   "carregado_em": "2026-11-24",
    "origem": "oficial",
-   "registros": 6453,
-   "bytes": 22213062,
-   "sha256": "1bc0bb7aff69346de398a26bd9c8eeb0823c1e083dd0d803b0ee91784f2b55c1"
+   "registros": 6457,
+   "bytes": 22225704,
+   "sha256": "d7e37754dd73f737da271cf410d8c3f613da1114ce29939c0d3adeb5a15a3496"
   },
   "ceis": {
-   "carregado_em": "2026-11-23",
+   "carregado_em": "2026-11-24",
    "origem": "espelho",
-   "registros": 16877,
-   "bytes": 22915916,
-   "sha256": "f78d35cdfd14e21038564a52b6a9e10ed427e821c0bc1f6ea765134784b55391"
+   "registros": 16830,
+   "bytes": 22828603,
+   "sha256": "2d41020f262e2e509e2f0da203535e2ab0e09002aae39d478da61d85247dfc0f"
   },
   "slavery": {
-   "carregado_em": "2026-11-23",
+   "carregado_em": "2026-11-24",
    "origem": "espelho",
    "registros": 497,
    "bytes": 149759,
    "sha256": "8c246a5dcb9575d43ba0ec42010054bdab2d676a40f45a8ed6763be5f61c490a"
   },
   "tcu": {
-   "carregado_em": "2026-11-23",
+   "carregado_em": "2026-11-24",
    "origem": "espelho",
    "registros": 700,
    "bytes": 367673,
-   "sha256": "5cd35bc19bf039e8422326430134d3d926ae7047cab8921fe83f147194bc6595"
+   "sha256": "f774c46bc3d9b3e2779d23702b8b4581070c150d9b78206e74274a3d3891ca7c"
   },
   "bcb": {
-   "carregado_em": "2026-11-23",
+   "carregado_em": "2026-11-24",
    "origem": "espelho",
    "registros": 309,
    "bytes": 69248,
-   "sha256": "6fa75f98e47457cb166dfe091f944cdefde2d449dec3d1c116118f454ac44a50"
+   "sha256": "4b56da8b9053420f943ac1724cc80f401ea0ea800ab4038bcf6900facb485e09"
   },
   "pep": {
-   "carregado_em": "2026-11-23",
+   "carregado_em": "2026-11-24",
    "origem": "espelho",
-   "registros": 106406,
-   "bytes": 24678485,
-   "sha256": "187418711a221d9fc0ae63c2f3f3a78bc04d5ccab9eb79034ffa70b511e3294c"
+   "registros": 106405,
+   "bytes": 24678259,
+   "sha256": "6ae251c5440f92cc736c4124dcc083ebae2d7828b7eeb6eb45343b6ace7346de"
   }
  },
- "avisos": [
-  "eu (oficial): download falhou: HTTP Error 500: Internal Server Error",
-  "eu: usando o arquivo da carga anterior",
-  "eu: dados de 22/11 (nao foi possivel atualizar hoje)"
- ]
+ "avisos": []
 }
