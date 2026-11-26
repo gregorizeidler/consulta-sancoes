@@ -1,370 +1,350 @@
 {
- "gerado_em": "2026-11-25T16:00:06-03:00",
- "gerado_em_br": "25/11/2026 as 16:00",
- "total": 52147,
+ "gerado_em": "2026-11-26T15:52:03-03:00",
+ "gerado_em_br": "26/11/2026 as 15:52",
+ "total": 52141,
  "por_fonte": {
   "ofac": 19629,
   "un": 1008,
-  "eu": 6303,
-  "ceis": 16850,
+  "eu": 6305,
+  "ceis": 16843,
   "slavery": 497,
-  "tcu": 701,
+  "tcu": 699,
   "bcb": 309,
   "ofacns": 393,
-  "uk": 6457
+  "uk": 6458
  },
- "novos_total": 37,
- "removidos_total": 15,
+ "novos_total": 31,
+ "removidos_total": 37,
  "novos": [
   {
-   "n": "Aegean",
-   "f": "un",
+   "n": "ОБ УЗТМ-КАРТЭКС",
+   "f": "eu",
    "t": "entidade",
-   "p": "UN List",
-   "i": "un-LYe.007"
+   "p": "UKR",
+   "i": "eu-215318"
   },
   {
-   "n": "LUIS AFONSO IVUSQUE MORAIS",
+   "n": "ООО ЛАГГАР ПРО",
+   "f": "eu",
+   "t": "entidade",
+   "p": "UKR",
+   "i": "eu-215331"
+  },
+  {
+   "n": "Open joint stock company “Oborontest”",
+   "f": "eu",
+   "t": "entidade",
+   "p": "UKR",
+   "i": "eu-215338"
+  },
+  {
+   "n": "АО Углеметбанк",
+   "f": "eu",
+   "t": "entidade",
+   "p": "UKR",
+   "i": "eu-215350"
+  },
+  {
+   "n": "Общество с Ограниченной Ответственностью “КБ ЛИС”",
+   "f": "eu",
+   "t": "entidade",
+   "p": "UKR",
+   "i": "eu-215359"
+  },
+  {
+   "n": "Непубличное Акционерное общество “Калмыцкая Нефтегазовая Компания”",
+   "f": "eu",
+   "t": "entidade",
+   "p": "UKR",
+   "i": "eu-215375"
+  },
+  {
+   "n": "“Beget” LLC",
+   "f": "eu",
+   "t": "entidade",
+   "p": "UKR",
+   "i": "eu-215382"
+  },
+  {
+   "n": "Акционерное общество “Пергам Инжиниринг”",
+   "f": "eu",
+   "t": "entidade",
+   "p": "UKR",
+   "i": "eu-215386"
+  },
+  {
+   "n": "JSC Pavlik",
+   "f": "eu",
+   "t": "entidade",
+   "p": "UKR",
+   "i": "eu-215391"
+  },
+  {
+   "n": "Uralmashplant JSC",
+   "f": "eu",
+   "t": "entidade",
+   "p": "IRN",
+   "i": "eu-215407"
+  },
+  {
+   "n": "JSC \"Realist Bank\"",
+   "f": "eu",
+   "t": "entidade",
+   "p": "UKR",
+   "i": "eu-215415"
+  },
+  {
+   "n": "RC DISTRIBUIDORA LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-19363089d4d9e03ef6ea032ac26431f2"
+  },
+  {
+   "n": "ONCOMED DISTRIBUDORA DE MEDICAMENTOS E IMPORTACAO LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-2d5f8804f759e7ab17e34c71943538f4"
+  },
+  {
+   "n": "TRANSMASSEI TRANSPORTE & LOGÍSTICA LTDA.",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-5111ba2ef478fe5a0e648d587bd2df0a"
+  },
+  {
+   "n": "CONSTRUTORA ASTRAL LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-7a82f4c4fc4e59bc7923021356716ceb"
+  },
+  {
+   "n": "SANSIM SERVICOS MEDICOS LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-7d2c0ffbcab49d536232b3ab2bcafbde"
+  },
+  {
+   "n": "WORK DISTRIBUIDORA E SERVICO LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-9c5e2996e8fbf3cbd257984388e6163f"
+  },
+  {
+   "n": "RD7 SOLUÇÕES E COMÉRCIO LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-9e53bcc365254f3fc166139f17109f7b"
+  },
+  {
+   "n": "ATLAS ENGENHARIA E PLANEJAMENTO LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-a393ff685630d652266af19d543ab5f2"
+  },
+  {
+   "n": "CONSTRUMAIA ENGENHARIA E PROJETOS LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-a66fc03b3a999a77c8836a97e6e1ce1c"
+  },
+  {
+   "n": "VIGÍLIA BRASIL SERVIÇOS LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-b984f58f47c0714d857416b96eec56ca"
+  },
+  {
+   "n": "ASM CONSTRUTORA LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-bf0376d6bfe621129a67806074f8183b"
+  },
+  {
+   "n": "JEAN DANILO DE FARIA COMERCIO DE AGUA E GLP LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-c93fbb636449f7091025ee7897b53fb3"
+  },
+  {
+   "n": "FRANCA 303 LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-c9bc3ac6186c14a30dd0bff1936faa99"
+  },
+  {
+   "n": "FMA PRODUTOS E SERVICOS LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-cb9e1f87fc84f88af5c775e93f8f26a2"
+  },
+  {
+   "n": "ELIZABETH DOS SANTOS PINHEIRO",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-e021e5a2297ca59b85584d6dfb8c9b3e"
+  },
+  {
+   "n": "LRA ENGENHARIA LTDA",
+   "f": "ceis",
+   "t": "entidade",
+   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
+   "i": "ceis-br-ceis-e0e303e111ae5da167905d24f27a004c"
+  },
+  {
+   "n": "TIAGO ALVARO GOMES DE OLIVEIRA",
    "f": "ceis",
    "t": "pessoa",
    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-1ccf503e726aea8e1190cf55d2cc4df3"
+   "i": "ceis-br-ceis-e5b224978f52d0ce62862ebd74346858"
   },
   {
-   "n": "ARAEL SATHANDER DOS SANTOS DIAS",
-   "f": "ceis",
-   "t": "pessoa",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-2080a8b2215668dc0cd87d2c0b798bd9"
-  },
-  {
-   "n": "SD Consultoria e Engenharia Ltda",
+   "n": "E D MARTINS DE OLIVEIRA E CIA LTDA",
    "f": "ceis",
    "t": "entidade",
    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-38abee3ba89bdef24181b16a5156481f"
+   "i": "ceis-br-ceis-f63ac7b8d9ec56cba817e23e23f19be5"
   },
   {
-   "n": "LARISSA NEUMA MULLER MORAIS",
-   "f": "ceis",
-   "t": "pessoa",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-3a2d33720a4337b26989d53e17430859"
-  },
-  {
-   "n": "FG SERVICOS E COMERCIO DE EQUIPAMENTOS DE SEGURANCA E INFORMATICA LTDA",
+   "n": "EDER LUIZ MARTINS JUNIOR 11019152699",
    "f": "ceis",
    "t": "entidade",
    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-3b4051d8783f6fa9cb152d24cb5bb736"
+   "i": "ceis-br-ceis-f8d4d140673d4c3d74bbc558911769a8"
   },
   {
-   "n": "47.523.033 YARA LETICIA MENDONCA DE OLIVEIRA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-3f8541a8a2ad2aa1a3a93f2399aa66f3"
-  },
-  {
-   "n": "VELLE SOLUÇÕES E INOVAÇÃO LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-4602c2812a4d516615ac235a412451f6"
-  },
-  {
-   "n": "PEDRO FERREIRA DE SOUZA",
-   "f": "ceis",
-   "t": "pessoa",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-681e912652aaee4400417e5ed746e018"
-  },
-  {
-   "n": "DISTRIBUIDORA FLEX LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-703e7ced2c2f3eab703eb13a11c79383"
-  },
-  {
-   "n": "58.013.022 MARCOS VINICIUS NETO GOMES",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-723701dba424971b6526a50e89a952d9"
-  },
-  {
-   "n": "CIRURGICA OESTE LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-845d9a245e66ac36707aaeaebbc6e66e"
-  },
-  {
-   "n": "LUCIANO RODRIGUES DE MELO E CIA LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-8a9bd88e595191f1ccd950e6cfaab4ca"
-  },
-  {
-   "n": "MILAMASSAS INDÚSTRIA DE ALIMENTOS LTDA - EPP",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-9ed8a3e052f2fb0cdebb4e74f7581de9"
-  },
-  {
-   "n": "KNOW HOW ELETRONICOS LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-a3e0252ccbd7fcbab5a345199baa7ccf"
-  },
-  {
-   "n": "INDAPHARMA COMERCIO E SERVICOS LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-a534e5c27e02a7f98dd1d3a41ab9ae31"
-  },
-  {
-   "n": "55.666.926 MARCOS RAIMUNDO DE OLIVEIRA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-a56aaa338488cef40b35ee3fd1992192"
-  },
-  {
-   "n": "NR EMPREENDIMENTOS IMOBILIARIOS LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-a7d2caf5981e8146c2ac3fbeac8ba64e"
-  },
-  {
-   "n": "POSTO CEDRO DE SAO JOAO LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-aa6401135a7faf14c7c43f0586146694"
-  },
-  {
-   "n": "MACHADO COMERCIO E CONSTRUCOES LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-ad160a0d288ebf8e0944f90fb9ac225c"
-  },
-  {
-   "n": "DIGIFLEX GRÁFICA E ETIQUETAS EIRELI",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-b2a27448721e37eff1af397a0e6e3b38"
-  },
-  {
-   "n": "PORTUARIA TRADE COMERCIAL LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-b4496a8254803f3601787fe3724c7778"
-  },
-  {
-   "n": "ELO CONSTRUCOES LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-b4f9baf3d58180b9a2561da6b5d980a7"
-  },
-  {
-   "n": "MANA COMERCIO DE ALIMENTOS LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-b5190fc977efa37a525ce669d299baf9"
-  },
-  {
-   "n": "MIRIAM SUZANA MORETTI",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-b5aaa9011808d2cac8b8c2cfc4d0e8d0"
-  },
-  {
-   "n": "CONSTRUMAX CONSTRUCOES E EMPREENDIMENTOS LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-b76947f97383da8859d226e40836c211"
-  },
-  {
-   "n": "RS SOLUCOES EM NEGOCIOS LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-b7ff12b64d3dbb1fd83ec6565ad06bbb"
-  },
-  {
-   "n": "EDER MOISES DA ROCHA 10182076601",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-c0ec42d152926adeca2670b6065d562e"
-  },
-  {
-   "n": "MAGDA SOLUÇÕES ALTERNATIVAS LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-c41a5866dc983233400396217a4b5ce4"
-  },
-  {
-   "n": "D & D EMPREENDIMENTOS COMERCIAIS LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-cafe42b9daed82e839d8e054b0db2915"
-  },
-  {
-   "n": "FERREIRA JUNIOR ENGENHARIA LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-cd8e2e944e2498c97edf64b7da46034c"
-  },
-  {
-   "n": "TRANSFORMAR CONSTRUCAO E PAVIMENTACAO LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-d7cce622cd8c14f417d7390a95c49e73"
-  },
-  {
-   "n": "GRAFICA E EDITORA VEREDAS LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-e7b056266bdba08c428437902158d174"
-  },
-  {
-   "n": "C J DA COSTA SOUSA LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-f44b6cfcc8027da9f08683e4d82dfed1"
-  },
-  {
-   "n": "MARIA CRISTINA STETER",
-   "f": "ceis",
-   "t": "pessoa",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-f52d3bbdefdeceda4eeda57dcd1188be"
-  },
-  {
-   "n": "V.D.A - VALI DO ACO HOLDING BRASIL LTDA",
-   "f": "ceis",
-   "t": "entidade",
-   "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)",
-   "i": "ceis-br-ceis-fae2385d00bcdf26f6f5522bff8ccae6"
-  },
-  {
-   "n": "RAFAEL PINHEIRO",
-   "f": "tcu",
-   "t": "pessoa",
-   "p": "TCU - Pessoas Inabilitadas",
-   "i": "tcu-br-cpf-01537043145"
+   "n": "IMO 8027705",
+   "f": "uk",
+   "t": "embarcacao",
+   "p": "Libya (Sanctions)",
+   "i": "uk-LIB0080"
   }
  ],
  "removidos": [
-  "ceis-NK-7yPz68GLw2HM9L37fsJBvW",
-  "ceis-br-ceis-00a9272f35d769f6ddbc6ffb67f43a1b",
-  "ceis-br-ceis-1b924cb6a632e12d4ccb77f10505c677",
-  "ceis-br-ceis-237f7fa270174c95b00dad12a89bd4d5",
-  "ceis-br-ceis-36be31fc5f6c7163277d024d7e47a7d1",
-  "ceis-br-ceis-48226630e4f04a3293530e996b7ce9f9",
-  "ceis-br-ceis-544e1495c016ae4560846c035a520e17",
-  "ceis-br-ceis-5469fa764bebc82b66158ea1b0f1eba5",
-  "ceis-br-ceis-6ed2900855311630412adf643cf302c6",
-  "ceis-br-ceis-8a005f714cf4f971897996772e41da89",
-  "ceis-br-ceis-b3ae89e3679b6e16f461547171a7abe9",
-  "ceis-br-ceis-b5a8c15c0b67bee51bdcc5c4d120e169",
-  "ceis-br-ceis-d81aea03c0e8a7cbd5185ef851264abd",
-  "ceis-br-ceis-e24474c8e5b75fa9cb0b817831ee78c8",
-  "ceis-br-ceis-ea4e476c46e06ba7fa06b8142cc97b56"
+  "ceis-NK-6DxLYbQqjtbQ4nENXJBDHH",
+  "ceis-br-ceis-0a55204ac9ef8aa47295b2f0398c3bce",
+  "ceis-br-ceis-1e2823f2ca1913043be6ad2a87d7dece",
+  "ceis-br-ceis-1f6d8ec077b204ec07d48dbdb45e84ff",
+  "ceis-br-ceis-2d6786a383d1190622190a44f8cc83bd",
+  "ceis-br-ceis-3bee896c0ddf2b0904ccb0d0d6047b35",
+  "ceis-br-ceis-44749e66b4b15398e13d73d1cceefcb1",
+  "ceis-br-ceis-48a781414c922626b3c6f806ef69574f",
+  "ceis-br-ceis-4f5a5503696c181d37c744195bd1fd8a",
+  "ceis-br-ceis-573c13ae9b2e1963a3cc29e40ccdd45e",
+  "ceis-br-ceis-595474b6fc1a6dd2ead2ab9b467ec02b",
+  "ceis-br-ceis-6018a7272a6075ac6f8f80b6645360cc",
+  "ceis-br-ceis-6daca374d0a05d9be40d40a76add7a42",
+  "ceis-br-ceis-6dd06716448d039df6a7e4cd8e968ab5",
+  "ceis-br-ceis-70a02a2210fa78e901b23b3059f357fa",
+  "ceis-br-ceis-7d7f313249cf7524da7b2bc0247d95f6",
+  "ceis-br-ceis-81aaed1240f309ae09540ac1fe0f4581",
+  "ceis-br-ceis-9244d5fad16284e24fc419aa15eacfe5",
+  "ceis-br-ceis-a0c737bab8641f7123100ccbec4e97cc",
+  "ceis-br-ceis-b8c3b54c7fdba9676ecb11f39bccbe55",
+  "ceis-br-ceis-bb5a6a36057676ef94f5ac6ad75c4d9f",
+  "ceis-br-ceis-c1687f590aebde5db45436a08ccef65e",
+  "ceis-br-ceis-dd30cae410b05a11f332daf7e3670fdd",
+  "ceis-br-ceis-e2d2fff198046bf8a7a4d574e2ef3c77",
+  "ceis-br-ceis-f66414b021dd8e53aa1366ae0826f7cb",
+  "ceis-br-ceis-fe95e77e5a6466ed6fb47b5bc9a93bbf",
+  "eu-183460",
+  "eu-183483",
+  "eu-184224",
+  "eu-184232",
+  "eu-184238",
+  "eu-184275",
+  "eu-184314",
+  "eu-184479",
+  "eu-184517",
+  "tcu-NK-K2xMkSBAcGeQpvgPKWzess",
+  "tcu-br-cpf-42492416453"
  ],
  "tamanho_fontes_bytes": {
   "ofac": 29657739,
   "un": 2182296,
-  "eu": 26066969
+  "eu": 26067166
  },
  "primeira_carga": false,
  "fontes_info": {
   "ofac": {
-   "carregado_em": "2026-11-25",
+   "carregado_em": "2026-11-26",
    "origem": "oficial",
    "registros": 19629,
    "bytes": 29657739,
    "sha256": "6ffb23f8c0b92518f15317010ec1d41a96bda876760690e5c76da8f38221e0a9"
   },
   "un": {
-   "carregado_em": "2026-11-25",
+   "carregado_em": "2026-11-26",
    "origem": "oficial",
    "registros": 1008,
    "bytes": 2182296,
-   "sha256": "57d29fc508640be94459206fdcaa16a9585e8870c22da226710b23e302fd93c5"
+   "sha256": "8ef5ce663ae65ef0df19533d744e8c7a9cb68c5f974d944086cc777539818ef2"
   },
   "eu": {
-   "carregado_em": "2026-11-25",
+   "carregado_em": "2026-11-26",
    "origem": "oficial",
-   "registros": 6303,
-   "bytes": 26066969,
-   "sha256": "3eea03e34a447659af3196440a1b5303da7884d41a01f834c38cbec0dee0bf14"
+   "registros": 6305,
+   "bytes": 26067166,
+   "sha256": "548a8c991821e2faa32f72dd341a828e14dc5d927d06ba99c7eccef8613869e9"
   },
   "ofacns": {
-   "carregado_em": "2026-11-25",
+   "carregado_em": "2026-11-26",
    "origem": "oficial",
    "registros": 393,
    "bytes": 1078429,
    "sha256": "49e9298019d06631a29adf6a6726009c5da3c7b2ed4a71e86ba7e7d3d9422378"
   },
   "uk": {
-   "carregado_em": "2026-11-25",
+   "carregado_em": "2026-11-26",
    "origem": "oficial",
-   "registros": 6457,
-   "bytes": 22225704,
-   "sha256": "d7e37754dd73f737da271cf410d8c3f613da1114ce29939c0d3adeb5a15a3496"
+   "registros": 6458,
+   "bytes": 22229727,
+   "sha256": "872d05a1271ea5422498c56f466f3d6b42691f6686ef000f3337737a68e58323"
   },
   "ceis": {
-   "carregado_em": "2026-11-25",
+   "carregado_em": "2026-11-26",
    "origem": "espelho",
-   "registros": 16850,
-   "bytes": 22839085,
-   "sha256": "7597ce93e64d6ad8a3deb14b48614fdba5da4040fe15a1e93499814bf019027c"
+   "registros": 16843,
+   "bytes": 22831152,
+   "sha256": "474a5d86f0c45b9ba56239ff35c3bb4099198ded4cb40f2f7ff54ae012232456"
   },
   "slavery": {
-   "carregado_em": "2026-11-25",
+   "carregado_em": "2026-11-26",
    "origem": "espelho",
    "registros": 497,
    "bytes": 149759,
    "sha256": "8c246a5dcb9575d43ba0ec42010054bdab2d676a40f45a8ed6763be5f61c490a"
   },
   "tcu": {
-   "carregado_em": "2026-11-25",
+   "carregado_em": "2026-11-26",
    "origem": "espelho",
-   "registros": 701,
-   "bytes": 368412,
-   "sha256": "76807909f69222b2864fac9881a2654c6007c064ba2d60bf9ab590cbc0eec9d6"
+   "registros": 699,
+   "bytes": 367826,
+   "sha256": "cb686027461d73eb4103b352f62c7bd8105e0460b3bcf61806fd88c89f50a633"
   },
   "bcb": {
-   "carregado_em": "2026-11-25",
+   "carregado_em": "2026-11-26",
    "origem": "espelho",
    "registros": 309,
    "bytes": 69248,
-   "sha256": "44c871a5a13d8bf22b5d7e83555a04213f4b1ffe28f62d0b287fb871108452bd"
+   "sha256": "752191f4678cd8f159e88d20c4979e0d75bb43c30ce03e39cc6731b4bb1753c2"
   },
   "pep": {
-   "carregado_em": "2026-11-25",
+   "carregado_em": "2026-11-26",
    "origem": "espelho",
    "registros": 106405,
    "bytes": 24678259,

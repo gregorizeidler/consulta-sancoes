@@ -2585,5 +2585,139 @@
     "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
    }
   ]
+ },
+ {
+  "data": "2026-11-26",
+  "hora": "15:52",
+  "novos": 31,
+  "removidos": 37,
+  "total": 52141,
+  "nomes": [
+   {
+    "n": "ОБ УЗТМ-КАРТЭКС",
+    "f": "eu",
+    "p": "UKR"
+   },
+   {
+    "n": "ООО ЛАГГАР ПРО",
+    "f": "eu",
+    "p": "UKR"
+   },
+   {
+    "n": "Open joint stock company “Oborontest”",
+    "f": "eu",
+    "p": "UKR"
+   },
+   {
+    "n": "АО Углеметбанк",
+    "f": "eu",
+    "p": "UKR"
+   },
+   {
+    "n": "Общество с Ограниченной Ответственностью “КБ ЛИС”",
+    "f": "eu",
+    "p": "UKR"
+   },
+   {
+    "n": "Непубличное Акционерное общество “Калмыцкая Нефтегазовая Компания”",
+    "f": "eu",
+    "p": "UKR"
+   },
+   {
+    "n": "“Beget” LLC",
+    "f": "eu",
+    "p": "UKR"
+   },
+   {
+    "n": "Акционерное общество “Пергам Инжиниринг”",
+    "f": "eu",
+    "p": "UKR"
+   },
+   {
+    "n": "JSC Pavlik",
+    "f": "eu",
+    "p": "UKR"
+   },
+   {
+    "n": "Uralmashplant JSC",
+    "f": "eu",
+    "p": "IRN"
+   },
+   {
+    "n": "JSC \"Realist Bank\"",
+    "f": "eu",
+    "p": "UKR"
+   },
+   {
+    "n": "RC DISTRIBUIDORA LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "ONCOMED DISTRIBUDORA DE MEDICAMENTOS E IMPORTACAO LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "TRANSMASSEI TRANSPORTE & LOGÍSTICA LTDA.",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "CONSTRUTORA ASTRAL LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "SANSIM SERVICOS MEDICOS LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "WORK DISTRIBUIDORA E SERVICO LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "RD7 SOLUÇÕES E COMÉRCIO LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "ATLAS ENGENHARIA E PLANEJAMENTO LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "CONSTRUMAIA ENGENHARIA E PROJETOS LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "VIGÍLIA BRASIL SERVIÇOS LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "ASM CONSTRUTORA LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "JEAN DANILO DE FARIA COMERCIO DE AGUA E GLP LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "FRANCA 303 LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   },
+   {
+    "n": "FMA PRODUTOS E SERVICOS LTDA",
+    "f": "ceis",
+    "p": "CEIS - Empresas Inidôneas e Suspensas (CGU)"
+   }
+  ]
  }
 ]
